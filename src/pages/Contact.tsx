@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
-import { MapPin, Mail, Phone, MessageCircle, Send } from 'lucide-react';
+import { MapPin, Mail, Phone, MessageCircle, Send, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -23,22 +23,36 @@ const Contact = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="page-hero pt-32">
-        <div className="container mx-auto px-4 lg:px-8">
-          <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
-            Contact    US
-          </h1>
+      {/* Hero - Hugo style */}
+      <section className="relative pt-40 pb-32 bg-primary text-primary-foreground overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6 inline-block">
+              Contact
+            </div>
+            <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+              Get    in    Touch
+            </h1>
+            <p className="text-xl text-primary-foreground/80">
+              Ready to start your digital transformation? We'd love to hear from you.
+            </p>
+          </div>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-background" style={{ clipPath: 'ellipse(70% 100% at 50% 100%)' }} />
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <div className="bg-card rounded-2xl shadow-lg p-8 lg:p-10">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Contact Form - Hugo clean style */}
+            <div className="bg-card rounded-3xl shadow-xl p-8 lg:p-12">
+              <h2 className="font-heading font-semibold text-2xl text-foreground mb-8">
+                Send us a message
+              </h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Your name
@@ -48,7 +62,7 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 border-b-2 border-border bg-transparent focus:border-primary outline-none transition-colors"
+                    className="w-full px-0 py-4 border-b-2 border-border bg-transparent focus:border-primary outline-none transition-colors text-lg"
                     placeholder="John Doe"
                   />
                 </div>
@@ -62,7 +76,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 border-b-2 border-border bg-transparent focus:border-primary outline-none transition-colors"
+                    className="w-full px-0 py-4 border-b-2 border-border bg-transparent focus:border-primary outline-none transition-colors text-lg"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -76,7 +90,7 @@ const Contact = () => {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 border-b-2 border-border bg-transparent focus:border-primary outline-none transition-colors"
+                    className="w-full px-0 py-4 border-b-2 border-border bg-transparent focus:border-primary outline-none transition-colors text-lg"
                     placeholder="How can we help?"
                   />
                 </div>
@@ -86,27 +100,27 @@ const Contact = () => {
                     Your message (optional)
                   </label>
                   <textarea
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-border rounded-lg bg-transparent focus:border-primary outline-none transition-colors resize-none"
+                    className="w-full px-4 py-4 border-2 border-border rounded-2xl bg-transparent focus:border-primary outline-none transition-colors resize-none"
                     placeholder="Tell us more about your project..."
                   />
                 </div>
 
-                <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
+                <button type="submit" className="hugo-cta w-full justify-center">
                   <Send className="w-5 h-5" />
                   SUBMIT
                 </button>
               </form>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="bg-muted/50 rounded-2xl p-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
+            {/* Contact Info - Hugo card style */}
+            <div className="space-y-6">
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-7 h-7 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Our Location</h3>
@@ -115,42 +129,42 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-muted/50 rounded-2xl p-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary" />
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-7 h-7 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Email us</h3>
-                    <a href="mailto:info@rpbg.net" className="text-primary hover:underline">
+                    <a href="mailto:info@rpbg.net" className="text-primary hover:underline text-lg">
                       info@rpbg.net
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-muted/50 rounded-2xl p-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-7 h-7 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Call us</h3>
-                    <a href="tel:+597433932" className="text-primary hover:underline">
+                    <a href="tel:+597433932" className="text-primary hover:underline text-lg">
                       +597 433932
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-muted/50 rounded-2xl p-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="w-6 h-6 text-primary" />
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-7 h-7 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-lg text-foreground mb-2">WhatsApp</h3>
-                    <a href="https://wa.me/597433932" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    <a href="https://wa.me/597433932" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-lg">
                       +597 433932
                     </a>
                   </div>

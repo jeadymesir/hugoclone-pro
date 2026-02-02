@@ -1,8 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Layout } from '@/components/layout/Layout';
-import { Link } from 'react-router-dom';
-import { Home } from 'lucide-react';
+import { Home, ArrowRight } from 'lucide-react';
 
 const NotFound = () => {
   const location = useLocation();
@@ -13,18 +12,22 @@ const NotFound = () => {
 
   return (
     <Layout>
-      <section className="min-h-[70vh] flex items-center justify-center">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h1 className="hero-title text-8xl md:text-9xl text-primary mb-4">404</h1>
-          <h2 className="section-title text-2xl md:text-3xl text-foreground mb-4">
+      <section className="min-h-[80vh] flex items-center justify-center relative">
+        {/* Background decoration */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-bl-[200px] -z-10" />
+        
+        <div className="container mx-auto px-6 lg:px-12 text-center">
+          <h1 className="hugo-title text-9xl md:text-[12rem] text-primary/20 mb-4">404</h1>
+          <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-6">
             Page    Not    Found
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+          <p className="text-muted-foreground mb-10 max-w-md mx-auto text-lg">
             The page you're looking for doesn't exist or has been moved.
           </p>
-          <Link to="/" className="btn-primary inline-flex items-center gap-2">
+          <Link to="/" className="hugo-cta">
             <Home className="w-5 h-5" />
             Back to Home
+            <ArrowRight className="w-5 h-5 hugo-arrow" />
           </Link>
         </div>
       </section>

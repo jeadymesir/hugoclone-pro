@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* RPBG Design System - Hugo Inc Style with #004aad Blue */
+/* RPBG Design System - Hugo Inc Exact Style with #004aad Blue */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap');
 
 @layer base {
@@ -16,7 +16,7 @@
     --primary-dark: 214 100% 25%;
     
     /* Cream background like Hugo */
-    --background: 45 30% 97%;
+    --background: 48 50% 97%;
     --foreground: 214 100% 15%;
     
     /* Cards and surfaces */
@@ -27,20 +27,16 @@
     --popover-foreground: 214 100% 15%;
     
     /* Secondary - light gray blue */
-    --secondary: 210 20% 96%;
+    --secondary: 48 30% 94%;
     --secondary-foreground: 214 100% 25%;
     
     /* Muted */
-    --muted: 210 20% 94%;
+    --muted: 48 20% 92%;
     --muted-foreground: 214 20% 46%;
     
-    /* Accent - orange for CTAs like Hugo */
-    --accent: 28 100% 55%;
+    /* Accent for CTAs */
+    --accent: 214 100% 34%;
     --accent-foreground: 0 0% 100%;
-    
-    /* Green accent for checks */
-    --success: 152 69% 41%;
-    --success-foreground: 0 0% 100%;
     
     /* Destructive */
     --destructive: 0 84% 60%;
@@ -77,7 +73,7 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 214 30% 15%;
     --muted-foreground: 215 20% 65%;
-    --accent: 28 100% 55%;
+    --accent: 214 100% 50%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -103,189 +99,265 @@
 }
 
 @layer components {
-  /* Hugo-style spaced text effect */
-  .text-spaced {
-    letter-spacing: 0.15em;
+  /* Hugo-style spaced text effect - EXACT like Hugo */
+  .hugo-spaced {
+    letter-spacing: 0.3em;
     word-spacing: 0.5em;
   }
   
-  /* Hero title with extreme spacing like Hugo */
-  .hero-title {
+  .hugo-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    word-spacing: 0.3em;
+    letter-spacing: 0.15em;
+    word-spacing: 0.4em;
     line-height: 1.1;
   }
   
-  /* Section titles */
-  .section-title {
+  .hugo-subtitle {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
-    letter-spacing: 0.05em;
-    word-spacing: 0.2em;
+    letter-spacing: 0.1em;
+    word-spacing: 0.3em;
   }
   
-  /* Decorative dot separator */
-  .dot-separator {
-    @apply flex items-center justify-center gap-2;
+  /* Hugo CTA Button with arrow */
+  .hugo-cta {
+    @apply inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    background: hsl(var(--primary));
+    color: white;
   }
   
-  .dot-separator::before,
-  .dot-separator::after {
-    content: '';
-    @apply h-[2px] w-24 bg-primary/30;
+  .hugo-cta:hover {
+    @apply shadow-xl;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px -10px hsl(var(--primary) / 0.4);
   }
   
-  .dot-separator-dots {
-    @apply flex gap-1;
+  .hugo-cta-outline {
+    @apply inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold transition-all duration-300 border-2;
+    border-color: hsl(var(--foreground));
+    color: hsl(var(--foreground));
   }
   
-  .dot-separator-dots span {
-    @apply w-2 h-2 rounded-full bg-primary;
+  .hugo-cta-outline:hover {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
   }
   
-  /* Gradient overlays */
-  .hero-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--primary) / 0.95) 0%,
-      hsl(var(--primary-dark) / 0.98) 100%
-    );
+  /* Hugo Logo marquee */
+  @keyframes hugo-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
   
-  /* Card hover effects */
-  .service-card {
-    @apply bg-card rounded-xl shadow-sm transition-all duration-300;
+  .hugo-marquee {
+    @apply flex gap-16 items-center;
+    animation: hugo-marquee 25s linear infinite;
   }
   
-  .service-card:hover {
-    @apply shadow-lg -translate-y-1;
-    box-shadow: 0 20px 40px -15px hsl(var(--primary) / 0.2);
-  }
-  
-  /* Logo marquee animation */
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  .marquee-container {
-    @apply overflow-hidden;
-  }
-  
-  .marquee-content {
-    @apply flex gap-12 items-center;
-    animation: marquee 30s linear infinite;
-  }
-  
-  .marquee-content:hover {
+  .hugo-marquee:hover {
     animation-play-state: paused;
   }
   
-  /* CTA button with gradient */
-  .btn-cta {
-    @apply relative overflow-hidden font-semibold px-8 py-4 rounded-lg transition-all duration-300;
-    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(28 100% 45%) 100%);
-    color: white;
+  /* Hugo curved section divider */
+  .hugo-curve-top {
+    position: relative;
   }
   
-  .btn-cta:hover {
-    @apply shadow-lg transform -translate-y-0.5;
-    box-shadow: 0 10px 30px -10px hsl(var(--accent) / 0.5);
+  .hugo-curve-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: hsl(var(--background));
+    clip-path: ellipse(70% 100% at 50% 0%);
+    z-index: 1;
   }
   
-  /* Primary button */
-  .btn-primary {
-    @apply relative overflow-hidden font-semibold px-6 py-3 rounded-lg transition-all duration-300;
-    background: hsl(var(--primary));
-    color: white;
+  /* Hugo testimonial card */
+  .hugo-testimonial {
+    @apply bg-card rounded-3xl p-8 shadow-sm;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .btn-primary:hover {
-    @apply shadow-lg;
-    background: hsl(var(--primary-light));
+  .hugo-testimonial:hover {
+    @apply shadow-xl;
+    transform: translateY(-8px);
   }
   
-  /* Outline button */
-  .btn-outline {
-    @apply relative font-semibold px-6 py-3 rounded-lg transition-all duration-300 border-2;
-    border-color: hsl(var(--primary));
-    color: hsl(var(--primary));
+  /* Hugo service card with dashed line */
+  .hugo-service-card {
+    @apply relative p-8;
   }
   
-  .btn-outline:hover {
-    background: hsl(var(--primary));
-    color: white;
+  .hugo-service-card::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    border-right: 2px dashed hsl(var(--border));
   }
   
-  /* Stats counter */
-  .stat-number {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 3.5rem;
-    color: hsl(var(--primary));
+  .hugo-service-card:last-child::after {
+    display: none;
+  }
+  
+  /* Hugo step number */
+  .hugo-step-number {
+    @apply text-8xl font-heading font-bold;
+    color: hsl(var(--primary) / 0.1);
     line-height: 1;
   }
   
-  /* Check list items */
-  .check-list li {
-    @apply flex items-start gap-3 py-2 border-b border-border/50 last:border-0;
+  /* Hugo floating card animation */
+  @keyframes hugo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
   
-  .check-list li::before {
-    content: '✓';
-    @apply text-[hsl(var(--success))] font-bold flex-shrink-0 mt-0.5;
+  .hugo-float {
+    animation: hugo-float 4s ease-in-out infinite;
   }
   
-  /* Page hero section */
-  .page-hero {
-    @apply relative py-24 text-center;
-    background: linear-gradient(
-      180deg,
-      hsl(var(--primary) / 0.05) 0%,
-      transparent 100%
-    );
+  /* Hugo reveal animation */
+  @keyframes hugo-reveal {
+    0% { 
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% { 
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
-  /* Feature card with colored header */
-  .pricing-card {
+  .hugo-reveal {
+    animation: hugo-reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .hugo-reveal-delay-1 { animation-delay: 0.1s; }
+  .hugo-reveal-delay-2 { animation-delay: 0.2s; }
+  .hugo-reveal-delay-3 { animation-delay: 0.3s; }
+  .hugo-reveal-delay-4 { animation-delay: 0.4s; }
+  
+  /* Hugo scroll animation trigger */
+  .hugo-scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hugo-scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Hugo tag pill */
+  .hugo-tag {
+    @apply inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+  }
+  
+  /* Hugo article card */
+  .hugo-article-card {
     @apply bg-card rounded-2xl overflow-hidden shadow-sm;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .pricing-card-header {
-    @apply py-6 px-4 text-center text-white;
+  .hugo-article-card:hover {
+    @apply shadow-xl;
+    transform: translateY(-5px) scale(1.02);
   }
   
-  .pricing-card-header.lite {
-    background: linear-gradient(135deg, #f5a623 0%, #f5a623 100%);
+  /* Hugo sound wave icon animation */
+  @keyframes hugo-wave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
   }
   
-  .pricing-card-header.classic {
-    background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+  .hugo-wave-bar {
+    @apply w-0.5 h-4 bg-primary rounded-full;
+    animation: hugo-wave 1s ease-in-out infinite;
   }
   
-  .pricing-card-header.premium {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+  .hugo-wave-bar:nth-child(2) { animation-delay: 0.1s; }
+  .hugo-wave-bar:nth-child(3) { animation-delay: 0.2s; }
+  .hugo-wave-bar:nth-child(4) { animation-delay: 0.3s; }
+  .hugo-wave-bar:nth-child(5) { animation-delay: 0.4s; }
+  
+  /* Hugo navigation */
+  .hugo-nav-link {
+    @apply relative font-medium text-foreground/80 transition-colors;
   }
   
-  /* Footer */
-  .footer-section {
-    background: hsl(var(--primary-dark));
+  .hugo-nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+  .hugo-nav-link:hover {
+    @apply text-primary;
+  }
+  
+  .hugo-nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  /* Hugo dropdown */
+  .hugo-dropdown {
+    @apply absolute top-full left-0 mt-2 min-w-[280px] bg-card rounded-2xl shadow-2xl border border-border/50 opacity-0 invisible transition-all duration-300 z-50;
+    transform: translateY(10px);
+  }
+  
+  .hugo-nav-item:hover .hugo-dropdown {
+    @apply opacity-100 visible;
+    transform: translateY(0);
+  }
+  
+  /* Hugo colored section backgrounds */
+  .hugo-section-primary {
+    background: hsl(var(--primary));
     color: white;
   }
   
-  /* Navigation dropdown */
-  .nav-dropdown {
-    @apply absolute top-full left-0 mt-2 min-w-[240px] bg-card rounded-lg shadow-xl border border-border/50 opacity-0 invisible transition-all duration-200 z-50;
+  .hugo-section-cream {
+    background: hsl(var(--background));
   }
   
-  .nav-item:hover .nav-dropdown {
-    @apply opacity-100 visible;
+  /* Hugo quote marks */
+  .hugo-quote::before {
+    content: '"';
+    @apply text-6xl font-serif absolute -top-4 -left-2 opacity-20;
+    color: hsl(var(--primary));
+  }
+  
+  /* Hugo arrow animation */
+  @keyframes hugo-arrow-bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+  
+  .hugo-arrow {
+    animation: hugo-arrow-bounce 1.5s ease-in-out infinite;
+  }
+  
+  /* Hugo footer */
+  .hugo-footer {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+  
+  /* Hugo grid pattern */
+  .hugo-grid-bg {
+    background-image: 
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 }
 
@@ -294,9 +366,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar matching Hugo style */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -305,9 +377,15 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--primary) / 0.3);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.5);
+}
+
+/* Selection color */
+::selection {
+  background: hsl(var(--primary) / 0.2);
+  color: hsl(var(--primary));
 }

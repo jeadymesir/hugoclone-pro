@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 const servicesLinks = [
   { name: 'Managed IT Services & Cybersecurity', path: '/services/managed-it' },
@@ -25,7 +25,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -36,111 +36,84 @@ export const Header = () => {
     setOpenDropdown(null);
   }, [location.pathname]);
 
-  const isActive = (path: string) => location.pathname === path;
-  const isActiveSection = (paths: { path: string }[]) => 
-    paths.some(link => location.pathname.startsWith(link.path));
-
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-card/95 backdrop-blur-md shadow-lg py-3' 
-          : 'bg-transparent py-5'
+          ? 'bg-background/95 backdrop-blur-md shadow-sm py-4' 
+          : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-12">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex flex-col items-center">
-              <span className="font-heading text-3xl font-bold text-primary">
-                30<span className="text-sm align-top">years</span>
-              </span>
-              <span className="text-[10px] text-primary tracking-wider uppercase">
-                Rosheuvel & Partners
-              </span>
-              <span className="text-[9px] text-muted-foreground tracking-wider uppercase">
-                Business Group
-              </span>
-            </div>
+          {/* Logo - Hugo style simple text */}
+          <Link to="/" className="relative z-10">
+            <span className="font-heading text-2xl font-bold text-primary">
+              rpbg
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            <Link
-              to="/"
-              className={`font-medium transition-colors hover:text-primary ${
-                isActive('/') ? 'text-primary border-b-2 border-primary pb-1' : 'text-foreground'
-              }`}
-            >
-              HOME
+          {/* Desktop Navigation - Hugo style */}
+          <div className="hidden lg:flex items-center gap-10">
+            <Link to="/" className="hugo-nav-link">
+              Home
             </Link>
 
             {/* Services Dropdown */}
-            <div className="nav-item relative group">
-              <button
-                className={`flex items-center gap-1 font-medium transition-colors hover:text-primary ${
-                  isActiveSection(servicesLinks) ? 'text-primary' : 'text-foreground'
-                }`}
-              >
-                SERVICES
-                <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+            <div className="hugo-nav-item relative group">
+              <button className="hugo-nav-link flex items-center gap-1">
+                Services
+                <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
               </button>
-              <div className="nav-dropdown py-2">
+              <div className="hugo-dropdown p-4">
                 {servicesLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`block px-4 py-2.5 text-sm transition-colors hover:bg-primary/5 hover:text-primary ${
-                      isActive(link.path) ? 'text-primary bg-primary/5' : 'text-foreground'
-                    }`}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-foreground/80 hover:bg-primary/5 hover:text-primary transition-all group/item"
                   >
-                    {link.name}
+                    <span>{link.name}</span>
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
                   </Link>
                 ))}
               </div>
             </div>
 
             {/* About Dropdown */}
-            <div className="nav-item relative group">
-              <button
-                className={`flex items-center gap-1 font-medium transition-colors hover:text-primary ${
-                  isActiveSection(aboutLinks) ? 'text-primary' : 'text-foreground'
-                }`}
-              >
-                ABOUT US
-                <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+            <div className="hugo-nav-item relative group">
+              <button className="hugo-nav-link flex items-center gap-1">
+                About Us
+                <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
               </button>
-              <div className="nav-dropdown py-2">
+              <div className="hugo-dropdown p-4">
                 {aboutLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`block px-4 py-2.5 text-sm transition-colors hover:bg-primary/5 hover:text-primary ${
-                      isActive(link.path) ? 'text-primary bg-primary/5' : 'text-foreground'
-                    }`}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-foreground/80 hover:bg-primary/5 hover:text-primary transition-all group/item"
                   >
-                    {link.name}
+                    <span>{link.name}</span>
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
                   </Link>
                 ))}
               </div>
             </div>
 
-            <Link
-              to="/contact"
-              className={`font-medium transition-colors hover:text-primary ${
-                isActive('/contact') ? 'text-primary border-b-2 border-primary pb-1' : 'text-foreground'
-              }`}
-            >
-              CONTACT RPBG
+            <Link to="/contact" className="hugo-nav-link">
+              Contact
             </Link>
           </div>
+
+          {/* CTA Button - Hugo style */}
+          <Link to="/contact" className="hidden lg:flex hugo-cta text-sm">
+            <span>Get Started</span>
+            <ArrowRight className="w-4 h-4 hugo-arrow" />
+          </Link>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
-            aria-label="Toggle menu"
+            className="lg:hidden p-2 text-foreground"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -148,39 +121,27 @@ export const Header = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'
+          className={`lg:hidden overflow-hidden transition-all duration-500 ${
+            isMobileMenuOpen ? 'max-h-[600px] opacity-100 mt-6' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="bg-card rounded-xl shadow-lg p-4 space-y-2">
-            <Link
-              to="/"
-              className={`block py-3 px-4 rounded-lg transition-colors ${
-                isActive('/') ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
-              }`}
-            >
-              HOME
+          <div className="bg-card rounded-2xl shadow-xl p-6 space-y-4">
+            <Link to="/" className="block py-3 text-lg font-medium hover:text-primary transition-colors">
+              Home
             </Link>
 
-            {/* Mobile Services */}
             <div>
               <button
                 onClick={() => setOpenDropdown(openDropdown === 'services' ? null : 'services')}
-                className="flex items-center justify-between w-full py-3 px-4 rounded-lg hover:bg-muted transition-colors"
+                className="flex items-center justify-between w-full py-3 text-lg font-medium"
               >
-                SERVICES
-                <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'services' ? 'rotate-180' : ''}`} />
+                Services
+                <ChevronDown className={`w-5 h-5 transition-transform ${openDropdown === 'services' ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-200 ${openDropdown === 'services' ? 'max-h-96' : 'max-h-0'}`}>
-                <div className="pl-4 space-y-1 mt-1">
+              <div className={`overflow-hidden transition-all duration-300 ${openDropdown === 'services' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="pl-4 space-y-2 pt-2">
                   {servicesLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className={`block py-2 px-4 text-sm rounded-lg transition-colors ${
-                        isActive(link.path) ? 'bg-primary/10 text-primary' : 'hover:bg-muted'
-                      }`}
-                    >
+                    <Link key={link.path} to={link.path} className="block py-2 text-muted-foreground hover:text-primary transition-colors">
                       {link.name}
                     </Link>
                   ))}
@@ -188,25 +149,18 @@ export const Header = () => {
               </div>
             </div>
 
-            {/* Mobile About */}
             <div>
               <button
                 onClick={() => setOpenDropdown(openDropdown === 'about' ? null : 'about')}
-                className="flex items-center justify-between w-full py-3 px-4 rounded-lg hover:bg-muted transition-colors"
+                className="flex items-center justify-between w-full py-3 text-lg font-medium"
               >
-                ABOUT US
-                <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'about' ? 'rotate-180' : ''}`} />
+                About Us
+                <ChevronDown className={`w-5 h-5 transition-transform ${openDropdown === 'about' ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-200 ${openDropdown === 'about' ? 'max-h-48' : 'max-h-0'}`}>
-                <div className="pl-4 space-y-1 mt-1">
+              <div className={`overflow-hidden transition-all duration-300 ${openDropdown === 'about' ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="pl-4 space-y-2 pt-2">
                   {aboutLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className={`block py-2 px-4 text-sm rounded-lg transition-colors ${
-                        isActive(link.path) ? 'bg-primary/10 text-primary' : 'hover:bg-muted'
-                      }`}
-                    >
+                    <Link key={link.path} to={link.path} className="block py-2 text-muted-foreground hover:text-primary transition-colors">
                       {link.name}
                     </Link>
                   ))}
@@ -214,13 +168,13 @@ export const Header = () => {
               </div>
             </div>
 
-            <Link
-              to="/contact"
-              className={`block py-3 px-4 rounded-lg transition-colors ${
-                isActive('/contact') ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
-              }`}
-            >
-              CONTACT RPBG
+            <Link to="/contact" className="block py-3 text-lg font-medium hover:text-primary transition-colors">
+              Contact
+            </Link>
+
+            <Link to="/contact" className="hugo-cta w-full justify-center mt-4">
+              Get Started
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
