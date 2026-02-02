@@ -1,40 +1,41 @@
 import { Layout } from '@/components/layout/Layout';
-import { Quote, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Quote, Star, ArrowRight } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "RPBG has been an invaluable partner in our digital transformation journey. Their expertise and dedication to excellence are unmatched.",
-    author: "Client 1",
+    quote: "RPBG has been an invaluable partner in our digital transformation journey. Their expertise and dedication to excellence are unmatched in the region.",
+    author: "Director of IT",
     company: "Enterprise Company",
     rating: 5,
   },
   {
-    quote: "The team at RPBG understood our needs from day one and delivered solutions that exceeded our expectations.",
-    author: "Client 2",
+    quote: "The team at RPBG understood our needs from day one and delivered solutions that exceeded our expectations. True professionals.",
+    author: "CEO",
     company: "Financial Services",
     rating: 5,
   },
   {
     quote: "Outstanding IT support and cybersecurity services. We feel secure knowing RPBG is watching over our systems 24/7.",
-    author: "Client 3",
+    author: "IT Manager",
     company: "Healthcare Provider",
     rating: 5,
   },
   {
     quote: "Their training programs transformed our team's productivity. Highly recommended for any organization looking to upskill.",
-    author: "Client 4",
+    author: "HR Director",
     company: "Manufacturing Co.",
     rating: 5,
   },
   {
-    quote: "RPBG's internet services are reliable and their customer support is always responsive and helpful.",
-    author: "Client 5",
+    quote: "RPBG's internet services are reliable and their customer support is always responsive and helpful. Best ISP we've worked with.",
+    author: "Operations Manager",
     company: "Retail Business",
     rating: 5,
   },
   {
     quote: "The ERP implementation was smooth and the ongoing support has been exceptional. True partners in our success.",
-    author: "Client 6",
+    author: "CFO",
     company: "Logistics Company",
     rating: 5,
   },
@@ -43,56 +44,67 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="page-hero pt-32">
-        <div className="container mx-auto px-4 lg:px-8">
-          <h1 className="hero-title text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
-            Client    Testimonials
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Hear from organizations that trust RPBG with their technology needs.
-          </p>
-          
-          {/* Dot Separator */}
-          <div className="dot-separator mt-8">
-            <div className="dot-separator-dots">
-              <span /><span /><span />
+      {/* Hero */}
+      <section className="relative pt-40 pb-32 bg-primary text-primary-foreground overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6 inline-block">
+              Testimonials
             </div>
+            <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+              Client    Stories
+            </h1>
+            <p className="text-xl text-primary-foreground/80">
+              Hear from organizations that trust RPBG with their technology needs.
+            </p>
           </div>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-background" style={{ clipPath: 'ellipse(70% 100% at 50% 100%)' }} />
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="service-card">
-                <div className="p-8">
-                  {/* Quote Icon */}
-                  <Quote className="w-10 h-10 text-primary/30 mb-4" />
-                  
-                  {/* Quote Text */}
-                  <p className="text-foreground leading-relaxed mb-6 italic">
-                    "{testimonial.quote}"
-                  </p>
-                  
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  
-                  {/* Author */}
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold text-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                  </div>
+              <div key={index} className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2">
+                {/* Quote Icon */}
+                <Quote className="w-10 h-10 text-primary/20 mb-6" />
+                
+                {/* Quote Text */}
+                <p className="text-foreground leading-relaxed mb-6 italic">
+                  "{testimonial.quote}"
+                </p>
+                
+                {/* Rating */}
+                <div className="flex gap-1 mb-6">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                
+                {/* Author */}
+                <div className="border-t border-border pt-6">
+                  <p className="font-semibold text-foreground">{testimonial.author}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-6 lg:px-12 text-center">
+          <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
+            Ready    to    be    our    next    success    story?
+          </h2>
+          <Link to="/contact" className="hugo-cta bg-background text-foreground hover:bg-background/90">
+            Get Started
+            <ArrowRight className="w-5 h-5 hugo-arrow" />
+          </Link>
         </div>
       </section>
     </Layout>

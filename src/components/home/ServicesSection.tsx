@@ -1,98 +1,80 @@
 import { Link } from 'react-router-dom';
-import { Monitor, Wifi, Lightbulb, Cpu, Briefcase, GraduationCap } from 'lucide-react';
+import { ArrowRight, Monitor, Wifi, Lightbulb, Briefcase } from 'lucide-react';
 
 const services = [
   {
     icon: Monitor,
     title: 'Managed IT Services',
-    description: 'RPBG provides full IT and cybersecurity support, letting you focus on your core business.',
+    description: 'Across time zones, systems, and challenges, we\'ll keep your IT running smooth...even on the worst days.',
     path: '/services/managed-it',
-    color: 'from-blue-500 to-blue-600',
   },
   {
     icon: Wifi,
     title: 'Internet & Hosting',
-    description: 'Provision of B2B and B2C internet connectivity, as well as datacenter services.',
+    description: 'Fast, reliable connectivity and datacenter services. Your connection to success.',
     path: '/services/internet',
-    color: 'from-green-500 to-green-600',
   },
   {
     icon: Lightbulb,
-    title: 'Consultancy',
+    title: 'Strategic Consultancy',
     description: 'Transform your business with ICT consultancy that turns technology into opportunity.',
     path: '/services/consultancy',
-    color: 'from-amber-500 to-amber-600',
-  },
-  {
-    icon: Cpu,
-    title: 'Software & Hardware',
-    description: 'RPBG offers on-premise or cloud ERP & HR solutions to simplify payroll and automate tasks.',
-    path: '/services/software-hardware',
-    color: 'from-purple-500 to-purple-600',
   },
   {
     icon: Briefcase,
-    title: 'Business Administration',
-    description: 'Through our subsidiary Computech, RPBG offers Finance and HR outsourcing.',
+    title: 'Business Solutions',
+    description: 'Crash costs, cut friction, and boost efficiency. We\'ll help you scale faster and more profitably.',
     path: '/services/business',
-    color: 'from-rose-500 to-rose-600',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Tailor-made Trainings',
-    description: 'Immerse your team in engaging training courses, tailored to your requirements.',
-    path: '/services/trainings',
-    color: 'from-cyan-500 to-cyan-600',
   },
 ];
 
 export const ServicesSection = () => {
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
-            Our    Services
+    <section className="py-32 bg-background relative">
+      {/* Hugo-style dashed curve decorations */}
+      <div className="absolute top-20 right-0 w-64 h-64 border-r-2 border-t-2 border-dashed border-border rounded-tr-full opacity-30" />
+      <div className="absolute bottom-20 left-0 w-48 h-48 border-l-2 border-b-2 border-dashed border-border rounded-bl-full opacity-30" />
+      
+      <div className="container mx-auto px-6 lg:px-12">
+        {/* Section Header - Hugo style */}
+        <div className="text-center mb-20">
+          <h2 className="hugo-subtitle text-4xl md:text-5xl text-foreground mb-6">
+            +    More    Growth,    Less    Risk
           </h2>
-          
-          {/* Dot Separator */}
-          <div className="dot-separator mt-6">
-            <div className="dot-separator-dots">
-              <span /><span /><span />
-            </div>
-          </div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Focus on growth, we'll take care of the many small tasks that make the difference between awesome and awful.
+          </p>
         </div>
         
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid - Hugo style with dashed dividers */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <Link
                 key={index}
                 to={service.path}
-                className="service-card group block"
+                className="hugo-service-card group hover:bg-muted/30 transition-colors"
               >
-                {/* Icon Header */}
-                <div className={`bg-gradient-to-br ${service.color} p-6 flex items-center justify-center`}>
-                  <Icon className="w-12 h-12 text-white" />
+                {/* Icon */}
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <Icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-heading font-semibold text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                  
-                  {/* Learn More */}
-                  <div className="mt-4 text-primary font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-                    Learn more
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
-                  </div>
+                {/* Title */}
+                <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
+                  {service.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                
+                {/* Learn More */}
+                <div className="flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
+                  Learn More
+                  <ArrowRight className="w-4 h-4" />
                 </div>
               </Link>
             );
