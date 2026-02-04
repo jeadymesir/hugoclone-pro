@@ -14,11 +14,20 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Build mailto link with form data
+    const subject = encodeURIComponent(formData.subject || 'Contact Form Submission');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    
+    // Open email client
+    window.location.href = `mailto:info@rpbg.net?subject=${subject}&body=${body}`;
+    
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Opening email client...",
+      description: "Please send the email from your email application.",
     });
-    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (

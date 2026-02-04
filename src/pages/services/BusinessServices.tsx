@@ -6,20 +6,20 @@ const services = [
   {
     icon: Calculator,
     title: 'Financial Services',
-    description: 'Comprehensive financial management and bookkeeping services.',
-    items: ['Bookkeeping', 'Financial reporting', 'Tax preparation', 'Audit support'],
+    description: 'Comprehensive financial management and bookkeeping services that let you focus on growing your business. Our experienced team handles the numbers while you handle the vision.',
+    items: ['Full-service bookkeeping', 'Financial reporting & analysis', 'Tax preparation & planning', 'Audit support & compliance', 'Accounts payable/receivable', 'Cash flow management'],
   },
   {
     icon: Users,
     title: 'HR Outsourcing',
-    description: 'Human resource management so you can focus on your core business.',
-    items: ['Payroll processing', 'Benefits administration', 'Recruitment support', 'Compliance management'],
+    description: 'Complete human resource management so you can focus on your core business. From hire to retire, we handle the complexities of employee management.',
+    items: ['Payroll processing & administration', 'Benefits administration', 'Recruitment & onboarding support', 'Compliance management', 'Employee relations support', 'HR policy development'],
   },
   {
     icon: FileText,
     title: 'Administrative Services',
-    description: 'Back-office support to streamline your operations.',
-    items: ['Document management', 'Data entry services', 'Process optimization', 'Reporting and analytics'],
+    description: 'Back-office support to streamline your operations and reduce overhead costs. We become an extension of your team, handling the details that keep your business running.',
+    items: ['Document management & archiving', 'Data entry & processing', 'Process optimization', 'Reporting & analytics', 'Customer service support', 'Virtual assistant services'],
   },
 ];
 

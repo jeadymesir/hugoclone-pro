@@ -1,30 +1,42 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Monitor, Wifi, Lightbulb, Briefcase } from 'lucide-react';
+import { ArrowRight, Monitor, Wifi, Lightbulb, Briefcase, Package, GraduationCap } from 'lucide-react';
 
 const services = [
   {
     icon: Monitor,
     title: 'Managed IT Services',
-    description: 'Across time zones, systems, and challenges, we\'ll keep your IT running smooth...even on the worst days.',
+    description: 'From the original discipline of systems management, RPBG has broadened the scope to offer various MSP services including networking, VoIP, disaster recovery, and security solutions.',
     path: '/services/managed-it',
   },
   {
     icon: Wifi,
     title: 'Internet & Hosting',
-    description: 'Fast, reliable connectivity and datacenter services. Your connection to success.',
+    description: 'RPBG (Parbonet) is one of the 3 internet providers in Suriname, specializing in providing wireless connectivity. Fast connectivity within 7 business days, no installation costs.',
     path: '/services/internet',
   },
   {
     icon: Lightbulb,
     title: 'Strategic Consultancy',
-    description: 'Transform your business with ICT consultancy that turns technology into opportunity.',
+    description: 'We don\'t just fix problems; we architect solutions that prevent them. IT, Security, and Financial consultancy that solves your business equation.',
     path: '/services/consultancy',
   },
   {
+    icon: Package,
+    title: 'Software & Hardware',
+    description: 'RPBG offers on-premise or cloud ERP & HR solutions including Exact Software, Odoo, and HRMS Plus. Quality hardware from Dell, Lenovo, Cisco, and APC.',
+    path: '/services/software-hardware',
+  },
+  {
     icon: Briefcase,
-    title: 'Business Solutions',
-    description: 'Crash costs, cut friction, and boost efficiency. We\'ll help you scale faster and more profitably.',
+    title: 'Business Services',
+    description: 'Through our subsidiary Computech, RPBG offers Finance and HR outsourcing including bookkeeping, payroll processing, and administrative services.',
     path: '/services/business',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Trainings',
+    description: 'Immerse your team in engaging training courses, tailored to your own requirements. Technical training, security awareness, software training, and leadership development.',
+    path: '/services/trainings',
   },
 ];
 
@@ -47,7 +59,7 @@ export const ServicesSection = () => {
         </div>
         
         {/* Services Grid - Hugo style with dashed dividers */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

@@ -6,26 +6,26 @@ const trainingCategories = [
   {
     icon: Monitor,
     title: 'Technical Training',
-    description: 'Hands-on technical skills development for IT professionals.',
-    items: ['Network administration', 'Cybersecurity fundamentals', 'Cloud computing', 'Database management'],
+    description: 'Hands-on technical skills development for IT professionals. Our certified instructors bring real-world experience to every session, ensuring practical knowledge transfer.',
+    items: ['Network administration & troubleshooting', 'Cybersecurity fundamentals & advanced', 'Cloud computing (AWS, Azure, Google)', 'Database management & SQL', 'System administration (Windows/Linux)', 'DevOps practices & tools'],
   },
   {
     icon: Shield,
     title: 'Security Awareness',
-    description: 'Company-wide security awareness and best practices.',
-    items: ['Phishing prevention', 'Password security', 'Data protection', 'Incident reporting'],
+    description: 'Company-wide security awareness and best practices training. Transform your employees from security vulnerabilities into your first line of defense.',
+    items: ['Phishing prevention & recognition', 'Password security & management', 'Data protection & privacy', 'Incident reporting procedures', 'Social engineering awareness', 'Compliance training (GDPR, PCI-DSS)'],
   },
   {
     icon: GraduationCap,
     title: 'Software Training',
-    description: 'Get the most out of your business software investments.',
-    items: ['ERP system training', 'Microsoft 365', 'HRMS applications', 'Custom software'],
+    description: 'Get the most out of your business software investments. Maximize ROI by ensuring your team can leverage all features and capabilities.',
+    items: ['ERP system training (Exact, Odoo)', 'Microsoft 365 & Teams', 'HRMS applications', 'Custom software training', 'CRM systems', 'Productivity tools & automation'],
   },
   {
     icon: Users,
     title: 'Leadership Development',
-    description: 'Develop your team leaders and managers.',
-    items: ['Team management', 'Project leadership', 'Communication skills', 'Change management'],
+    description: 'Develop your team leaders and managers with skills essential for modern business success. Build the next generation of organizational leaders.',
+    items: ['Team management & motivation', 'Project leadership & PM methodologies', 'Effective communication skills', 'Change management', 'Strategic thinking & planning', 'Conflict resolution'],
   },
 ];
 
