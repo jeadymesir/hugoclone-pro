@@ -6,18 +6,21 @@ const packages = [
   {
     name: 'Lite',
     color: 'bg-amber-500',
-    features: ['Unlimited internet', 'Download: 10 Mbps', 'Upload: 5 Mbps', 'Up to 6 devices'],
+    price: 'SRD 350',
+    features: ['Unlimited internet', 'Download: 10 Mbps', 'Upload: 5 Mbps', 'Up to 6 devices', 'Free installation', 'Technical support included'],
   },
   {
     name: 'Classic',
     color: 'bg-emerald-500',
-    features: ['Unlimited internet', 'Download: 20 Mbps', 'Upload: 10 Mbps', 'Up to 9 devices'],
+    price: 'SRD 500',
+    features: ['Unlimited internet', 'Download: 20 Mbps', 'Upload: 10 Mbps', 'Up to 9 devices', 'Free installation', 'Priority technical support'],
     popular: true,
   },
   {
     name: 'Premium',
     color: 'bg-primary',
-    features: ['Unlimited internet', 'Download: 30 Mbps', 'Upload: 10 Mbps', 'Up to 13 devices'],
+    price: 'SRD 700',
+    features: ['Unlimited internet', 'Download: 30 Mbps', 'Upload: 10 Mbps', 'Up to 13 devices', 'Free installation', '24/7 priority support'],
   },
 ];
 
@@ -25,20 +28,30 @@ const benefits = [
   'Fast connectivity time: within 7 business days',
   'No installation costs',
   'Extensive customer support',
+  'No hidden fees or charges',
+  'Flexible contract options',
 ];
 
 const faqs = [
   {
     question: 'Are there any other costs associated with my subscription?',
-    answer: 'No, there are no hidden costs. The monthly fee covers everything including installation.',
+    answer: 'No, there are no hidden costs. The monthly fee covers everything including installation, equipment, and support. What you see is what you pay.',
   },
   {
     question: 'What areas do you cover?',
-    answer: 'We cover the greater Paramaribo area and surrounding regions. Contact us for specific coverage.',
+    answer: 'We cover the greater Paramaribo area and surrounding regions including Wanica, Commewijne, and parts of Para. Contact us for specific coverage in your area.',
   },
   {
     question: 'How fast can I get connected?',
-    answer: 'We typically complete installations within 7 business days of order confirmation.',
+    answer: 'We typically complete installations within 7 business days of order confirmation. Our technicians will contact you to schedule a convenient installation time.',
+  },
+  {
+    question: 'What equipment do I need?',
+    answer: 'All necessary equipment is provided as part of your subscription, including the router and any required outdoor antennas. Our technicians handle the complete setup.',
+  },
+  {
+    question: 'Can I upgrade or downgrade my package?',
+    answer: 'Yes, you can change your package at any time. Upgrades take effect immediately, and downgrades apply from your next billing cycle.',
   },
 ];
 

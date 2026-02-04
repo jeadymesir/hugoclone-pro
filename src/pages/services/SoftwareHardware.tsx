@@ -6,20 +6,20 @@ const solutions = [
   {
     icon: Database,
     title: 'ERP Solutions',
-    description: 'Enterprise Resource Planning systems that streamline your business processes.',
-    items: ['Exact Software implementation', 'Odoo ERP solutions', 'Custom integrations', 'Cloud and on-premise options'],
+    description: 'Enterprise Resource Planning systems that streamline your business processes, integrate departments, and provide real-time visibility into your operations. Our ERP solutions scale with your business.',
+    items: ['Exact Software implementation & support', 'Odoo ERP solutions (open source)', 'Custom module development', 'Cloud and on-premise deployment', 'Data migration & integration', 'User training & adoption support'],
   },
   {
     icon: Users,
     title: 'HRM Solutions',
-    description: 'Human Resource Management systems to simplify payroll and improve workforce management.',
-    items: ['HRMS Plus implementation', 'Payroll automation', 'Time & attendance tracking', 'Employee self-service portals'],
+    description: 'Human Resource Management systems to simplify payroll, improve workforce management, and enhance employee engagement. Modern HR deserves modern tools.',
+    items: ['HRMS Plus implementation', 'Payroll automation & compliance', 'Time & attendance tracking', 'Employee self-service portals', 'Performance management systems', 'Recruitment & onboarding tools'],
   },
   {
     icon: Cpu,
     title: 'Hardware Solutions',
-    description: 'Quality hardware from trusted brands to power your business.',
-    items: ['Dell enterprise solutions', 'Lenovo workstations', 'Cisco networking equipment', 'APC power solutions'],
+    description: 'Quality hardware from trusted brands to power your business. We source, configure, deploy, and support enterprise-grade equipment tailored to your needs.',
+    items: ['Dell enterprise servers & workstations', 'Lenovo business laptops & desktops', 'Cisco networking equipment', 'APC power protection solutions', 'Storage & backup systems', 'Complete workstation setup'],
   },
 ];
 
