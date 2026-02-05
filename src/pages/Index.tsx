@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { HeroSection } from '@/components/home/HeroSection';
@@ -15,26 +15,14 @@ import { BlogSection } from '@/components/home/BlogSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [hasLoaded, setHasLoaded] = useState(false);
-
-  useEffect(() => {
-    // Check if we've already shown the loading screen this session
-    const hasShownIntro = sessionStorage.getItem('rpbg-intro-shown');
-    if (hasShownIntro) {
-      setIsLoading(false);
-      setHasLoaded(true);
-    }
-  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    setHasLoaded(true);
-    sessionStorage.setItem('rpbg-intro-shown', 'true');
   };
 
   return (
     <>
-      {isLoading && !hasLoaded && (
+      {isLoading && (
         <LoadingScreen onComplete={handleLoadingComplete} />
       )}
       <Layout>
