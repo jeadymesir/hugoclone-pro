@@ -7,12 +7,18 @@ const footerLinks = {
     { name: 'Internet Services', path: '/services/internet' },
     { name: 'Consultancy', path: '/services/consultancy' },
     { name: 'Software & Hardware', path: '/services/software-hardware' },
+    { name: 'Business Services', path: '/services/business' },
+    { name: 'Trainings', path: '/services/trainings' },
   ],
   company: [
     { name: 'About RPBG', path: '/about' },
     { name: 'Leadership', path: '/about/leadership' },
     { name: 'Testimonials', path: '/about/testimonials' },
+    { name: 'Careers', path: '/careers' },
     { name: 'Contact', path: '/contact' },
+  ],
+  resources: [
+    { name: 'Bank Details', path: '/bank-details' },
   ],
 };
 
@@ -79,6 +85,16 @@ export const Footer = () => {
             <h4 className="font-heading font-semibold text-lg mb-6">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
+                <li key={link.path}>
+                  <Link to={link.path} className="text-sm text-background/70 hover:text-background transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h4 className="font-heading font-semibold text-lg mb-4 mt-6">Resources</h4>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
                 <li key={link.path}>
                   <Link to={link.path} className="text-sm text-background/70 hover:text-background transition-colors">
                     {link.name}

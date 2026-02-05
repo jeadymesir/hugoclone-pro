@@ -14,6 +14,11 @@ import BusinessServices from "./pages/services/BusinessServices";
 import Trainings from "./pages/services/Trainings";
 import Leadership from "./pages/about/Leadership";
 import Testimonials from "./pages/about/Testimonials";
+import BankDetails from "./pages/BankDetails";
+import Careers from "./pages/Careers";
+import CareerDetail from "./pages/CareerDetail";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminCareers from "./pages/admin/AdminCareers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +47,17 @@ const App = () => (
           
           {/* Contact */}
           <Route path="/contact" element={<Contact />} />
+          
+          {/* Bank Details */}
+          <Route path="/bank-details" element={<BankDetails />} />
+          
+          {/* Careers */}
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/careers/:id" element={<CareerDetail />} />
+          
+          {/* Admin */}
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/careers" element={<AdminCareers />} />
           
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
