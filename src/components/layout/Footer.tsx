@@ -47,7 +47,7 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-6">
-              <img src={logoWhite} alt="RPBG" className="h-20 w-auto" />
+              <img src={logoWhite} alt="RPBG" className="h-32 w-auto" />
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
               Nearly three decades of expertise and global brand partnerships to support businesses in scaling, optimizing, and innovating.
