@@ -1,6 +1,8 @@
 import { Layout } from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Network, Phone, Shield, Server } from 'lucide-react';
+import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble } from '@/components/decorative/Scribbles';
 
 const sections = [
   {
@@ -42,15 +44,22 @@ const ManagedIT = () => {
     <Layout>
       {/* Hero - Hugo style with curved bottom */}
       <section className="relative pt-40 pb-32 bg-primary text-primary-foreground overflow-hidden">
+        <PageDecorations variant="primary" />
+        
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl">
             <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6">
               Services
             </div>
-            <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-              Managed    IT    Services    (MSP)
-            </h1>
-            <p className="text-xl text-primary-foreground/80 leading-relaxed">
+            <div className="relative inline-block">
+              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                Managed    IT    Services    (MSP)
+              </h1>
+              <div className="absolute -bottom-2 left-0 w-48 opacity-40">
+                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+              </div>
+            </div>
+            <p className="text-xl text-primary-foreground/80 leading-relaxed mt-4">
               From the original discipline of systems management for internal operations, RPBG has broadened the scope to offer various MSP services to clients.
             </p>
           </div>
@@ -66,8 +75,10 @@ const ManagedIT = () => {
         const isEven = index % 2 === 0;
         
         return (
-          <section key={section.id} className={`py-24 ${isEven ? 'bg-background' : 'bg-muted/30'}`}>
-            <div className="container mx-auto px-6 lg:px-12">
+          <section key={section.id} className={`py-24 ${isEven ? 'bg-background' : 'bg-muted/30'} relative overflow-hidden`}>
+            <SectionDecorations position={isEven ? 'right' : 'left'} />
+            
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className={`grid lg:grid-cols-2 gap-16 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
                 {/* Icon side */}
                 <div className={`${!isEven ? 'lg:order-2' : ''}`}>
@@ -78,9 +89,14 @@ const ManagedIT = () => {
 
                 {/* Content side */}
                 <div className={`${!isEven ? 'lg:order-1' : ''}`}>
-                  <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground mb-8">
-                    {section.title}
-                  </h2>
+                  <div className="relative inline-block mb-8">
+                    <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground">
+                      {section.title}
+                    </h2>
+                    <div className="absolute -bottom-2 left-0 w-32">
+                      <Scribble variant="underline" color="primary" className="opacity-50" />
+                    </div>
+                  </div>
                   
                   {/* Checklist - Hugo style */}
                   <ul className="space-y-4 mb-8">
@@ -108,8 +124,10 @@ const ManagedIT = () => {
       })}
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
+      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+        <PageDecorations variant="primary" />
+        
+        <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
           <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
             Ready    to    get    started?
           </h2>

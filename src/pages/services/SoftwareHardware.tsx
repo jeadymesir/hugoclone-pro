@@ -1,6 +1,8 @@
 import { Layout } from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Database, Users, Cpu, Fingerprint, Globe, MonitorSmartphone, Code, Package } from 'lucide-react';
+import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble } from '@/components/decorative/Scribbles';
 
 const solutions = [
   {
@@ -67,15 +69,22 @@ const SoftwareHardware = () => {
     <Layout>
       {/* Hero */}
       <section className="relative pt-40 pb-32 bg-primary text-primary-foreground overflow-hidden">
+        <PageDecorations variant="primary" />
+        
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl">
             <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6">
               Solutions
             </div>
-            <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-              Software    &    Hardware    Solutions
-            </h1>
-            <p className="text-xl text-primary-foreground/80">
+            <div className="relative inline-block">
+              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                Software    &    Hardware    Solutions
+              </h1>
+              <div className="absolute -bottom-2 left-0 w-56 opacity-40">
+                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+              </div>
+            </div>
+            <p className="text-xl text-primary-foreground/80 mt-4">
               RPBG delivers tailored ERP and HRM software solutions alongside proven hardware and trusted brand partnerships. Streamline operations, boost productivity, and empower your business with scalable, innovative solutions designed for success.
             </p>
           </div>
@@ -90,19 +99,29 @@ const SoftwareHardware = () => {
         const isEven = index % 2 === 0;
         
         return (
-          <section key={index} className={`py-24 ${isEven ? 'bg-background' : 'bg-muted/30'}`}>
-            <div className="container mx-auto px-6 lg:px-12">
+          <section key={index} className={`py-24 ${isEven ? 'bg-background' : 'bg-muted/30'} relative overflow-hidden`}>
+            <SectionDecorations position={isEven ? 'right' : 'left'} />
+            
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className={`grid lg:grid-cols-2 gap-16 items-center`}>
                 <div className={`${!isEven ? 'lg:order-2' : ''}`}>
-                  <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float">
+                  <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float relative">
                     <Icon className="w-32 h-32 text-primary" />
+                    <div className="absolute -top-4 -right-4">
+                      <Scribble variant="star" color="primary" size="sm" className="opacity-40" />
+                    </div>
                   </div>
                 </div>
 
                 <div className={`${!isEven ? 'lg:order-1' : ''}`}>
-                  <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground mb-6">
-                    {solution.title}
-                  </h2>
+                  <div className="relative inline-block mb-6">
+                    <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground">
+                      {solution.title}
+                    </h2>
+                    <div className="absolute -bottom-2 left-0 w-24">
+                      <Scribble variant="underline" color="primary" className="opacity-50" />
+                    </div>
+                  </div>
                   
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     {solution.description}
@@ -143,8 +162,10 @@ const SoftwareHardware = () => {
       })}
 
       {/* CTA */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
+      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+        <PageDecorations variant="primary" />
+        
+        <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
           <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
             Need    a    custom    solution?
           </h2>

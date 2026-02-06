@@ -1,6 +1,8 @@
 import { Layout } from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
+import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
 
 const packages = [
   {
@@ -43,14 +45,21 @@ const InternetServices = () => {
     <Layout>
       {/* Hero - Hugo style */}
       <section className="relative pt-40 pb-32 bg-primary text-primary-foreground overflow-hidden">
+        <PageDecorations variant="primary" />
+        
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6 inline-block">
               Internet Services
             </div>
-            <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-              Choose    your    perfect    internet    package
-            </h1>
+            <div className="relative inline-block">
+              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                Choose    your    perfect    internet    package
+              </h1>
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 opacity-40">
+                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+              </div>
+            </div>
           </div>
         </div>
         
@@ -59,16 +68,23 @@ const InternetServices = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <SectionDecorations position="both" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {packages.map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 ${
+                className={`bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 relative group ${
                   pkg.popular ? 'ring-2 ring-primary' : ''
                 }`}
               >
+                {/* Hover scribble */}
+                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                  <Scribble variant="star" color="primary" size="sm" />
+                </div>
+                
                 {pkg.popular && (
                   <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-medium">
                     Most Popular
@@ -107,8 +123,12 @@ const InternetServices = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
+      <section className="py-20 bg-muted/30 relative overflow-hidden">
+        <FloatingElement className="top-8 right-20 hidden lg:block">
+          <Scribble variant="spiral" color="muted" size="sm" />
+        </FloatingElement>
+        
+        <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
           <p className="text-lg font-medium text-foreground mb-10 max-w-3xl mx-auto">
             RPBG (Parbonet) is one of the 3 internet providers in Suriname, 
             specializing in providing wireless connectivity in the region.
@@ -127,11 +147,23 @@ const InternetServices = () => {
       </section>
 
       {/* FAQs - Hugo style accordion */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-12 max-w-3xl">
-          <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-12 text-center">
-            Frequently    asked    questions:
-          </h2>
+      <section className="py-24 bg-background relative overflow-hidden">
+        <FloatingElement className="top-16 left-16 hidden lg:block">
+          <Sparkle className="w-8 h-8" />
+        </FloatingElement>
+        <FloatingElement className="bottom-20 right-24 hidden lg:block" style={{ animationDelay: '1s' }}>
+          <Scribble variant="circle" color="muted" size="md" />
+        </FloatingElement>
+        
+        <div className="container mx-auto px-6 lg:px-12 max-w-3xl relative z-10">
+          <div className="relative inline-block mb-12 w-full text-center">
+            <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+              Frequently    asked    questions:
+            </h2>
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-56">
+              <Scribble variant="underline" color="primary" />
+            </div>
+          </div>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
