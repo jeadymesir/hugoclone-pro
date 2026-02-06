@@ -83,15 +83,15 @@ const BankDetails = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {bankAccounts.map((account) => (
-              <div
-                key={account.id}
-                className="bg-card rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl transition-shadow relative group"
-              >
-                {/* Hover scribble */}
-                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Scribble variant="star" color="primary" size="sm" />
-                </div>
+            {bankAccounts.map((account, index) => (
+              <AnimatedSection key={account.id} animation={index === 0 ? 'fade-right' : index === 2 ? 'fade-left' : 'fade-up'} delay={index * 100}>
+                <div
+                  className="bg-card rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl transition-shadow relative group h-full"
+                >
+                  {/* Hover scribble */}
+                  <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Scribble variant="star" color="primary" size="sm" />
+                  </div>
                 
                 <div className="mb-6">
                   <h3 className="font-heading font-bold text-lg">{account.bankName}</h3>
@@ -161,10 +161,10 @@ const BankDetails = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
-
         </div>
       </section>
     </Layout>

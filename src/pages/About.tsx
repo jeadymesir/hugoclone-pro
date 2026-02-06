@@ -127,36 +127,39 @@ const About = () => {
         </FloatingElement>
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="relative inline-block">
-              <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-4">
-                Our    work    in    numbers
-              </h2>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48">
-                <Scribble variant="underline" color="primary" />
+          <AnimatedSection animation="fade-up">
+            <div className="text-center mb-16">
+              <div className="relative inline-block">
+                <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-4">
+                  Our    work    in    numbers
+                </h2>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48">
+                  <Scribble variant="underline" color="primary" />
+                </div>
               </div>
+              <p className="text-muted-foreground max-w-2xl mx-auto mt-6">
+                These numbers reflect the results we deliver through long-term partnerships.
+              </p>
             </div>
-            <p className="text-muted-foreground max-w-2xl mx-auto mt-6">
-              These numbers reflect the results we deliver through long-term partnerships.
-            </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div
-                  key={index}
-                  className="bg-card rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 relative group"
-                >
-                  {/* Hover scribble */}
-                  <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Scribble variant="star" color="primary" size="sm" />
+                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                  <div
+                    className="bg-card rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 relative group"
+                  >
+                    {/* Hover scribble */}
+                    <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Scribble variant="star" color="primary" size="sm" />
+                    </div>
+                    <Icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                    <div className="font-heading text-5xl font-bold text-primary mb-2">{stat.value}</div>
+                    <p className="text-muted-foreground text-sm">{stat.label}</p>
                   </div>
-                  <Icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="font-heading text-5xl font-bold text-primary mb-2">{stat.value}</div>
-                  <p className="text-muted-foreground text-sm">{stat.label}</p>
-                </div>
+                </AnimatedSection>
               );
             })}
           </div>
@@ -168,18 +171,22 @@ const About = () => {
         <PageDecorations variant="primary" />
         
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-          <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
-            Ready    to    partner    with    us?
-          </h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/about/leadership" className="hugo-cta-outline border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-              Meet Our Team
-            </Link>
-            <Link to="/contact" className="hugo-cta bg-background text-foreground hover:bg-background/90">
-              Get in Touch
-              <ArrowRight className="w-5 h-5 hugo-arrow" />
-            </Link>
-          </div>
+          <AnimatedSection animation="fade-up">
+            <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
+              Ready    to    partner    with    us?
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link to="/about/leadership" className="hugo-cta-outline border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                Meet Our Team
+              </Link>
+              <Link to="/contact" className="hugo-cta bg-background text-foreground hover:bg-background/90">
+                Get in Touch
+                <ArrowRight className="w-5 h-5 hugo-arrow" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>

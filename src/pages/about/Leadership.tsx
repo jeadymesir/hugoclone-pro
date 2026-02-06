@@ -114,11 +114,13 @@ const Leadership = () => {
         <SectionDecorations position="both" />
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="flex justify-center">
-            <div className="max-w-md">
-              <LeaderCard {...ceo} featured />
+          <AnimatedSection animation="fade-up">
+            <div className="flex justify-center">
+              <div className="max-w-md">
+                <LeaderCard {...ceo} featured />
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
           
           {/* Connecting line */}
           <div className="flex justify-center mt-8">
@@ -132,7 +134,9 @@ const Leadership = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
             {cSuite.map((leader, index) => (
-              <LeaderCard key={index} {...leader} />
+              <AnimatedSection key={index} animation={index === 0 ? 'fade-right' : index === 2 ? 'fade-left' : 'fade-up'} delay={index * 100}>
+                <LeaderCard {...leader} />
+              </AnimatedSection>
             ))}
           </div>
           
@@ -148,7 +152,9 @@ const Leadership = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
             {managers.map((leader, index) => (
-              <LeaderCard key={index} {...leader} />
+              <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
+                <LeaderCard {...leader} />
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -159,20 +165,24 @@ const Leadership = () => {
         <SectionDecorations position="both" />
         
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-          <div className="relative inline-block mb-6">
-            <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-              Want    to    join    our    team?
-            </h2>
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48">
-              <Scribble variant="underline" color="primary" />
+          <AnimatedSection animation="fade-up">
+            <div className="relative inline-block mb-6">
+              <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                Want    to    join    our    team?
+              </h2>
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48">
+                <Scribble variant="underline" color="primary" />
+              </div>
             </div>
-          </div>
-          <div className="mt-10">
-            <Link to="/contact" className="hugo-cta">
-              Contact Us
-              <ArrowRight className="w-5 h-5 hugo-arrow" />
-            </Link>
-          </div>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <div className="mt-10">
+              <Link to="/contact" className="hugo-cta">
+                Contact Us
+                <ArrowRight className="w-5 h-5 hugo-arrow" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>

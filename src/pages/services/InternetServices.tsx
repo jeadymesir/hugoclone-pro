@@ -80,41 +80,42 @@ const InternetServices = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {packages.map((pkg, index) => (
-              <div
-                key={index}
-                className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 relative group"
-              >
-                {/* Hover scribble */}
-                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                  <Scribble variant="star" color="primary" size="sm" />
+              <AnimatedSection key={index} animation={index === 0 ? 'fade-right' : index === 2 ? 'fade-left' : 'fade-up'} delay={index * 100}>
+                <div
+                  className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 relative group h-full"
+                >
+                  {/* Hover scribble */}
+                  <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                    <Scribble variant="star" color="primary" size="sm" />
+                  </div>
+                  
+                  <div className={`${pkg.color} py-8 px-6 text-center text-white`}>
+                    <h3 className="font-heading text-3xl font-bold">{pkg.name}</h3>
+                  </div>
+                  
+                  <div className="p-8">
+                    <ul className="space-y-4 mb-8">
+                      {pkg.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-3">
+                          <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-3 h-3 text-primary" />
+                          </div>
+                          <span className="text-foreground text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a 
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScLRwoFjK5Bx9NNqWiZQNWNf2OWzytbXSNjyUDBO_cvCGQa5Q/viewform" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hugo-cta w-full justify-center text-sm"
+                    >
+                      Register Here
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
-                
-                <div className={`${pkg.color} py-8 px-6 text-center text-white`}>
-                  <h3 className="font-heading text-3xl font-bold">{pkg.name}</h3>
-                </div>
-                
-                <div className="p-8">
-                  <ul className="space-y-4 mb-8">
-                    {pkg.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                          <Check className="w-3 h-3 text-primary" />
-                        </div>
-                        <span className="text-foreground text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a 
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScLRwoFjK5Bx9NNqWiZQNWNf2OWzytbXSNjyUDBO_cvCGQa5Q/viewform" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hugo-cta w-full justify-center text-sm"
-                  >
-                    Register Here
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -127,20 +128,24 @@ const InternetServices = () => {
         </FloatingElement>
         
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-          <p className="text-lg font-medium text-foreground mb-10 max-w-3xl mx-auto">
-            RPBG (Parbonet) is one of the 3 internet providers in Suriname, 
-            specializing in providing wireless connectivity in the region.
-          </p>
-          <div className="flex flex-wrap justify-center gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                  <Check className="w-4 h-4 text-primary-foreground" />
+          <AnimatedSection animation="fade-up">
+            <p className="text-lg font-medium text-foreground mb-10 max-w-3xl mx-auto">
+              RPBG (Parbonet) is one of the 3 internet providers in Suriname, 
+              specializing in providing wireless connectivity in the region.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <div className="flex flex-wrap justify-center gap-8">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-primary-foreground" />
+                  </div>
+                  <span className="text-foreground font-medium">{benefit}</span>
                 </div>
-                <span className="text-foreground font-medium">{benefit}</span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -154,26 +159,30 @@ const InternetServices = () => {
         </FloatingElement>
         
         <div className="container mx-auto px-6 lg:px-12 max-w-3xl relative z-10">
-          <div className="relative inline-block mb-12 w-full text-center">
-            <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-              Frequently    asked    questions:
-            </h2>
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-56">
-              <Scribble variant="underline" color="primary" />
+          <AnimatedSection animation="fade-up">
+            <div className="relative inline-block mb-12 w-full text-center">
+              <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                Frequently    asked    questions:
+              </h2>
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-56">
+                <Scribble variant="underline" color="primary" />
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details key={index} className="group bg-card rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer">
-                  <span className="font-medium text-foreground pr-4">{faq.question}</span>
-                  <span className="text-2xl text-primary group-open:rotate-45 transition-transform duration-300">+</span>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-                </div>
-              </details>
+              <AnimatedSection key={index} animation={index % 2 === 0 ? 'fade-right' : 'fade-left'} delay={index * 100}>
+                <details className="group bg-card rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer">
+                    <span className="font-medium text-foreground pr-4">{faq.question}</span>
+                    <span className="text-2xl text-primary group-open:rotate-45 transition-transform duration-300">+</span>
+                  </summary>
+                  <div className="px-6 pb-6">
+                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              </AnimatedSection>
             ))}
           </div>
         </div>
