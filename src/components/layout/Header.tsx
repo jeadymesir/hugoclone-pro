@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import logoRpbg from '@/assets/logo-rpbg.png';
 
 const servicesLinks = [
   { name: 'Managed IT Services & Cybersecurity', path: '/services/managed-it' },
@@ -46,11 +47,13 @@ export const Header = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <nav className="flex items-center justify-between">
-          {/* Logo - Hugo style simple text */}
+          {/* Logo */}
           <Link to="/" className="relative z-10">
-            <span className="font-heading text-2xl font-bold text-primary">
-              rpbg
-            </span>
+            <img 
+              src={logoRpbg} 
+              alt="RPBG - Rosheuvel & Partners Business Group" 
+              className="h-12 md:h-14 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation - Hugo style */}
