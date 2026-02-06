@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logoWhite from '@/assets/logo-rpbg-white.png';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -56,28 +57,12 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           phase >= 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
         } ${phase >= 2 ? 'scale-110' : ''}`}
       >
-        {/* Logo text with animation */}
-        <div className="relative">
-          <h1 className="font-heading font-bold text-6xl md:text-8xl text-primary-foreground tracking-wider">
-            RPBG
-          </h1>
-          
-          {/* Animated underline */}
-          <div
-            className={`absolute -bottom-2 left-0 h-1 bg-primary-foreground transition-all duration-700 ease-out ${
-              phase >= 1 ? 'w-full' : 'w-0'
-            }`}
-          />
-        </div>
-
-        {/* Tagline */}
-        <p
-          className={`mt-6 text-primary-foreground/80 text-lg tracking-widest uppercase transition-all duration-500 delay-300 ${
-            phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          ICT Group
-        </p>
+        {/* Logo image */}
+        <img 
+          src={logoWhite} 
+          alt="RPBG - Rosheuvel & Partners Business Group" 
+          className="h-32 md:h-48 w-auto"
+        />
 
         {/* Loading dots */}
         <div className="flex gap-2 mt-8">
