@@ -43,7 +43,7 @@ export const DeserveBetterSection = () => {
           
           {/* Right - Content */}
           <AnimatedSection animation="fade-left" delay={200}>
-            
+            <div />
           </AnimatedSection>
         </div>
       </div>

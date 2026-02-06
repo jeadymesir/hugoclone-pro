@@ -34,7 +34,7 @@ export const HeroSection = () => {
         <div className="max-w-4xl">
           {/* Company name */}
           <AnimatedSection animation="fade-up">
-            <p className="text-sm md:text-base text-muted-foreground font-medium tracking-wide mb-4">
+            <p className="text-lg md:text-xl text-foreground font-bold tracking-wide mb-4">
               Rosheuvel & Partners Business Group N.V.
             </p>
           </AnimatedSection>
