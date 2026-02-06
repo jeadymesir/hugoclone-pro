@@ -1,6 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
-import { User, Linkedin, ArrowRight } from 'lucide-react';
+import { User, ArrowRight } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble } from '@/components/decorative/Scribbles';
 
@@ -8,7 +8,6 @@ import { Scribble } from '@/components/decorative/Scribbles';
 const ceo = {
   name: 'Leadership Member',
   role: 'Chief Executive Officer',
-  description: 'Leading RPBG\'s strategic vision and operations for 30 years.',
 };
 
 // C-Suite - Second level
@@ -16,17 +15,14 @@ const cSuite = [
   {
     name: 'Leadership Member',
     role: 'Chief Operations Officer',
-    description: 'Overseeing day-to-day operations and service delivery.',
   },
   {
     name: 'Leadership Member',
     role: 'Chief Financial Officer',
-    description: 'Managing financial strategy and business growth.',
   },
   {
     name: 'Leadership Member',
     role: 'Vice President',
-    description: 'Supporting executive leadership and strategic initiatives.',
   },
 ];
 
@@ -35,59 +31,43 @@ const managers = [
   {
     name: 'Leadership Member',
     role: 'Project Manager',
-    description: 'Leading project execution and client deliverables.',
   },
   {
     name: 'Leadership Member',
     role: 'Logistics Manager',
-    description: 'Managing supply chain and operational logistics.',
   },
   {
     name: 'Leadership Member',
     role: 'Sales Manager',
-    description: 'Driving sales strategy and client relationships.',
   },
   {
     name: 'Leadership Member',
     role: 'Development Manager',
-    description: 'Overseeing software development and technical teams.',
   },
   {
     name: 'Leadership Member',
     role: 'HR Manager',
-    description: 'Managing human resources and talent development.',
   },
 ];
 
-const LeaderCard = ({ name, role, description, featured = false }: { name: string; role: string; description: string; featured?: boolean }) => (
-  <div className={`bg-card rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative ${featured ? 'lg:col-span-1' : ''}`}>
+const LeaderCard = ({ name, role, featured = false }: { name: string; role: string; featured?: boolean }) => (
+  <div className={`bg-card rounded-3xl p-6 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative ${featured ? 'lg:col-span-1' : ''}`}>
     {/* Hover scribble */}
     <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
       <Scribble variant="star" color="primary" size="sm" />
     </div>
     
     {/* Avatar */}
-    <div className={`${featured ? 'w-32 h-32' : 'w-24 h-24'} bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors`}>
-      <User className={`${featured ? 'w-16 h-16' : 'w-12 h-12'} text-primary group-hover:text-primary-foreground transition-colors`} />
+    <div className={`${featured ? 'w-28 h-28' : 'w-20 h-20'} bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors`}>
+      <User className={`${featured ? 'w-14 h-14' : 'w-10 h-10'} text-primary group-hover:text-primary-foreground transition-colors`} />
     </div>
     
-    <h3 className={`font-heading font-semibold ${featured ? 'text-xl' : 'text-lg'} text-foreground mb-1`}>
+    <h3 className={`font-heading font-semibold ${featured ? 'text-xl' : 'text-base'} text-foreground mb-1`}>
       {name}
     </h3>
-    <p className={`text-primary ${featured ? 'text-base' : 'text-sm'} font-medium mb-4`}>
+    <p className={`text-primary ${featured ? 'text-base' : 'text-sm'} font-medium`}>
       {role}
     </p>
-    <p className="text-muted-foreground text-sm mb-6">
-      {description}
-    </p>
-    
-    {/* Social Link */}
-    <a
-      href="#"
-      className="inline-flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
-    >
-      <Linkedin className="w-5 h-5" />
-    </a>
   </div>
 );
 
