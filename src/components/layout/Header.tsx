@@ -41,18 +41,18 @@ export const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-sm py-2' 
-          : 'bg-transparent py-4'
+          ? 'bg-background/95 backdrop-blur-md shadow-sm py-3' 
+          : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="relative z-10">
+          <Link to="/" className="relative z-10 flex-shrink-0">
             <img 
               src={logoRpbg} 
               alt="RPBG - Rosheuvel & Partners Business Group" 
-              className="h-20 md:h-24 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
           </Link>
 
