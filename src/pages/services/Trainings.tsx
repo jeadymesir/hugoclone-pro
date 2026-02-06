@@ -1,6 +1,7 @@
 import { Layout } from '@/components/layout/Layout';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Monitor, Users, Wrench } from 'lucide-react';
+import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
 
 const trainingFormats = [
   {
@@ -79,15 +80,22 @@ const Trainings = () => {
     <Layout>
       {/* Hero */}
       <section className="relative pt-40 pb-32 bg-primary text-primary-foreground overflow-hidden">
+        <PageDecorations variant="primary" />
+        
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6 inline-block">
               Training
             </div>
-            <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-              Trainings    Designed    For    YOUR    Success
-            </h1>
-            <p className="text-xl text-primary-foreground/80 mb-4">
+            <div className="relative inline-block">
+              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                Trainings    Designed    For    YOUR    Success
+              </h1>
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 opacity-40">
+                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+              </div>
+            </div>
+            <p className="text-xl text-primary-foreground/80 mb-4 mt-4">
               The greatest investment a company can make is in its people.
             </p>
             <p className="text-primary-foreground/70">
@@ -105,19 +113,29 @@ const Trainings = () => {
         const isEven = index % 2 === 0;
         
         return (
-          <section key={index} className={`py-24 ${isEven ? 'bg-background' : 'bg-muted/30'}`}>
-            <div className="container mx-auto px-6 lg:px-12">
+          <section key={index} className={`py-24 ${isEven ? 'bg-background' : 'bg-muted/30'} relative overflow-hidden`}>
+            <SectionDecorations position={isEven ? 'right' : 'left'} />
+            
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className={`grid lg:grid-cols-2 gap-16 items-center`}>
                 <div className={`${!isEven ? 'lg:order-2' : ''}`}>
-                  <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float">
+                  <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float relative">
                     <Icon className="w-32 h-32 text-primary" />
+                    <div className="absolute -top-4 -right-4">
+                      <Scribble variant="star" color="primary" size="sm" className="opacity-40" />
+                    </div>
                   </div>
                 </div>
 
                 <div className={`${!isEven ? 'lg:order-1' : ''}`}>
-                  <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground mb-6">
-                    {format.title}
-                  </h2>
+                  <div className="relative inline-block mb-6">
+                    <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground">
+                      {format.title}
+                    </h2>
+                    <div className="absolute -bottom-2 left-0 w-32">
+                      <Scribble variant="underline" color="primary" className="opacity-50" />
+                    </div>
+                  </div>
                   
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     {format.description}
@@ -134,8 +152,12 @@ const Trainings = () => {
       })}
 
       {/* Training Catalog CTA */}
-      <section className="py-16 bg-primary/10">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
+      <section className="py-16 bg-primary/10 relative overflow-hidden">
+        <FloatingElement className="top-4 right-20 hidden lg:block">
+          <Sparkle className="w-6 h-6" />
+        </FloatingElement>
+        
+        <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
           <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground mb-4">
             Invest in targeted knowledge today and build the skilled, confident workforce your future demands.
           </h2>
@@ -143,11 +165,18 @@ const Trainings = () => {
       </section>
 
       {/* Training Categories */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <SectionDecorations position="both" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {trainingCategories.map((category, index) => (
-              <div key={index} className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+              <div key={index} className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all group relative">
+                {/* Hover scribble */}
+                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Scribble variant="star" color="primary" size="sm" />
+                </div>
+                
                 <h3 className="font-heading font-semibold text-xl text-foreground mb-6 pb-4 border-b border-border">
                   {category.title}
                 </h3>
@@ -172,8 +201,10 @@ const Trainings = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
+      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+        <PageDecorations variant="primary" />
+        
+        <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
           <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
             Have    specific    training    needs?
           </h2>

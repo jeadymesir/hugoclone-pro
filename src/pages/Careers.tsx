@@ -3,6 +3,8 @@ import { Briefcase, MapPin, Clock, ArrowRight, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
+import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
 
 export interface JobPosting {
   id: string;
@@ -87,16 +89,23 @@ const Careers = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-24 lg:py-32 bg-gradient-to-br from-primary/5 to-accent/5">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-24 lg:py-32 bg-gradient-to-br from-primary/5 to-accent/5 relative overflow-hidden">
+        <PageDecorations variant="default" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
               Join Our Team
             </span>
-            <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-              Careers at RPBG
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <div className="relative inline-block">
+              <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
+                Careers at RPBG
+              </h1>
+              <div className="absolute -bottom-2 left-0 w-48">
+                <Scribble variant="underline" color="primary" />
+              </div>
+            </div>
+            <p className="text-xl text-muted-foreground leading-relaxed mt-4">
               Be part of a team that's shaping the future of IT in Suriname. 
               We're always looking for talented individuals who share our passion for technology.
             </p>
@@ -105,33 +114,37 @@ const Careers = () => {
       </section>
 
       {/* Why Join Us */}
-      <section className="py-16 border-b border-border">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-16 border-b border-border relative overflow-hidden">
+        <FloatingElement className="top-4 right-20 hidden lg:block">
+          <Sparkle className="w-6 h-6" />
+        </FloatingElement>
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-primary" />
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+                <Users className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="font-heading font-bold mb-2">Great Team</h3>
               <p className="text-sm text-muted-foreground">Work with passionate professionals</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="w-8 h-8 text-primary" />
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+                <Briefcase className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="font-heading font-bold mb-2">Growth</h3>
               <p className="text-sm text-muted-foreground">Career development opportunities</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-primary" />
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+                <Clock className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="font-heading font-bold mb-2">Flexibility</h3>
               <p className="text-sm text-muted-foreground">Work-life balance matters</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-primary" />
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+                <MapPin className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="font-heading font-bold mb-2">Location</h3>
               <p className="text-sm text-muted-foreground">Modern office in Paramaribo</p>
@@ -141,9 +154,16 @@ const Careers = () => {
       </section>
 
       {/* Job Listings */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 lg:px-12">
-          <h2 className="font-heading text-3xl font-bold mb-12">Open Positions</h2>
+      <section className="py-20 relative overflow-hidden">
+        <SectionDecorations position="both" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="relative inline-block mb-12">
+            <h2 className="font-heading text-3xl font-bold">Open Positions</h2>
+            <div className="absolute -bottom-2 left-0 w-40">
+              <Scribble variant="underline" color="primary" className="opacity-60" />
+            </div>
+          </div>
           
           {jobs.length === 0 ? (
             <div className="text-center py-16 bg-muted/30 rounded-2xl">
@@ -162,8 +182,13 @@ const Careers = () => {
                 <Link
                   key={job.id}
                   to={`/careers/${job.id}`}
-                  className="block bg-card rounded-2xl p-6 lg:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all group"
+                  className="block bg-card rounded-2xl p-6 lg:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all group relative"
                 >
+                  {/* Hover scribble */}
+                  <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Scribble variant="star" color="primary" size="sm" />
+                  </div>
+                  
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                     <div>
                       <div className="flex flex-wrap items-center gap-3 mb-3">
@@ -208,8 +233,10 @@ const Careers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
+      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        <PageDecorations variant="primary" />
+        
+        <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
           <h2 className="font-heading text-3xl lg:text-4xl font-bold mb-6">
             Don't See a Fit?
           </h2>

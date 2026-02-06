@@ -1,6 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MapPin, Clock, Briefcase, CheckCircle, Send } from 'lucide-react';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, MapPin, Clock, CheckCircle, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,10 +8,11 @@ import { Label } from '@/components/ui/label';
 import { useState, useEffect } from 'react';
 import { JobPosting, getJobPostings } from './Careers';
 import { useToast } from '@/hooks/use-toast';
+import { SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble } from '@/components/decorative/Scribbles';
 
 const CareerDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { toast } = useToast();
   const [job, setJob] = useState<JobPosting | null>(null);
   const [formData, setFormData] = useState({
@@ -85,8 +86,10 @@ const CareerDetail = () => {
       </div>
 
       {/* Job Header */}
-      <section className="py-12 lg:py-16">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-12 lg:py-16 relative overflow-hidden">
+        <SectionDecorations position="right" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
@@ -96,8 +99,13 @@ const CareerDetail = () => {
                 {job.type}
               </span>
             </div>
-            <h1 className="font-heading text-4xl lg:text-5xl font-bold mb-6">{job.title}</h1>
-            <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
+            <div className="relative inline-block mb-6">
+              <h1 className="font-heading text-4xl lg:text-5xl font-bold">{job.title}</h1>
+              <div className="absolute -bottom-2 left-0 w-48">
+                <Scribble variant="underline" color="primary" />
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-6 text-muted-foreground mt-4">
               <span className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 {job.location}
@@ -119,20 +127,32 @@ const CareerDetail = () => {
       </section>
 
       {/* Job Details */}
-      <section className="pb-20">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="pb-20 relative overflow-hidden">
+        <SectionDecorations position="left" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
               {/* Description */}
               <div>
-                <h2 className="font-heading text-2xl font-bold mb-4">About the Role</h2>
+                <div className="relative inline-block mb-4">
+                  <h2 className="font-heading text-2xl font-bold">About the Role</h2>
+                  <div className="absolute -bottom-1 left-0 w-32">
+                    <Scribble variant="underline" color="primary" className="opacity-50" />
+                  </div>
+                </div>
                 <p className="text-muted-foreground leading-relaxed">{job.description}</p>
               </div>
 
               {/* Requirements */}
               <div>
-                <h2 className="font-heading text-2xl font-bold mb-4">Requirements</h2>
+                <div className="relative inline-block mb-4">
+                  <h2 className="font-heading text-2xl font-bold">Requirements</h2>
+                  <div className="absolute -bottom-1 left-0 w-28">
+                    <Scribble variant="underline" color="primary" className="opacity-50" />
+                  </div>
+                </div>
                 <ul className="space-y-3">
                   {job.requirements.map((req, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -145,7 +165,12 @@ const CareerDetail = () => {
 
               {/* Benefits */}
               <div>
-                <h2 className="font-heading text-2xl font-bold mb-4">What We Offer</h2>
+                <div className="relative inline-block mb-4">
+                  <h2 className="font-heading text-2xl font-bold">What We Offer</h2>
+                  <div className="absolute -bottom-1 left-0 w-32">
+                    <Scribble variant="underline" color="primary" className="opacity-50" />
+                  </div>
+                </div>
                 <ul className="space-y-3">
                   {job.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -159,7 +184,12 @@ const CareerDetail = () => {
 
             {/* Application Form */}
             <div className="lg:col-span-1">
-              <div className="bg-card rounded-2xl p-6 lg:p-8 border border-border sticky top-28">
+              <div className="bg-card rounded-2xl p-6 lg:p-8 border border-border sticky top-28 relative">
+                {/* Scribble accent */}
+                <div className="absolute -top-4 -right-4 hidden md:block">
+                  <Scribble variant="circle" color="muted" size="sm" className="opacity-40" />
+                </div>
+                
                 <h3 className="font-heading text-xl font-bold mb-6 flex items-center gap-2">
                   <Send className="w-5 h-5 text-primary" />
                   Apply Now

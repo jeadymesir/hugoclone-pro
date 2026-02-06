@@ -2,6 +2,8 @@ import { Layout } from '@/components/layout/Layout';
 import { Building2, CreditCard, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble } from '@/components/decorative/Scribbles';
 
 const bankAccounts = [
   {
@@ -48,16 +50,23 @@ const BankDetails = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-24 lg:py-32 bg-gradient-to-br from-primary/5 to-accent/5">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-24 lg:py-32 bg-gradient-to-br from-primary/5 to-accent/5 relative overflow-hidden">
+        <PageDecorations variant="default" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
               Payment Information
             </span>
-            <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-              Bank Details
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <div className="relative inline-block">
+              <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
+                Bank Details
+              </h1>
+              <div className="absolute -bottom-2 left-0 w-40">
+                <Scribble variant="underline" color="primary" />
+              </div>
+            </div>
+            <p className="text-xl text-muted-foreground leading-relaxed mt-4">
               Use the following bank account details to make payments for our services. 
               Please include your invoice number as the payment reference.
             </p>
@@ -66,14 +75,21 @@ const BankDetails = () => {
       </section>
 
       {/* Bank Accounts */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-20 relative overflow-hidden">
+        <SectionDecorations position="both" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {bankAccounts.map((account) => (
               <div
                 key={account.id}
-                className="bg-card rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl transition-shadow"
+                className="bg-card rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl transition-shadow relative group"
               >
+                {/* Hover scribble */}
+                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Scribble variant="star" color="primary" size="sm" />
+                </div>
+                
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">
                     {account.logo}
@@ -152,7 +168,11 @@ const BankDetails = () => {
           </div>
 
           {/* Payment Instructions */}
-          <div className="mt-16 bg-primary/5 rounded-2xl p-8 lg:p-12">
+          <div className="mt-16 bg-primary/5 rounded-2xl p-8 lg:p-12 relative">
+            <div className="absolute -top-4 -right-4 hidden md:block">
+              <Scribble variant="circle" color="muted" size="md" className="opacity-40" />
+            </div>
+            
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <CreditCard className="w-6 h-6 text-primary" />

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
-import { MapPin, Mail, Phone, MessageCircle, Send, ArrowRight } from 'lucide-react';
+import { MapPin, Mail, Phone, MessageCircle, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
+import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -34,15 +36,22 @@ const Contact = () => {
     <Layout>
       {/* Hero - Hugo style */}
       <section className="relative pt-40 pb-32 bg-primary text-primary-foreground overflow-hidden">
+        <PageDecorations variant="primary" />
+        
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6 inline-block">
               Contact
             </div>
-            <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-              Get    in    Touch
-            </h1>
-            <p className="text-xl text-primary-foreground/80">
+            <div className="relative inline-block">
+              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                Get    in    Touch
+              </h1>
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
+                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+              </div>
+            </div>
+            <p className="text-xl text-primary-foreground/80 mt-4">
               Ready to start your digital transformation? We'd love to hear from you.
             </p>
           </div>
@@ -52,11 +61,18 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <SectionDecorations position="both" />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form - Hugo clean style */}
-            <div className="bg-card rounded-3xl shadow-xl p-8 lg:p-12">
+            <div className="bg-card rounded-3xl shadow-xl p-8 lg:p-12 relative">
+              {/* Scribble accent */}
+              <div className="absolute -top-6 -left-6 hidden md:block">
+                <Scribble variant="circle" color="muted" size="md" className="opacity-40" />
+              </div>
+              
               <h2 className="font-heading font-semibold text-2xl text-foreground mb-8">
                 Send us a message
               </h2>
@@ -126,7 +142,14 @@ const Contact = () => {
 
             {/* Contact Info - Hugo card style */}
             <div className="space-y-6">
-              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+              <FloatingElement className="top-0 right-0 hidden lg:block">
+                <Sparkle className="w-6 h-6" />
+              </FloatingElement>
+              
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow group relative">
+                <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Scribble variant="star" color="primary" size="sm" />
+                </div>
                 <div className="flex items-start gap-6">
                   <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-7 h-7 text-primary" />
@@ -138,7 +161,10 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow group relative">
+                <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Scribble variant="star" color="primary" size="sm" />
+                </div>
                 <div className="flex items-start gap-6">
                   <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <Mail className="w-7 h-7 text-primary" />
@@ -152,7 +178,10 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow group relative">
+                <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Scribble variant="star" color="primary" size="sm" />
+                </div>
                 <div className="flex items-start gap-6">
                   <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <Phone className="w-7 h-7 text-primary" />
@@ -166,7 +195,10 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow group relative">
+                <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Scribble variant="star" color="primary" size="sm" />
+                </div>
                 <div className="flex items-start gap-6">
                   <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <MessageCircle className="w-7 h-7 text-primary" />
