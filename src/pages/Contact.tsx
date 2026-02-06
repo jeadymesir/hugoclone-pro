@@ -124,10 +124,11 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">
-                    Your message (optional)
+                    Your message
                   </label>
                   <textarea
                     rows={4}
+                    required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-4 border-2 border-border rounded-2xl bg-transparent focus:border-primary outline-none transition-colors resize-none"
@@ -148,7 +149,12 @@ const Contact = () => {
                 <Sparkle className="w-6 h-6" />
               </FloatingElement>
               
-              <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow group relative">
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Verlengde+Gemenelandsweg+151+Paramaribo+Suriname" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow group relative block"
+              >
                 <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Scribble variant="star" color="primary" size="sm" />
                 </div>
@@ -158,10 +164,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Our Location</h3>
-                    <p className="text-muted-foreground">Verlengde Gemenelandsweg 151</p>
+                    <p className="text-muted-foreground hover:text-primary transition-colors">Verlengde Gemenelandsweg 151</p>
                   </div>
                 </div>
-              </div>
+              </a>
 
               <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow group relative">
                 <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
