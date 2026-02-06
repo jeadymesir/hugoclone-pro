@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { Scribble, FloatingElement, Sparkle, DecorativePlus, DecorativeDiamond } from '@/components/decorative/Scribbles';
-import anniversary30Logo from '@/assets/anniversary-30-years.png';
 
 export const HeroSection = () => {
   return (
@@ -59,9 +58,9 @@ export const HeroSection = () => {
             </p>
           </AnimatedSection>
           
-          {/* CTA Buttons + Anniversary Logo */}
+          {/* CTA Button */}
           <AnimatedSection animation="fade-up" delay={300}>
-            <div className="flex flex-wrap gap-6 items-center">
+            <div className="flex flex-wrap gap-4 items-center">
               <a 
                 href="#services" 
                 className="hugo-cta text-lg"
@@ -73,11 +72,6 @@ export const HeroSection = () => {
                 Discover our services
                 <ArrowRight className="w-5 h-5 hugo-arrow" />
               </a>
-              <img 
-                src={anniversary30Logo} 
-                alt="30 Years of Excellence - Rosheuvel & Partners Business Group" 
-                className="h-20 md:h-24 w-auto"
-              />
             </div>
           </AnimatedSection>
         </div>
