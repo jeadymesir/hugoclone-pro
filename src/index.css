@@ -150,12 +150,26 @@
     100% { transform: translateX(-50%); }
   }
   
+  @keyframes hugo-marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  
   .hugo-marquee {
-    @apply flex gap-16 items-center;
-    animation: hugo-marquee 25s linear infinite;
+    @apply flex gap-8 items-center;
+    animation: hugo-marquee 30s linear infinite;
   }
   
   .hugo-marquee:hover {
+    animation-play-state: paused;
+  }
+  
+  .hugo-marquee-reverse {
+    @apply flex gap-8 items-center;
+    animation: hugo-marquee-reverse 35s linear infinite;
+  }
+  
+  .hugo-marquee-reverse:hover {
     animation-play-state: paused;
   }
   

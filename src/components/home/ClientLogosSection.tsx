@@ -17,7 +17,19 @@ import xcallyLogo from '@/assets/partners/xcally.png';
 import apcLogo from '@/assets/partners/apc.svg';
 import exactLogo from '@/assets/partners/exact.svg';
 
-// Client logos with imports
+// Client logos with imports - Real uploaded logos
+import vcbbankLogo from '@/assets/clients/vcbbank.webp';
+import siengsiengLogo from '@/assets/clients/siengsieng.webp';
+import selfrelianceLogo from '@/assets/clients/selfreliance.webp';
+import republicLogo from '@/assets/clients/republic.webp';
+import rapidLogo from '@/assets/clients/rapid.webp';
+import ppsLogo from '@/assets/clients/pps.webp';
+import paragroupLogo from '@/assets/clients/paragroup.webp';
+import oxygenLogo from '@/assets/clients/oxygen.webp';
+import mcdonaldsLogo from '@/assets/clients/mcdonalds.webp';
+import kingsLogo from '@/assets/clients/kings.webp';
+
+// Previous client logos
 import staatslogieLogo from '@/assets/clients/staatsolie.png';
 import telesurLogo from '@/assets/clients/telesur.png';
 import dsbLogo from '@/assets/clients/dsb.png';
@@ -50,6 +62,16 @@ const techPartners = [
 ];
 
 const clients = [
+  { name: 'VCB Bank', logo: vcbbankLogo },
+  { name: 'Sieng Sieng', logo: siengsiengLogo },
+  { name: 'Self Reliance', logo: selfrelianceLogo },
+  { name: 'Republic Bank', logo: republicLogo },
+  { name: 'Rapid Import Export', logo: rapidLogo },
+  { name: 'PPS Security', logo: ppsLogo },
+  { name: 'Para Group', logo: paragroupLogo },
+  { name: 'Oxygen Resort', logo: oxygenLogo },
+  { name: "McDonald's", logo: mcdonaldsLogo },
+  { name: "King's Enterprises", logo: kingsLogo },
   { name: 'Staatsolie', logo: staatslogieLogo },
   { name: 'Telesur', logo: telesurLogo },
   { name: 'De Surinaamsche Bank', logo: dsbLogo },
@@ -115,19 +137,29 @@ export const ClientLogosSection = () => {
           </p>
         </AnimatedSection>
 
-        {/* Client Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-          {clients.map((client, index) => (
-            <AnimatedSection key={client.name} animation="scale" delay={index * 50}>
-              <div className="bg-card rounded-xl p-6 flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border/30 aspect-[3/2]">
-                <img
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  className="max-h-16 max-w-full object-contain"
-                />
-              </div>
-            </AnimatedSection>
-          ))}
+        {/* Client Logos Marquee - Sliding from left to right */}
+        <div className="relative">
+          {/* Gradient overlays */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+
+          {/* Marquee */}
+          <div className="overflow-hidden py-4">
+            <div className="hugo-marquee-reverse">
+              {[...clients, ...clients].map((client, index) => (
+                <div
+                  key={`${client.name}-${index}`}
+                  className="flex-shrink-0 px-6 py-4 bg-card rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/30 flex items-center justify-center min-w-[180px] h-24"
+                >
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    className="max-h-16 max-w-[140px] object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
