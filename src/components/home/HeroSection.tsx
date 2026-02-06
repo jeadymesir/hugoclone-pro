@@ -70,7 +70,7 @@ export const HeroSection = () => {
           <AnimatedSection animation="fade-up" delay={300}>
             <div className="flex flex-wrap gap-4 items-center">
               <Link to="/services/managed-it" className="hugo-cta text-lg">
-                Ontdek onze diensten
+                Discover our services
                 <ArrowRight className="w-5 h-5 hugo-arrow" />
               </Link>
               <Scribble variant="arrow" color="muted" className="w-16 h-8 hidden md:block" />
