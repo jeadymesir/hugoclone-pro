@@ -110,7 +110,7 @@ export const ClientLogosSection = () => {
       <div className="container mx-auto px-6 lg:px-12">
         {/* Technology Partners Section */}
         <AnimatedSection animation="fade-up" className="text-center mb-12">
-          <span className="hugo-tag mb-4 inline-block">Technology Partners</span>
+          <span className="hugo-tag mb-4 block mx-auto w-fit">Technology Partners</span>
           <div className="relative inline-block">
             <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-4">
               We    partner    with    technology    leaders
