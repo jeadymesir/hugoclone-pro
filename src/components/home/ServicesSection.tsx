@@ -44,7 +44,7 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
+    <section id="services" className="py-32 bg-background relative overflow-hidden">
       {/* Hugo-style dashed curve decorations */}
       <div className="absolute top-20 right-0 w-64 h-64 border-r-2 border-t-2 border-dashed border-border rounded-tr-full opacity-30" />
       <div className="absolute bottom-20 left-0 w-48 h-48 border-l-2 border-b-2 border-dashed border-border rounded-bl-full opacity-30" />

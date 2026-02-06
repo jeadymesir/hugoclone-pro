@@ -69,10 +69,17 @@ export const HeroSection = () => {
           {/* CTA Buttons - Hugo style */}
           <AnimatedSection animation="fade-up" delay={300}>
             <div className="flex flex-wrap gap-4 items-center">
-              <Link to="/services/managed-it" className="hugo-cta text-lg">
+              <a 
+                href="#services" 
+                className="hugo-cta text-lg"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Discover our services
                 <ArrowRight className="w-5 h-5 hugo-arrow" />
-              </Link>
+              </a>
               <Scribble variant="arrow" color="muted" className="w-16 h-8 hidden md:block" />
             </div>
           </AnimatedSection>
