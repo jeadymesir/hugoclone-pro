@@ -38,8 +38,8 @@ export const HeroSection = () => {
               <p className="text-lg md:text-xl text-foreground font-bold tracking-wide">
                 Rosheuvel & Partners Business Group N.V.
               </p>
-              <span className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-primary-foreground text-sm font-semibold rounded-full">
-                🎉 30 Years
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-gold-dark to-gold text-foreground text-sm font-bold rounded-full shadow-lg">
+                ✨ 30 Years of Excellence
               </span>
             </div>
           </AnimatedSection>

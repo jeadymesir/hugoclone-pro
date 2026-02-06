@@ -38,6 +38,10 @@
     --accent: 214 100% 34%;
     --accent-foreground: 0 0% 100%;
     
+    /* Gold accent for anniversary */
+    --gold: 43 96% 56%;
+    --gold-dark: 36 77% 49%;
+    
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
