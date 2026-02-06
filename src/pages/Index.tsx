@@ -3,11 +3,11 @@ import { Layout } from '@/components/layout/Layout';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { HeroSection } from '@/components/home/HeroSection';
 import { ArticlesSection } from '@/components/home/ArticlesSection';
-import { PartnersSection } from '@/components/home/PartnersSection';
 import { SuccessSection, DeserveBetterSection } from '@/components/home/SuccessSection';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { ServicesSection } from '@/components/home/ServicesSection';
-import { TechPartnersSection } from '@/components/home/TechPartnersSection';
+import { CertificatesSection } from '@/components/home/CertificatesSection';
+import { ClientLogosSection } from '@/components/home/ClientLogosSection';
 import { StepsSection } from '@/components/home/StepsSection';
 import { SeasonalSection } from '@/components/home/SeasonalSection';
 import { ReviewsSection } from '@/components/home/ReviewsSection';
@@ -28,12 +28,12 @@ const Index = () => {
       <Layout>
         <HeroSection />
         <ArticlesSection />
-        <PartnersSection />
+        <ClientLogosSection />
         <SuccessSection />
         <DeserveBetterSection />
         <TestimonialsSection />
         <ServicesSection />
-        <TechPartnersSection />
+        <CertificatesSection />
         <StepsSection />
         <SeasonalSection />
         <ReviewsSection />

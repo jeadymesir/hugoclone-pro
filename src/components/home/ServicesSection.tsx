@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Monitor, Wifi, Lightbulb, Briefcase, Package, GraduationCap } from 'lucide-react';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const services = [
   {
@@ -49,46 +50,47 @@ export const ServicesSection = () => {
       
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header - Hugo style */}
-        <div className="text-center mb-20">
+        <AnimatedSection animation="fade-up" className="text-center mb-20">
           <h2 className="hugo-subtitle text-4xl md:text-5xl text-foreground mb-6">
             +    More    Growth,    Less    Risk
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Focus on growth, we'll take care of the many small tasks that make the difference between awesome and awful.
           </p>
-        </div>
+        </AnimatedSection>
         
         {/* Services Grid - Hugo style with dashed dividers */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Link
-                key={index}
-                to={service.path}
-                className="hugo-service-card group hover:bg-muted/30 transition-colors"
-              >
-                {/* Icon */}
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                  <Icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                
-                {/* Title */}
-                <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
-                
-                {/* Learn More */}
-                <div className="flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
-                  Learn More
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </Link>
+              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <Link
+                  to={service.path}
+                  className="hugo-service-card group hover:bg-muted/30 transition-colors block h-full"
+                >
+                  {/* Icon */}
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <Icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
+                    {service.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  
+                  {/* Learn More */}
+                  <div className="flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </Link>
+              </AnimatedSection>
             );
           })}
         </div>
