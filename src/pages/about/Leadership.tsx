@@ -46,7 +46,7 @@ const managers = [
   },
   {
     name: 'Elisa Djosemito',
-    role: 'HR Manager',
+    role: 'Human Resources Manager',
   },
 ];
 
