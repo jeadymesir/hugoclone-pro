@@ -8,32 +8,32 @@ const sections = [
     icon: Network,
     title: 'NETWORKING',
     items: ['Network design', 'Implementation', 'Network testing + troubleshooting', 'Network maintenance'],
-    description: "Your network isn't just cables and hardware - it's the central nervous system of your entire operation, directly impacting performance, security, and employee efficiency. Downtime costs you revenue and reputation. Poor performance frustrates your teams. And security gaps leave you exposed to costly breaches.",
-    detail: "RPBG's Next-Generation Networking Services deliver a perfectly engineered infrastructure that is fast, robust, and inherently secure. We handle everything, from intelligent Wi-Fi and SD-WAN optimization to 24/7 proactive monitoring. Our expertise spans LAN/WAN architecture, network security integration, wireless optimization, and hybrid cloud connectivity. Whether you need a complete network overhaul or strategic upgrades, we design, implement, and maintain networks that perform flawlessly.",
+    description: "Your network isn't just cables and hardware—it's the central nervous system of your entire operation, directly impacting performance, security, and employee efficiency.",
+    detail: "RPBG's Next-Generation Networking Services deliver a perfectly engineered infrastructure that is fast, robust, and inherently secure. We handle everything, from intelligent Wi-Fi and SD-WAN optimization to 24/7 proactive monitoring and defense against internal and external threats. Stop letting an unstable network sabotage your productivity. Let us design, implement, and manage a high-performance network that is ready for tomorrow's demands, ensuring flawless connectivity and unwavering reliability across your entire enterprise.",
   },
   {
     id: 'voip',
     icon: Phone,
     title: 'VOIP SERVICES',
-    items: ['VoIP design', 'Implementation', 'System testing + troubleshooting', 'Ongoing maintenance'],
-    description: "📞 Upgrade Your Communications. Power Your Productivity. Crystal-clear calls, seamless video conferencing, and unified messaging aren't luxuries—they're business essentials. Yet many organizations are stuck with outdated, expensive phone systems that can't keep pace with modern work.",
-    detail: "RPBG's Enterprise-Grade VoIP Service is designed to scale effortlessly, whether you're adding one new remote employee or opening a whole new branch office across the globe. Features include auto-attendants, call recording, CRM integration, and advanced analytics. Say goodbye to per-minute charges and hello to predictable monthly costs. All delivered with the reliability and security you expect from a premium IT partner.",
+    items: ['Network design', 'Implementation', 'Network testing + troubleshooting', 'Network maintenance'],
+    description: "📞 Upgrade Your Communications. Power Your Productivity. In a rapidly evolving market, your communication system shouldn't hold you back. Traditional phone lines are rigid, expensive to maintain, and lack the flexibility modern business demands.",
+    detail: "RPBG's Enterprise-Grade VoIP Service is designed to scale effortlessly, whether you're adding one new remote employee or opening a whole new branch office across the globe.",
   },
   {
     id: 'disaster',
     icon: Server,
-    title: 'DISASTER RECOVERY',
-    items: ['Backup solutions', 'Business continuity', 'Recovery planning', 'Regular testing', 'Data replication', 'Failover systems'],
-    description: "In today's fast-paced digital landscape, business interruption isn't a possibility—it's an inevitability. Whether it's a ransomware attack, a natural disaster, a hardware failure, or simple human error, downtime is expensive, disruptive, and potentially devastating to your business.",
-    detail: "RPBG's Disaster Recovery and Business Continuity services are your definitive safety net. We engineer resilience, ensuring that when the unexpected strikes, your critical operations are restored rapidly—often within minutes—not days. Our solutions include automated backup systems, geographically diverse data replication, instant failover capabilities, and comprehensive recovery testing. We don't just back up your data; we ensure your entire business can continue operating under any circumstances.",
+    title: 'DISASTER RECOVERY AND CONTINUITY',
+    items: ['Network design', 'Implementation', 'Network testing + troubleshooting', 'Network maintenance'],
+    description: "In today's fast-paced digital landscape, business interruption isn't a possibility—it's an inevitability. Whether facing a hardware failure, a catastrophic cyberattack, or a natural disaster, can your business survive being offline for hours, or even days?",
+    detail: "RPBG's Disaster Recovery and Business Continuity services are your definitive safety net. We don't just back up data; we engineer resilience, ensuring that when the unexpected strikes, your critical operations are restored rapidly, reliably, and with minimal data loss.",
   },
   {
     id: 'security',
     icon: Shield,
     title: 'SECURITY SOLUTIONS',
-    items: ['24/7/365 Monitoring', 'Security as a Service', 'End-point protection', 'Organization-wide cybersecurity', 'Threat detection', 'Incident response'],
-    description: "Information is one of the most important assets in today's organizations. Cyber threats evolve constantly, and without proper protection, your business is vulnerable to data breaches, ransomware, and compliance violations that can cost millions.",
-    detail: "Security solutions from RPBG are tailored to your organizational needs and ensures that your information is protected at all times from any attacks. Our comprehensive security stack includes next-gen firewalls, endpoint detection and response (EDR), SIEM solutions, vulnerability assessments, penetration testing, and security awareness training for your staff. We operate a 24/7 Security Operations Center (SOC) that monitors your environment continuously, detecting and responding to threats before they become incidents.",
+    items: ['24/7/365 Monitoring and response', 'Security as a Service', 'End-point protection', 'Mail-gateway', 'Real time IT asset management', 'Organization-wide cybersecurity set-up and maintenance'],
+    description: "Information is one of the most important assets in today's organizations and its protection is crucial.",
+    detail: "Security solutions from RPBG are tailored to your organizational needs and ensures that your information is protected at all times from any attacks.",
   },
 ];
 
@@ -48,10 +48,10 @@ const ManagedIT = () => {
               Services
             </div>
             <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-              Managed    IT    Services
+              Managed    IT    Services    (MSP)
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed">
-              From the original discipline of systems management, RPBG has broadened the scope to offer various MSP services to clients.
+              From the original discipline of systems management for internal operations, RPBG has broadened the scope to offer various MSP services to clients.
             </p>
           </div>
         </div>

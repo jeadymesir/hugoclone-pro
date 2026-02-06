@@ -1,34 +1,42 @@
 import { Layout } from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Server, Shield, Calculator } from 'lucide-react';
+import { ArrowRight, Check, Server, Shield, Network, Code, Briefcase } from 'lucide-react';
 
 const sections = [
   {
     id: 'it',
     icon: Server,
-    title: 'IT Consultancy',
-    subtitle: 'Infrastructure & Strategy',
-    description: "Technology should accelerate your business, not bottle-neck it. We analyze your current IT landscape to identify gaps, risks, and opportunities. From aging legacy systems that hinder productivity to security vulnerabilities that threaten your data, we diagnose the issues and design solutions.",
-    highlight: "We help you move from a reactive 'break-fix' model to a proactive, scalable infrastructure strategy that supports your business goals for years to come.",
-    items: ['IT Infrastructure Audits & Assessments', 'Digital Transformation Strategy', 'Cloud Migration Planning & Execution', 'Technology Roadmap Development', 'Vendor Selection & Management', 'IT Budget Optimization'],
+    title: 'IT Consultancy (Infrastructure & Strategy)',
+    description: "Technology should accelerate your business, not bottle-neck it. We analyze your current IT landscape to identify gaps, risks, and opportunities for consolidation. We help you move from a reactive \"break-fix\" model to a proactive, scalable infrastructure strategy.",
+    items: ['IT Infrastructure Audits', 'Digital Transformation', 'Cloud Migration Strategy'],
   },
   {
     id: 'security',
     icon: Shield,
     title: 'Security Consultancy',
-    subtitle: 'Protection & Compliance',
-    description: "Cyber threats evolve by the hour. Our consultants assess your digital assets, identify vulnerabilities, and design a comprehensive defense strategy that protects your business without impeding productivity. We understand that security isn't just about technology—it's about people, processes, and culture.",
-    highlight: "From CISO-level advisory and Zero Trust architecture to compliance with international standards (ISO 27001, GDPR, PCI-DSS), our security advisors become your trusted guardians.",
-    items: ['IT Security Audits & Penetration Testing', 'Compliance Assessment & Remediation', 'Security Policy Development', 'Risk Assessment & Management', 'Incident Response Planning', 'Security Awareness Programs'],
+    description: "Cybersecurity is no longer just an IT requirement; it is a business survival imperative. Our security consultants don't just sell antivirus; we design comprehensive governance frameworks. We assess your vulnerabilities—both digital and human—and build a defense strategy that ensures business continuity.",
+    items: ['Vulnerability Assessments', 'Security Policy Design', 'Data Protection & Compliance Audits', 'Disaster Recovery Planning'],
   },
   {
-    id: 'finance',
-    icon: Calculator,
-    title: 'Financial Consultancy',
-    subtitle: 'Strategy & Optimization',
-    description: "Sustainable growth requires financial clarity. Our consultants work at the intersection of technology and business strategy, helping you make smarter investments, optimize costs, and build business cases that win stakeholder approval. We translate complex IT initiatives into language that resonates with financial decision-makers.",
-    highlight: "Let us help you build a smarter, more agile financial foundation that supports innovation while maintaining fiscal responsibility.",
-    items: ['Cost Optimization & TCO Analysis', 'Business Case Development', 'Process Automation ROI Modeling', 'IT Investment Strategy', 'Financial Systems Integration', 'Budget Planning & Forecasting'],
+    id: 'network',
+    icon: Network,
+    title: 'Network Architecture & Connectivity Optimization',
+    description: "In a cloud-first world, your internet connection is your lifeline. We don't just \"speed up\" your internet; we design resilient network architectures that can handle high-demand enterprise loads. We analyze traffic patterns and design redundancy layers to ensure your business never goes offline.",
+    items: ['WAN/LAN Architecture Design', 'Redundancy & Failover Planning', 'Bandwidth Management Strategy', 'WISP Feasibility Studies'],
+  },
+  {
+    id: 'software',
+    icon: Code,
+    title: 'Software Consultancy',
+    description: "Buying software is easy; making it work together is hard. Before you commit to a license, our experts analyze your requirements to prevent \"software bloat.\" We help you decide between off-the-shelf solutions and custom development, ensuring your software stack talks to each other efficiently.",
+    items: ['Requirements Analysis', '"Build vs. Buy" Feasibility Studies', 'Software Stack Integration Planning', 'System Migration Strategy'],
+  },
+  {
+    id: 'business',
+    icon: Briefcase,
+    title: 'Business Optimization Consultancy',
+    description: "Before we implement an ERP, Financial system or HRM, we align on your operational logic. We bridge the gap between financial administration and operational reality, identifying bottlenecks, inventory management, and human resource requirements. RPBG aligns with your business needs, so that solutions provided help you succeed.",
+    items: ['Business automation through software solutions', 'Workflow optimization', 'HRM simplification'],
   },
 ];
 
@@ -49,7 +57,7 @@ const Consultancy = () => {
               We don't just fix problems; we architect solutions that prevent them.
             </p>
             <p className="text-primary-foreground/70">
-              At RPBG, consultancy is about solving a business equation—not selling you a product.
+              At RPBG, consultancy is not about selling you a product or a service; it is about solving a business equation. Whether you are navigating a digital transformation, securing your assets, or optimizing your financial workflows, our consultants help with planning and executing the projects successfully.
             </p>
           </div>
         </div>
@@ -73,17 +81,12 @@ const Consultancy = () => {
                 </div>
 
                 <div className={`${!isEven ? 'lg:order-1' : ''}`}>
-                  <div className="hugo-tag mb-4">{section.subtitle}</div>
                   <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground mb-6">
                     {section.title}
                   </h2>
                   
-                  <p className="text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-muted-foreground leading-relaxed mb-8">
                     {section.description}
-                  </p>
-                  
-                  <p className="text-foreground font-medium mb-8">
-                    {section.highlight}
                   </p>
                   
                   <p className="text-sm font-semibold text-foreground mb-4">What we deliver:</p>

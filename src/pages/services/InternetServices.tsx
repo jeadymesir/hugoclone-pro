@@ -1,26 +1,23 @@
 import { Layout } from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Wifi } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 const packages = [
   {
     name: 'Lite',
     color: 'bg-amber-500',
-    price: 'SRD 350',
-    features: ['Unlimited internet', 'Download: 10 Mbps', 'Upload: 5 Mbps', 'Up to 6 devices', 'Free installation', 'Technical support included'],
+    features: ['Unlimited internet', 'Download: 10 Mbps', 'Upload: 5 Mbps', 'Up to 6 devices'],
   },
   {
     name: 'Classic',
     color: 'bg-emerald-500',
-    price: 'SRD 500',
-    features: ['Unlimited internet', 'Download: 20 Mbps', 'Upload: 10 Mbps', 'Up to 9 devices', 'Free installation', 'Priority technical support'],
+    features: ['Unlimited internet', 'Download: 20 Mbps', 'Upload: 10 Mbps', 'Up to 9 devices'],
     popular: true,
   },
   {
     name: 'Premium',
     color: 'bg-primary',
-    price: 'SRD 700',
-    features: ['Unlimited internet', 'Download: 30 Mbps', 'Upload: 10 Mbps', 'Up to 13 devices', 'Free installation', '24/7 priority support'],
+    features: ['Unlimited internet', 'Download: 30 Mbps', 'Upload: 10 Mbps', 'Up to 13 devices'],
   },
 ];
 
@@ -28,30 +25,16 @@ const benefits = [
   'Fast connectivity time: within 7 business days',
   'No installation costs',
   'Extensive customer support',
-  'No hidden fees or charges',
-  'Flexible contract options',
 ];
 
 const faqs = [
   {
     question: 'Are there any other costs associated with my subscription?',
-    answer: 'No, there are no hidden costs. The monthly fee covers everything including installation, equipment, and support. What you see is what you pay.',
+    answer: 'Yes, apart from the subscription costs RPBG charges a monthly fee for the radio. In case the radio breaks (not a customer\'s fault), we replace it free of charge. You can find out more from one of our customer desk representatives.',
   },
   {
-    question: 'What areas do you cover?',
-    answer: 'We cover the greater Paramaribo area and surrounding regions including Wanica, Commewijne, and parts of Para. Contact us for specific coverage in your area.',
-  },
-  {
-    question: 'How fast can I get connected?',
-    answer: 'We typically complete installations within 7 business days of order confirmation. Our technicians will contact you to schedule a convenient installation time.',
-  },
-  {
-    question: 'What equipment do I need?',
-    answer: 'All necessary equipment is provided as part of your subscription, including the router and any required outdoor antennas. Our technicians handle the complete setup.',
-  },
-  {
-    question: 'Can I upgrade or downgrade my package?',
-    answer: 'Yes, you can change your package at any time. Upgrades take effect immediately, and downgrades apply from your next billing cycle.',
+    question: 'Do you provide internet subscriptions for businesses?',
+    answer: 'Yes, RPBG provides internet for both B2B and B2C. We offer possibilities of preferred and/or dedicated internet subscriptions to meet the exact needs of our clients.',
   },
 ];
 
@@ -107,10 +90,15 @@ const InternetServices = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="hugo-cta w-full justify-center text-sm">
+                  <a 
+                    href="https://forms.gle/FzruoyneUgkGQGEV9" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hugo-cta w-full justify-center text-sm"
+                  >
                     Register Here
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
@@ -121,7 +109,7 @@ const InternetServices = () => {
       {/* Benefits */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <p className="text-muted-foreground mb-10 max-w-3xl mx-auto">
+          <p className="text-lg font-medium text-foreground mb-10 max-w-3xl mx-auto">
             RPBG (Parbonet) is one of the 3 internet providers in Suriname, 
             specializing in providing wireless connectivity in the region.
           </p>
