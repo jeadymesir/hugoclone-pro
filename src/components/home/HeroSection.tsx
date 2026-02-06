@@ -32,19 +32,8 @@ export const HeroSection = () => {
       
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl">
-          {/* Company name */}
-          <AnimatedSection animation="fade-up">
-            <div className="flex flex-wrap items-center gap-6 mb-6">
-              <img 
-                src={anniversary30Logo} 
-                alt="30 Years of Excellence - Rosheuvel & Partners Business Group" 
-                className="h-24 md:h-32 w-auto"
-              />
-            </div>
-          </AnimatedSection>
-          
           {/* Tagline - Hugo style */}
-          <AnimatedSection animation="fade-up" delay={50}>
+          <AnimatedSection animation="fade-up">
             <div className="hugo-tag mb-8">
               Strategic Technology Solutions
             </div>
@@ -70,9 +59,9 @@ export const HeroSection = () => {
             </p>
           </AnimatedSection>
           
-          {/* CTA Buttons - Hugo style */}
+          {/* CTA Buttons + Anniversary Logo */}
           <AnimatedSection animation="fade-up" delay={300}>
-            <div className="flex flex-wrap gap-4 items-center">
+            <div className="flex flex-wrap gap-6 items-center">
               <a 
                 href="#services" 
                 className="hugo-cta text-lg"
@@ -84,7 +73,11 @@ export const HeroSection = () => {
                 Discover our services
                 <ArrowRight className="w-5 h-5 hugo-arrow" />
               </a>
-              <Scribble variant="arrow" color="muted" className="w-16 h-8 hidden md:block" />
+              <img 
+                src={anniversary30Logo} 
+                alt="30 Years of Excellence - Rosheuvel & Partners Business Group" 
+                className="h-20 md:h-24 w-auto"
+              />
             </div>
           </AnimatedSection>
         </div>
