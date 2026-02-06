@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const reviews = [
   {
@@ -30,60 +31,64 @@ export const ReviewsSection = () => {
     <section className="py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-          <div>
-            <div className="flex items-center gap-4 mb-6">
-              {/* Award badge placeholder */}
-              <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center">
-                <Star className="w-10 h-10 text-primary fill-primary" />
+        <AnimatedSection animation="fade-up">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                {/* Award badge placeholder */}
+                <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center">
+                  <Star className="w-10 h-10 text-primary fill-primary" />
+                </div>
               </div>
+              <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                Validated    by    experts,    valued    by    customers
+              </h2>
             </div>
-            <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-              Validated    by    experts,    valued    by    customers
-            </h2>
+            
+            <div className="flex gap-4">
+              <Link to="/about/testimonials" className="hugo-cta-outline text-sm">
+                All Reviews
+              </Link>
+              <Link to="/contact" className="hugo-cta text-sm">
+                Get in touch
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-          
-          <div className="flex gap-4">
-            <Link to="/about/testimonials" className="hugo-cta-outline text-sm">
-              All Reviews
-            </Link>
-            <Link to="/contact" className="hugo-cta text-sm">
-              Get in touch
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
+        </AnimatedSection>
         
         {/* Reviews grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((review, index) => (
-            <div key={index} className="hugo-testimonial">
-              {/* Sound wave */}
-              <div className="flex items-end gap-1 h-6 mb-6">
-                <div className="hugo-wave-bar" />
-                <div className="hugo-wave-bar" />
-                <div className="hugo-wave-bar" />
-                <div className="hugo-wave-bar" />
-                <div className="hugo-wave-bar" />
+            <AnimatedSection key={index} animation="fade-up" delay={index * 150}>
+              <div className="hugo-testimonial h-full">
+                {/* Sound wave */}
+                <div className="flex items-end gap-1 h-6 mb-6">
+                  <div className="hugo-wave-bar" />
+                  <div className="hugo-wave-bar" />
+                  <div className="hugo-wave-bar" />
+                  <div className="hugo-wave-bar" />
+                  <div className="hugo-wave-bar" />
+                </div>
+                
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
+                  {review.title}
+                </h3>
+                
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  {review.quote}
+                </p>
+                
+                <div className="text-xs text-muted-foreground">
+                  Company Size: {review.size}
+                </div>
+                
+                <div className="border-t border-border mt-4 pt-4">
+                  <p className="font-medium text-foreground text-sm">{review.role}</p>
+                  <p className="text-xs text-muted-foreground">Industry: {review.industry}</p>
+                </div>
               </div>
-              
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
-                {review.title}
-              </h3>
-              
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                {review.quote}
-              </p>
-              
-              <div className="text-xs text-muted-foreground">
-                Company Size: {review.size}
-              </div>
-              
-              <div className="border-t border-border mt-4 pt-4">
-                <p className="font-medium text-foreground text-sm">{review.role}</p>
-                <p className="text-xs text-muted-foreground">Industry: {review.industry}</p>
-              </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

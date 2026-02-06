@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const steps = [
   {
@@ -34,53 +35,58 @@ export const StepsSection = () => {
     <section className="py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header - Hugo style with arrow */}
-        <div className="flex items-center gap-4 mb-16">
-          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-            <ArrowRight className="w-6 h-6 text-primary-foreground" />
+        <AnimatedSection animation="fade-up">
+          <div className="flex items-center gap-4 mb-16">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <ArrowRight className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+              Launch    in    5    easy    steps
+            </h2>
           </div>
-          <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-            Launch    in    5    easy    steps
-          </h2>
-        </div>
+        </AnimatedSection>
         
-        <p className="text-muted-foreground text-lg mb-16 max-w-2xl">
-          We design, plan, and implement your solution in as little as 2 weeks. Once you go live, we continuously work to ensure you hit your goals.
-        </p>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <p className="text-muted-foreground text-lg mb-16 max-w-2xl">
+            We design, plan, and implement your solution in as little as 2 weeks. Once you go live, we continuously work to ensure you hit your goals.
+          </p>
+        </AnimatedSection>
         
         {/* Steps - Hugo style accordion look */}
         <div className="space-y-0 border-t border-border">
           {steps.map((step, index) => (
-            <div
-              key={index}
-              className="border-b border-border py-8 group hover:bg-muted/30 transition-colors px-4 -mx-4"
-            >
-              <div className="flex gap-8">
-                {/* Number */}
-                <div className="hugo-step-number">
-                  {step.number}.
-                </div>
-                
-                {/* Content */}
-                <div className="flex-1 pt-4">
-                  <h3 className="font-heading font-semibold text-xl text-foreground mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                    {step.description}
-                  </p>
+            <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+              <div className="border-b border-border py-8 group hover:bg-muted/30 transition-colors px-4 -mx-4">
+                <div className="flex gap-8">
+                  {/* Number */}
+                  <div className="hugo-step-number">
+                    {step.number}.
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 pt-4">
+                    <h3 className="font-heading font-semibold text-xl text-foreground mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
         
         {/* CTA */}
-        <div className="mt-12">
-          <Link to="/contact" className="hugo-cta">
-            Book a Meeting
-            <ArrowRight className="w-5 h-5 hugo-arrow" />
-          </Link>
-        </div>
+        <AnimatedSection animation="fade-up" delay={500}>
+          <div className="mt-12">
+            <Link to="/contact" className="hugo-cta">
+              Book a Meeting
+              <ArrowRight className="w-5 h-5 hugo-arrow" />
+            </Link>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

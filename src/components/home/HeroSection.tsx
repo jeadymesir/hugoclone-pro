@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 export const HeroSection = () => {
   return (
@@ -10,27 +11,35 @@ export const HeroSection = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl">
           {/* Tagline - Hugo style */}
-          <div className="hugo-tag mb-8 hugo-reveal">
-            Strategic Technology Solutions
-          </div>
+          <AnimatedSection animation="fade-up">
+            <div className="hugo-tag mb-8">
+              Strategic Technology Solutions
+            </div>
+          </AnimatedSection>
           
           {/* Main headline - Hugo spaced style */}
-          <h1 className="hugo-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground mb-8 hugo-reveal hugo-reveal-delay-1">
-            Built    to    make    you    better.
-          </h1>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <h1 className="hugo-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground mb-8">
+              Built    to    make    you    better.
+            </h1>
+          </AnimatedSection>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-12 hugo-reveal hugo-reveal-delay-2">
-            We're not traditional outsourcers. We build world-class IT solutions—from managed services to digital transformation—helping you scale faster and smarter.
-          </p>
+          <AnimatedSection animation="fade-up" delay={200}>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-12">
+              We're not traditional outsourcers. We build world-class IT solutions—from managed services to digital transformation—helping you scale faster and smarter.
+            </p>
+          </AnimatedSection>
           
           {/* CTA Buttons - Hugo style */}
-          <div className="flex flex-wrap gap-4 hugo-reveal hugo-reveal-delay-3">
-            <Link to="/contact" className="hugo-cta text-lg">
-              Build your Dream Team
-              <ArrowRight className="w-5 h-5 hugo-arrow" />
-            </Link>
-          </div>
+          <AnimatedSection animation="fade-up" delay={300}>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/contact" className="hugo-cta text-lg">
+                Build your Dream Team
+                <ArrowRight className="w-5 h-5 hugo-arrow" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
       
