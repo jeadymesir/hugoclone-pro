@@ -51,18 +51,18 @@ const managers = [
 ];
 
 const LeaderCard = ({ name, role, featured = false }: { name: string; role: string; featured?: boolean }) => (
-  <div className={`bg-card rounded-3xl p-6 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative ${featured ? 'lg:col-span-1' : ''}`}>
+  <div className={`bg-card rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative ${featured ? 'lg:col-span-1' : ''}`}>
     {/* Hover scribble */}
     <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
       <Scribble variant="star" color="primary" size="sm" />
     </div>
     
     {/* Avatar */}
-    <div className={`${featured ? 'w-28 h-28' : 'w-20 h-20'} bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors`}>
-      <User className={`${featured ? 'w-14 h-14' : 'w-10 h-10'} text-primary group-hover:text-primary-foreground transition-colors`} />
+    <div className={`${featured ? 'w-36 h-36' : 'w-28 h-28'} bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-primary transition-colors`}>
+      <User className={`${featured ? 'w-18 h-18' : 'w-14 h-14'} text-primary group-hover:text-primary-foreground transition-colors`} />
     </div>
     
-    <h3 className={`font-heading font-semibold ${featured ? 'text-xl' : 'text-base'} text-foreground mb-1`}>
+    <h3 className={`font-heading font-semibold ${featured ? 'text-xl' : 'text-lg'} text-foreground mb-1`}>
       {name}
     </h3>
     <p className={`text-primary ${featured ? 'text-base' : 'text-sm'} font-medium`}>
@@ -101,28 +101,19 @@ const Leadership = () => {
       </section>
 
       {/* CEO - Top Level */}
-      <section className="py-16 bg-background relative overflow-hidden">
+      <section className="pt-20 pb-8 bg-background relative overflow-hidden">
         <SectionDecorations position="both" />
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-8">
-            <div className="relative inline-block">
-              <h2 className="hugo-subtitle text-2xl text-foreground">Executive Leadership</h2>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32">
-                <Scribble variant="underline" color="primary" className="opacity-50" />
-              </div>
-            </div>
-          </div>
-          
           <div className="flex justify-center">
-            <div className="max-w-sm">
+            <div className="max-w-md">
               <LeaderCard {...ceo} featured />
             </div>
           </div>
           
           {/* Connecting line */}
           <div className="flex justify-center mt-8">
-            <div className="w-px h-12 bg-primary/30" />
+            <div className="w-px h-16 bg-primary/30" />
           </div>
         </div>
       </section>
@@ -130,11 +121,7 @@ const Leadership = () => {
       {/* C-Suite - Second Level */}
       <section className="py-8 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-8">
-            <h3 className="text-lg font-medium text-muted-foreground">C-Suite & Vice President</h3>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {cSuite.map((leader, index) => (
               <LeaderCard key={index} {...leader} />
             ))}
@@ -142,7 +129,7 @@ const Leadership = () => {
           
           {/* Connecting line */}
           <div className="flex justify-center mt-8">
-            <div className="w-px h-12 bg-primary/30" />
+            <div className="w-px h-16 bg-primary/30" />
           </div>
         </div>
       </section>
@@ -150,10 +137,6 @@ const Leadership = () => {
       {/* Managers - Third Level */}
       <section className="py-8 pb-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-8">
-            <h3 className="text-lg font-medium text-muted-foreground">Management Team</h3>
-          </div>
-          
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {managers.map((leader, index) => (
               <LeaderCard key={index} {...leader} />
