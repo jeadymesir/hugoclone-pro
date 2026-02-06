@@ -80,7 +80,7 @@ const Leadership = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6 inline-block">
+            <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6">
               Our Team
             </div>
             <div className="relative inline-block">
