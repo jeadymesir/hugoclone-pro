@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { Scribble, FloatingElement, Sparkle, DecorativePlus, DecorativeDiamond } from '@/components/decorative/Scribbles';
+import anniversary30Logo from '@/assets/anniversary-30-years.png';
 
 export const HeroSection = () => {
   return (
@@ -34,13 +34,12 @@ export const HeroSection = () => {
         <div className="max-w-4xl">
           {/* Company name */}
           <AnimatedSection animation="fade-up">
-            <div className="flex flex-wrap items-center gap-4 mb-4">
-              <p className="text-lg md:text-xl text-foreground font-bold tracking-wide">
-                Rosheuvel & Partners Business Group N.V.
-              </p>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-gold-dark to-gold text-foreground text-sm font-bold rounded-full shadow-lg">
-                ✨ 30 Years of Excellence
-              </span>
+            <div className="flex flex-wrap items-center gap-6 mb-6">
+              <img 
+                src={anniversary30Logo} 
+                alt="30 Years of Excellence - Rosheuvel & Partners Business Group" 
+                className="h-24 md:h-32 w-auto"
+              />
             </div>
           </AnimatedSection>
           
