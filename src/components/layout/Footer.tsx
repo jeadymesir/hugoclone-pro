@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
+import logoWhite from '@/assets/logo-rpbg-white.png';
 
 const footerLinks = {
   services: [
@@ -46,7 +47,7 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-6">
-              <span className="font-heading text-3xl font-bold">rpbg</span>
+              <img src={logoWhite} alt="RPBG" className="h-12 w-auto" />
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
               Nearly three decades of expertise and global brand partnerships to support businesses in scaling, optimizing, and innovating.
