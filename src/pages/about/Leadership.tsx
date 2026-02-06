@@ -4,28 +4,92 @@ import { User, Linkedin, ArrowRight } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble } from '@/components/decorative/Scribbles';
 
-const leaders = [
+// CEO - Top level
+const ceo = {
+  name: 'Leadership Member',
+  role: 'Chief Executive Officer',
+  description: 'Leading RPBG\'s strategic vision and operations for 30 years.',
+};
+
+// C-Suite - Second level
+const cSuite = [
   {
-    name: 'Leadership Member 1',
-    role: 'Chief Executive Officer',
-    description: 'Leading RPBG\'s strategic vision and operations for nearly 30 years.',
-  },
-  {
-    name: 'Leadership Member 2',
-    role: 'Chief Technology Officer',
-    description: 'Driving technological innovation across all services.',
-  },
-  {
-    name: 'Leadership Member 3',
+    name: 'Leadership Member',
     role: 'Chief Operations Officer',
     description: 'Overseeing day-to-day operations and service delivery.',
   },
   {
-    name: 'Leadership Member 4',
+    name: 'Leadership Member',
     role: 'Chief Financial Officer',
     description: 'Managing financial strategy and business growth.',
   },
+  {
+    name: 'Leadership Member',
+    role: 'Vice President',
+    description: 'Supporting executive leadership and strategic initiatives.',
+  },
 ];
+
+// Managers - Third level
+const managers = [
+  {
+    name: 'Leadership Member',
+    role: 'Project Manager',
+    description: 'Leading project execution and client deliverables.',
+  },
+  {
+    name: 'Leadership Member',
+    role: 'Logistics Manager',
+    description: 'Managing supply chain and operational logistics.',
+  },
+  {
+    name: 'Leadership Member',
+    role: 'Sales Manager',
+    description: 'Driving sales strategy and client relationships.',
+  },
+  {
+    name: 'Leadership Member',
+    role: 'Development Manager',
+    description: 'Overseeing software development and technical teams.',
+  },
+  {
+    name: 'Leadership Member',
+    role: 'HR Manager',
+    description: 'Managing human resources and talent development.',
+  },
+];
+
+const LeaderCard = ({ name, role, description, featured = false }: { name: string; role: string; description: string; featured?: boolean }) => (
+  <div className={`bg-card rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative ${featured ? 'lg:col-span-1' : ''}`}>
+    {/* Hover scribble */}
+    <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+      <Scribble variant="star" color="primary" size="sm" />
+    </div>
+    
+    {/* Avatar */}
+    <div className={`${featured ? 'w-32 h-32' : 'w-24 h-24'} bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors`}>
+      <User className={`${featured ? 'w-16 h-16' : 'w-12 h-12'} text-primary group-hover:text-primary-foreground transition-colors`} />
+    </div>
+    
+    <h3 className={`font-heading font-semibold ${featured ? 'text-xl' : 'text-lg'} text-foreground mb-1`}>
+      {name}
+    </h3>
+    <p className={`text-primary ${featured ? 'text-base' : 'text-sm'} font-medium mb-4`}>
+      {role}
+    </p>
+    <p className="text-muted-foreground text-sm mb-6">
+      {description}
+    </p>
+    
+    {/* Social Link */}
+    <a
+      href="#"
+      className="inline-flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+    >
+      <Linkedin className="w-5 h-5" />
+    </a>
+  </div>
+);
 
 const Leadership = () => {
   return (
@@ -56,42 +120,63 @@ const Leadership = () => {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-background" style={{ clipPath: 'ellipse(70% 100% at 50% 100%)' }} />
       </section>
 
-      {/* Leadership Grid */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      {/* CEO - Top Level */}
+      <section className="py-16 bg-background relative overflow-hidden">
         <SectionDecorations position="both" />
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leaders.map((leader, index) => (
-              <div key={index} className="bg-card rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative">
-                {/* Hover scribble */}
-                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Scribble variant="star" color="primary" size="sm" />
-                </div>
-                
-                {/* Avatar */}
-                <div className="w-28 h-28 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors">
-                  <User className="w-14 h-14 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-1">
-                  {leader.name}
-                </h3>
-                <p className="text-primary text-sm font-medium mb-4">
-                  {leader.role}
-                </p>
-                <p className="text-muted-foreground text-sm mb-6">
-                  {leader.description}
-                </p>
-                
-                {/* Social Link */}
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
+          <div className="text-center mb-8">
+            <div className="relative inline-block">
+              <h2 className="hugo-subtitle text-2xl text-foreground">Executive Leadership</h2>
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32">
+                <Scribble variant="underline" color="primary" className="opacity-50" />
               </div>
+            </div>
+          </div>
+          
+          <div className="flex justify-center">
+            <div className="max-w-sm">
+              <LeaderCard {...ceo} featured />
+            </div>
+          </div>
+          
+          {/* Connecting line */}
+          <div className="flex justify-center mt-8">
+            <div className="w-px h-12 bg-primary/30" />
+          </div>
+        </div>
+      </section>
+
+      {/* C-Suite - Second Level */}
+      <section className="py-8 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-medium text-muted-foreground">C-Suite & Vice President</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {cSuite.map((leader, index) => (
+              <LeaderCard key={index} {...leader} />
+            ))}
+          </div>
+          
+          {/* Connecting line */}
+          <div className="flex justify-center mt-8">
+            <div className="w-px h-12 bg-primary/30" />
+          </div>
+        </div>
+      </section>
+
+      {/* Managers - Third Level */}
+      <section className="py-8 pb-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-medium text-muted-foreground">Management Team</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {managers.map((leader, index) => (
+              <LeaderCard key={index} {...leader} />
             ))}
           </div>
         </div>
