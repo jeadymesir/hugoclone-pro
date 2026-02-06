@@ -1,55 +1,31 @@
 import { AnimatedSection } from '@/components/AnimatedSection';
 
-// Import partner logos for certifications
-import ciscoLogo from '@/assets/partners/cisco.png';
-import microsoftLogo from '@/assets/partners/microsoft.png';
-import googleCloudLogo from '@/assets/partners/google-cloud.png';
-import fortinetLogo from '@/assets/partners/fortinet.png';
-import dellLogo from '@/assets/partners/dell.png';
-import lenovoLogo from '@/assets/partners/lenovo.png';
-import veeamLogo from '@/assets/partners/veeam.png';
-import odooLogo from '@/assets/partners/odoo.png';
+// Import certification badges
+import yeastarCert from '@/assets/certifications/yeastar.webp';
+import odooCert from '@/assets/certifications/odoo.webp';
+import comptiaSecurity from '@/assets/certifications/comptia-security.webp';
+import comptiaNetwork from '@/assets/certifications/comptia-network.webp';
 
 const certificates = [
   {
-    name: 'Cisco Certified Partner',
-    logo: ciscoLogo,
-    description: 'Authorized Cisco networking solutions provider for enterprise routing, switching, and security.',
+    name: 'CompTIA Security+ Certified',
+    logo: comptiaSecurity,
+    description: 'Industry-recognized cybersecurity certification validating core security skills and knowledge.',
   },
   {
-    name: 'Microsoft Gold Partner',
-    logo: microsoftLogo,
-    description: 'Microsoft 365 & Azure certified implementation partner with expertise in cloud solutions.',
+    name: 'CompTIA Network+ Certified',
+    logo: comptiaNetwork,
+    description: 'Professional certification for networking infrastructure and troubleshooting expertise.',
   },
   {
-    name: 'Fortinet Partner',
-    logo: fortinetLogo,
-    description: 'Certified FortiGate security solutions provider for next-gen firewall and threat protection.',
+    name: 'Yeastar Certified Technician',
+    logo: yeastarCert,
+    description: 'Certified expertise in Yeastar PBX systems, VoIP solutions, and unified communications.',
   },
   {
-    name: 'Google Cloud Partner',
-    logo: googleCloudLogo,
-    description: 'Google Workspace authorized reseller and cloud infrastructure specialist.',
-  },
-  {
-    name: 'Veeam ProPartner',
-    logo: veeamLogo,
-    description: 'Certified backup, disaster recovery, and data protection specialist.',
-  },
-  {
-    name: 'Odoo Gold Partner',
-    logo: odooLogo,
-    description: 'Official Odoo ERP implementation and customization partner.',
-  },
-  {
-    name: 'Dell Technologies Partner',
-    logo: dellLogo,
-    description: 'Authorized Dell hardware and enterprise solutions reseller.',
-  },
-  {
-    name: 'Lenovo Business Partner',
-    logo: lenovoLogo,
-    description: 'Certified Lenovo enterprise hardware and solutions provider.',
+    name: 'Odoo 16 Certified',
+    logo: odooCert,
+    description: 'Official Odoo ERP implementation, customization, and integration specialist.',
   },
 ];
 
@@ -63,7 +39,7 @@ export const CertificatesSection = () => {
             CERTIFIED    EXCELLENCE
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our partnerships and certifications ensure you receive the highest quality solutions and support from industry-leading vendors.
+            Our team holds industry-recognized certifications ensuring you receive expert solutions and support.
           </p>
         </AnimatedSection>
 
@@ -75,11 +51,11 @@ export const CertificatesSection = () => {
               delay={index * 100}
             >
               <div className="bg-card rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border/50 h-full flex flex-col">
-                <div className="w-full h-16 flex items-center justify-center mb-4">
+                <div className="w-full h-24 flex items-center justify-center mb-4">
                   <img
                     src={cert.logo}
                     alt={`${cert.name} certification`}
-                    className="max-h-14 max-w-[140px] object-contain"
+                    className="max-h-20 max-w-[160px] object-contain"
                   />
                 </div>
                 <h3 className="font-heading font-semibold text-lg mb-2 text-center">{cert.name}</h3>

@@ -157,7 +157,7 @@
   
   .hugo-marquee {
     @apply flex gap-8 items-center;
-    animation: hugo-marquee 30s linear infinite;
+    animation: hugo-marquee 20s linear infinite;
   }
   
   .hugo-marquee:hover {
@@ -166,7 +166,7 @@
   
   .hugo-marquee-reverse {
     @apply flex gap-8 items-center;
-    animation: hugo-marquee-reverse 35s linear infinite;
+    animation: hugo-marquee-reverse 22s linear infinite;
   }
   
   .hugo-marquee-reverse:hover {
