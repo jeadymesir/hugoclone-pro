@@ -1,12 +1,22 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { Scribble, FloatingElement, Sparkle, DecorativeDiamond } from '@/components/decorative/Scribbles';
 
 export const SuccessSection = () => {
   return (
     <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-32 bg-background" style={{ clipPath: 'ellipse(80% 100% at 50% 0%)' }} />
+      
+      {/* Floating elements */}
+      <FloatingElement className="top-40 right-20 hidden lg:block opacity-30">
+        <Scribble variant="circle" color="accent" size="lg" className="stroke-primary-foreground/20" />
+      </FloatingElement>
+      
+      <FloatingElement className="bottom-20 left-16 hidden lg:block opacity-40" style={{ animationDelay: '1s' }}>
+        <Sparkle className="w-10 h-10 text-primary-foreground/30" />
+      </FloatingElement>
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -19,9 +29,14 @@ export const SuccessSection = () => {
           
           <AnimatedSection animation="scale" delay={100}>
             {/* Large title - Hugo style */}
-            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-12 hugo-subtitle">
-              Your    Success
-            </h2>
+            <div className="relative inline-block">
+              <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-12 hugo-subtitle">
+                Your    Success
+              </h2>
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48">
+                <Scribble variant="wave" className="stroke-primary-foreground/30 w-full" />
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </div>
@@ -31,16 +46,29 @@ export const SuccessSection = () => {
 
 export const DeserveBetterSection = () => {
   return (
-    <section className="py-32 bg-background">
+    <section className="py-32 bg-background relative overflow-hidden">
+      {/* Floating decorative elements */}
+      <FloatingElement className="top-20 right-20 hidden lg:block" style={{ animationDelay: '0.5s' }}>
+        <DecorativeDiamond className="w-8 h-8" />
+      </FloatingElement>
+      
+      <FloatingElement className="bottom-32 right-1/3 hidden lg:block" style={{ animationDelay: '1.5s' }}>
+        <Scribble variant="star" color="muted" size="sm" />
+      </FloatingElement>
+      
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Title */}
           <AnimatedSection animation="fade-right">
-            <div>
+            <div className="relative">
               <h2 className="hugo-subtitle text-4xl md:text-5xl lg:text-6xl text-foreground mb-8">
                 You    deserve    better.
               </h2>
               <div className="w-24 h-1 bg-primary" />
+              {/* Scribble accent */}
+              <div className="absolute -top-8 -left-8 hidden lg:block">
+                <Scribble variant="circle" color="muted" size="lg" className="opacity-40" />
+              </div>
             </div>
           </AnimatedSection>
           

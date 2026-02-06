@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { Scribble, FloatingElement, DecorativePlus } from '@/components/decorative/Scribbles';
 
 const steps = [
   {
@@ -32,7 +33,16 @@ const steps = [
 
 export const StepsSection = () => {
   return (
-    <section className="py-32 bg-background">
+    <section className="py-32 bg-background relative overflow-hidden">
+      {/* Floating elements */}
+      <FloatingElement className="top-24 right-16 hidden lg:block">
+        <Scribble variant="circle" color="muted" size="md" />
+      </FloatingElement>
+      
+      <FloatingElement className="bottom-32 left-10 hidden xl:block" style={{ animationDelay: '1s' }}>
+        <DecorativePlus className="w-12 h-12" />
+      </FloatingElement>
+      
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header - Hugo style with arrow */}
         <AnimatedSection animation="fade-up">
@@ -40,9 +50,14 @@ export const StepsSection = () => {
             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
               <ArrowRight className="w-6 h-6 text-primary-foreground" />
             </div>
-            <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-              Launch    in    5    easy    steps
-            </h2>
+            <div className="relative">
+              <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                Launch    in    5    easy    steps
+              </h2>
+              <div className="absolute -bottom-3 left-0 w-40">
+                <Scribble variant="underline" color="primary" className="opacity-60" />
+              </div>
+            </div>
           </div>
         </AnimatedSection>
         
@@ -56,11 +71,15 @@ export const StepsSection = () => {
         <div className="space-y-0 border-t border-border">
           {steps.map((step, index) => (
             <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-              <div className="border-b border-border py-8 group hover:bg-muted/30 transition-colors px-4 -mx-4">
+              <div className="border-b border-border py-8 group hover:bg-muted/30 transition-colors px-4 -mx-4 relative">
                 <div className="flex gap-8">
                   {/* Number */}
-                  <div className="hugo-step-number">
+                  <div className="hugo-step-number relative">
                     {step.number}.
+                    {/* Scribble circle around number on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity -m-4">
+                      <Scribble variant="circle" color="primary" size="lg" className="opacity-30" />
+                    </div>
                   </div>
                   
                   {/* Content */}
@@ -80,11 +99,12 @@ export const StepsSection = () => {
         
         {/* CTA */}
         <AnimatedSection animation="fade-up" delay={500}>
-          <div className="mt-12">
+          <div className="mt-12 flex items-center gap-4">
             <Link to="/contact" className="hugo-cta">
               Book a Meeting
               <ArrowRight className="w-5 h-5 hugo-arrow" />
             </Link>
+            <Scribble variant="arrow" color="muted" className="w-12 h-6 hidden md:block" />
           </div>
         </AnimatedSection>
       </div>
