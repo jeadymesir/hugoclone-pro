@@ -16,6 +16,7 @@ import Trainings from "./pages/services/Trainings";
 import Leadership from "./pages/about/Leadership";
 import Testimonials from "./pages/about/Testimonials";
 import BankDetails from "./pages/BankDetails";
+import TermsConditions from "./pages/TermsConditions";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -52,6 +53,7 @@ const App = () => (
           
           {/* Bank Details */}
           <Route path="/bank-details" element={<BankDetails />} />
+          <Route path="/terms-conditions" element={<TermsConditions />} />
           
           {/* Careers */}
           <Route path="/careers" element={<Careers />} />

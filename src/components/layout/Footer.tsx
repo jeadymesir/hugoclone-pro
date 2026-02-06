@@ -19,6 +19,7 @@ const footerLinks = {
   ],
   resources: [
     { name: 'Bank Details', path: '/bank-details' },
+    { name: 'Terms & Conditions', path: '/terms-conditions' },
   ],
 };
 
