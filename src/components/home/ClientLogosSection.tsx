@@ -28,13 +28,17 @@ import paragroupLogo from '@/assets/clients/paragroup.webp';
 import oxygenLogo from '@/assets/clients/oxygen.webp';
 import mcdonaldsLogo from '@/assets/clients/mcdonalds.webp';
 import kingsLogo from '@/assets/clients/kings.webp';
+import kerstenLogo from '@/assets/clients/kersten.webp';
+import bgvsLogo from '@/assets/clients/bgvs.webp';
+import assuriaRealLogo from '@/assets/clients/assuria-real.webp';
+import alemboLogo from '@/assets/clients/alembo.webp';
+import taxi1660Logo from '@/assets/clients/taxi1660.webp';
 
 // Previous client logos
 import staatslogieLogo from '@/assets/clients/staatsolie.png';
 import telesurLogo from '@/assets/clients/telesur.png';
 import dsbLogo from '@/assets/clients/dsb.png';
 import hakrinbankLogo from '@/assets/clients/hakrinbank.png';
-import assuriaLogo from '@/assets/clients/assuria.png';
 import surmedLogo from '@/assets/clients/surmed.png';
 import ebsLogo from '@/assets/clients/ebs.png';
 import swmLogo from '@/assets/clients/swm.png';
@@ -62,6 +66,11 @@ const techPartners = [
 ];
 
 const clients = [
+  { name: 'Kersten Distribution', logo: kerstenLogo },
+  { name: 'BGVS', logo: bgvsLogo },
+  { name: 'Assuria', logo: assuriaRealLogo },
+  { name: 'Alembo', logo: alemboLogo },
+  { name: 'Taxi 1660', logo: taxi1660Logo },
   { name: 'VCB Bank', logo: vcbbankLogo },
   { name: 'Sieng Sieng', logo: siengsiengLogo },
   { name: 'Self Reliance', logo: selfrelianceLogo },
@@ -76,7 +85,6 @@ const clients = [
   { name: 'Telesur', logo: telesurLogo },
   { name: 'De Surinaamsche Bank', logo: dsbLogo },
   { name: 'Hakrinbank', logo: hakrinbankLogo },
-  { name: 'Assuria', logo: assuriaLogo },
   { name: 'SURMED', logo: surmedLogo },
   { name: 'EBS', logo: ebsLogo },
   { name: 'SWM', logo: swmLogo },
