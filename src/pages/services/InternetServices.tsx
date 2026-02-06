@@ -14,7 +14,6 @@ const packages = [
     name: 'Classic',
     color: 'bg-emerald-500',
     features: ['Unlimited internet', 'Download: 20 Mbps', 'Upload: 10 Mbps', 'Up to 9 devices'],
-    popular: true,
   },
   {
     name: 'Premium',
@@ -76,20 +75,12 @@ const InternetServices = () => {
             {packages.map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 relative group ${
-                  pkg.popular ? 'ring-2 ring-primary' : ''
-                }`}
+                className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 relative group"
               >
                 {/* Hover scribble */}
                 <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
                   <Scribble variant="star" color="primary" size="sm" />
                 </div>
-                
-                {pkg.popular && (
-                  <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-medium">
-                    Most Popular
-                  </div>
-                )}
                 
                 <div className={`${pkg.color} py-8 px-6 text-center text-white`}>
                   <h3 className="font-heading text-3xl font-bold">{pkg.name}</h3>
@@ -107,7 +98,7 @@ const InternetServices = () => {
                     ))}
                   </ul>
                   <a 
-                    href="https://forms.gle/FzruoyneUgkGQGEV9" 
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScLRwoFjK5Bx9NNqWiZQNWNf2OWzytbXSNjyUDBO_cvCGQa5Q/viewform" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="hugo-cta w-full justify-center text-sm"
