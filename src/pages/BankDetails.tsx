@@ -13,7 +13,6 @@ const bankAccounts = [
     accountNumberSRD: '01509.78922',
     accountNumberUSD: '01971.14985',
     accountNumberEUR: '01974.44322',
-    logo: '🏦',
   },
   {
     id: 2,
@@ -22,7 +21,6 @@ const bankAccounts = [
     accountNumberSRD: '32.11.746',
     accountNumberUSD: '32.11.789',
     accountNumberEUR: '32.11.797',
-    logo: '🏛️',
   },
   {
     id: 3,
@@ -31,7 +29,6 @@ const bankAccounts = [
     accountNumberSRD: '1.000.160.993',
     accountNumberUSD: '1.000.161.973',
     accountNumberEUR: '1.000.438.312',
-    logo: '💳',
   },
 ];
 
@@ -87,14 +84,9 @@ const BankDetails = () => {
                   <Scribble variant="star" color="primary" size="sm" />
                 </div>
                 
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">
-                    {account.logo}
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-lg">{account.bankName}</h3>
-                    <p className="text-sm text-muted-foreground">SRD / USD / EUR</p>
-                  </div>
+                <div className="mb-6">
+                  <h3 className="font-heading font-bold text-lg">{account.bankName}</h3>
+                  <p className="text-sm text-muted-foreground">SRD / USD / EUR</p>
                 </div>
 
                 <div className="space-y-4">
@@ -164,39 +156,6 @@ const BankDetails = () => {
             ))}
           </div>
 
-          {/* Payment Instructions */}
-          <div className="mt-16 bg-primary/5 rounded-2xl p-8 lg:p-12 relative">
-            <div className="absolute -top-4 -right-4 hidden md:block">
-              <Scribble variant="circle" color="muted" size="md" className="opacity-40" />
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <CreditCard className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-heading text-xl font-bold mb-4">Payment Instructions</h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">1.</span>
-                    <span>Always include your invoice number as the payment reference.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">2.</span>
-                    <span>For international transfers, ensure you use the correct SWIFT code.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">3.</span>
-                    <span>Send payment confirmation to <a href="mailto:finance@rpbg.net" className="text-primary hover:underline">finance@rpbg.net</a>.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">4.</span>
-                    <span>For payment inquiries, contact our finance department at +597 433932.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </Layout>
