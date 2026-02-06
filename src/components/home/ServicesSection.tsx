@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Monitor, Wifi, Lightbulb, Briefcase, Package, GraduationCap } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
 
 const services = [
   {
@@ -43,18 +44,33 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-32 bg-background relative">
+    <section className="py-32 bg-background relative overflow-hidden">
       {/* Hugo-style dashed curve decorations */}
       <div className="absolute top-20 right-0 w-64 h-64 border-r-2 border-t-2 border-dashed border-border rounded-tr-full opacity-30" />
       <div className="absolute bottom-20 left-0 w-48 h-48 border-l-2 border-b-2 border-dashed border-border rounded-bl-full opacity-30" />
       
+      {/* Floating scribbles */}
+      <FloatingElement className="top-32 left-20 hidden xl:block" style={{ animationDelay: '0.5s' }}>
+        <Scribble variant="spiral" color="muted" size="md" />
+      </FloatingElement>
+      
+      <FloatingElement className="bottom-40 right-32 hidden lg:block" style={{ animationDelay: '1s' }}>
+        <Sparkle className="w-8 h-8" />
+      </FloatingElement>
+      
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header - Hugo style */}
         <AnimatedSection animation="fade-up" className="text-center mb-20">
-          <h2 className="hugo-subtitle text-4xl md:text-5xl text-foreground mb-6">
-            +    More    Growth,    Less    Risk
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="relative inline-block">
+            <h2 className="hugo-subtitle text-4xl md:text-5xl text-foreground mb-6">
+              +    More    Growth,    Less    Risk
+            </h2>
+            {/* Underline scribble */}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56">
+              <Scribble variant="underline" color="primary" />
+            </div>
+          </div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-8">
             Focus on growth, we'll take care of the many small tasks that make the difference between awesome and awful.
           </p>
         </AnimatedSection>

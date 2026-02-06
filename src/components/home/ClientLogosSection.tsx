@@ -1,4 +1,5 @@
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
 
 // Technology partner logos with imports
 import ciscoLogo from '@/assets/partners/cisco.png';
@@ -96,15 +97,29 @@ const clients = [
 
 export const ClientLogosSection = () => {
   return (
-    <section className="py-24 bg-background overflow-hidden">
+    <section className="py-24 bg-background overflow-hidden relative">
+      {/* Floating decorative elements */}
+      <FloatingElement className="top-16 left-20 hidden xl:block">
+        <Scribble variant="spiral" color="muted" size="md" />
+      </FloatingElement>
+      
+      <FloatingElement className="bottom-32 right-24 hidden lg:block" style={{ animationDelay: '1s' }}>
+        <Sparkle className="w-8 h-8" />
+      </FloatingElement>
+      
       <div className="container mx-auto px-6 lg:px-12">
         {/* Technology Partners Section */}
         <AnimatedSection animation="fade-up" className="text-center mb-12">
           <span className="hugo-tag mb-4 inline-block">Technology Partners</span>
-          <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-4">
-            We    partner    with    technology    leaders
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="relative inline-block">
+            <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-4">
+              We    partner    with    technology    leaders
+            </h2>
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-48">
+              <Scribble variant="underline" color="primary" className="opacity-60" />
+            </div>
+          </div>
+          <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
             Official partnerships with the world's leading technology vendors ensure you receive certified solutions and expert support.
           </p>
         </AnimatedSection>

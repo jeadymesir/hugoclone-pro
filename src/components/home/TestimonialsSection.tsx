@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { Scribble, FloatingElement, DecorativeDiamond } from '@/components/decorative/Scribbles';
 
 const testimonials = [
   {
@@ -35,12 +36,26 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24 bg-muted/30 relative overflow-hidden">
+      {/* Floating decorative elements */}
+      <FloatingElement className="top-20 right-20 hidden lg:block">
+        <Scribble variant="circle" color="muted" size="lg" />
+      </FloatingElement>
+      
+      <FloatingElement className="bottom-24 left-16 hidden lg:block" style={{ animationDelay: '1.5s' }}>
+        <DecorativeDiamond className="w-8 h-8" />
+      </FloatingElement>
+      
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection animation="scale">
             {/* Testimonial Card */}
             <div className="hugo-testimonial relative">
+              {/* Scribble accent */}
+              <div className="absolute -top-8 -left-8 hidden md:block">
+                <Scribble variant="spiral" color="muted" size="md" className="opacity-40" />
+              </div>
+              
               {/* Company logo placeholder */}
               <div className="mb-8">
                 <span className="font-heading font-bold text-2xl text-primary">
