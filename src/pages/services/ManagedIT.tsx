@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Network, Phone, Shield, Server } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble } from '@/components/decorative/Scribbles';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const sections = [
   {
@@ -48,22 +49,28 @@ const ManagedIT = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
-                Services
+            <AnimatedSection animation="fade-up">
+              <div className="flex justify-center mb-6">
+                <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
+                  Services
+                </div>
               </div>
-            </div>
-            <div className="relative inline-block">
-              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-                Managed    IT    Services    (MSP)
-              </h1>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 opacity-40">
-                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="relative inline-block">
+                <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                  Managed    IT    Services    (MSP)
+                </h1>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 opacity-40">
+                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
+                </div>
               </div>
-            </div>
-            <p className="text-xl text-primary-foreground/80 leading-relaxed mt-4">
-              From the original discipline of systems management for internal operations, RPBG has broadened the scope to offer various MSP services to clients.
-            </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={200}>
+              <p className="text-xl text-primary-foreground/80 leading-relaxed mt-4">
+                From the original discipline of systems management for internal operations, RPBG has broadened the scope to offer various MSP services to clients.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
         

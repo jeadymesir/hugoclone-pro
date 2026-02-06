@@ -1,9 +1,10 @@
 import { Layout } from '@/components/layout/Layout';
-import { Building2, CreditCard, Copy, Check } from 'lucide-react';
+import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble } from '@/components/decorative/Scribbles';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const bankAccounts = [
   {
@@ -48,22 +49,30 @@ const BankDetails = () => {
         <PageDecorations variant="default" />
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-              Payment Information
-            </span>
-            <div className="relative inline-block">
-              <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                Bank Details
-              </h1>
-              <div className="absolute -bottom-2 left-0 w-40">
-                <Scribble variant="underline" color="primary" />
+          <div className="max-w-3xl mx-auto text-center">
+            <AnimatedSection animation="fade-up">
+              <div className="flex justify-center mb-6">
+                <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                  Payment Information
+                </span>
               </div>
-            </div>
-            <p className="text-xl text-muted-foreground leading-relaxed mt-4">
-              Use the following bank account details to make payments for our services. 
-              Please include your invoice number as the payment reference.
-            </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="relative inline-block">
+                <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
+                  Bank Details
+                </h1>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40">
+                  <Scribble variant="underline" color="primary" />
+                </div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={200}>
+              <p className="text-xl text-muted-foreground leading-relaxed mt-4">
+                Use the following bank account details to make payments for our services. 
+                Please include your invoice number as the payment reference.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
       </section>
