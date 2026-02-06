@@ -19,9 +19,7 @@ export const SuccessSection = () => {
           
           <AnimatedSection animation="scale" delay={100}>
             {/* Large title - Hugo style */}
-            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-12 hugo-subtitle">
-              Your    Success
-            </h2>
+            
           </AnimatedSection>
         </div>
       </div>
@@ -43,7 +41,7 @@ export const DeserveBetterSection = () => {
           
           {/* Right - Content */}
           <AnimatedSection animation="fade-left" delay={200}>
-            <div />
+            
           </AnimatedSection>
         </div>
       </div>
