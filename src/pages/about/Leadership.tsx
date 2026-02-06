@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { User, ArrowRight } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble } from '@/components/decorative/Scribbles';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 // CEO - Top level
 const ceo = {
@@ -80,22 +81,28 @@ const Leadership = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
-                Our Team
+            <AnimatedSection animation="fade-up">
+              <div className="flex justify-center mb-6">
+                <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
+                  Our Team
+                </div>
               </div>
-            </div>
-            <div className="relative inline-block">
-              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-                Leadership    Team
-              </h1>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
-                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="relative inline-block">
+                <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                  Leadership    Team
+                </h1>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
+                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
+                </div>
               </div>
-            </div>
-            <p className="text-xl text-primary-foreground/80 mt-4">
-              Meet the experienced professionals leading RPBG into the future.
-            </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={200}>
+              <p className="text-xl text-primary-foreground/80 mt-4">
+                Meet the experienced professionals leading RPBG into the future.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
         

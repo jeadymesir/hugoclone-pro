@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Calculator, Wallet } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble } from '@/components/decorative/Scribbles';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const sections = [
   {
@@ -41,25 +42,31 @@ const BusinessServices = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
-                Business Services
+            <AnimatedSection animation="fade-up">
+              <div className="flex justify-center mb-6">
+                <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
+                  Business Services
+                </div>
               </div>
-            </div>
-            <div className="relative inline-block">
-              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-                Managed    Business    Services
-              </h1>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 opacity-40">
-                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="relative inline-block">
+                <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                  Managed    Business    Services
+                </h1>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 opacity-40">
+                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
+                </div>
               </div>
-            </div>
-            <p className="text-xl text-primary-foreground/90 font-medium mb-4 mt-4">
-              We handle your critical operations—so you can focus on what moves your business forward.
-            </p>
-            <p className="text-primary-foreground/70">
-              RPBG's Managed Business Services take the weight of financial administration and payroll processing off your shoulders—applying the same rigor we bring to cybersecurity and IT infrastructure to your most sensitive business operations.
-            </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={200}>
+              <p className="text-xl text-primary-foreground/90 font-medium mb-4 mt-4">
+                We handle your critical operations—so you can focus on what moves your business forward.
+              </p>
+              <p className="text-primary-foreground/70">
+                RPBG's Managed Business Services take the weight of financial administration and payroll processing off your shoulders—applying the same rigor we bring to cybersecurity and IT infrastructure to your most sensitive business operations.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
         

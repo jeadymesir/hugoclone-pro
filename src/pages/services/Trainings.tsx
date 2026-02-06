@@ -2,6 +2,7 @@ import { Layout } from '@/components/layout/Layout';
 import { ArrowRight, Monitor, Users, Wrench } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const trainingFormats = [
   {
@@ -107,25 +108,31 @@ const Trainings = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
-                Training
+            <AnimatedSection animation="fade-up">
+              <div className="flex justify-center mb-6">
+                <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
+                  Training
+                </div>
               </div>
-            </div>
-            <div className="relative inline-block">
-              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-                Trainings    Designed    For    YOUR    Success
-              </h1>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 opacity-40">
-                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="relative inline-block">
+                <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                  Trainings    Designed    For    YOUR    Success
+                </h1>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 opacity-40">
+                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
+                </div>
               </div>
-            </div>
-            <p className="text-xl text-primary-foreground/80 mb-4 mt-4">
-              The greatest investment a company can make is in its people.
-            </p>
-            <p className="text-primary-foreground/70">
-              Generic training programs often miss the mark, delivering outdated content that doesn't align with your specific challenges or strategic goals. RPBG's Tailor-Made Training Solutions change that. We don't just teach theory—we immerse your team in practical, relevant, and engaging courses, covering everything from complex ICT infrastructure and security to vital non-ICT leadership and soft skills.
-            </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={200}>
+              <p className="text-xl text-primary-foreground/80 mb-4 mt-4">
+                The greatest investment a company can make is in its people.
+              </p>
+              <p className="text-primary-foreground/70">
+                Generic training programs often miss the mark, delivering outdated content that doesn't align with your specific challenges or strategic goals. RPBG's Tailor-Made Training Solutions change that. We don't just teach theory—we immerse your team in practical, relevant, and engaging courses, covering everything from complex ICT infrastructure and security to vital non-ICT leadership and soft skills.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
         
