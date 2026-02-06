@@ -32,8 +32,15 @@ export const HeroSection = () => {
       
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl">
-          {/* Tagline - Hugo style */}
+          {/* Company name */}
           <AnimatedSection animation="fade-up">
+            <p className="text-sm md:text-base text-muted-foreground font-medium tracking-wide mb-4">
+              Rosheuvel & Partners Business Group N.V.
+            </p>
+          </AnimatedSection>
+          
+          {/* Tagline - Hugo style */}
+          <AnimatedSection animation="fade-up" delay={50}>
             <div className="hugo-tag mb-8">
               Strategic Technology Solutions
             </div>
