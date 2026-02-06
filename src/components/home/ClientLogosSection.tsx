@@ -157,12 +157,12 @@ export const ClientLogosSection = () => {
               {[...clients, ...clients].map((client, index) => (
                 <div
                   key={`${client.name}-${index}`}
-                  className="flex-shrink-0 px-6 py-4 bg-card rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/30 flex items-center justify-center min-w-[180px] h-24"
+                  className="flex-shrink-0 px-8 py-6 bg-card rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/30 flex items-center justify-center min-w-[220px] h-32"
                 >
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
-                    className="max-h-16 max-w-[140px] object-contain"
+                    className="max-h-24 max-w-[180px] object-contain"
                   />
                 </div>
               ))}
