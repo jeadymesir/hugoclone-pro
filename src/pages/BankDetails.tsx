@@ -8,32 +8,29 @@ import { Scribble } from '@/components/decorative/Scribbles';
 const bankAccounts = [
   {
     id: 1,
-    bankName: 'De Surinaamsche Bank N.V.',
+    bankName: 'Republic Bank Suriname (RBS)',
     accountName: 'Rosheuvel & Partners Business Group N.V.',
-    accountNumber: 'SRD: 100.xxx.xxx',
-    accountNumberUSD: 'USD: 200.xxx.xxx',
-    swiftCode: 'SABORSR',
-    currency: 'SRD / USD',
+    accountNumberSRD: '01509.78922',
+    accountNumberUSD: '01971.14985',
+    accountNumberEUR: '01974.44322',
     logo: '🏦',
   },
   {
     id: 2,
-    bankName: 'Hakrinbank N.V.',
+    bankName: 'De Surinaamsche Bank (DSB)',
     accountName: 'Rosheuvel & Partners Business Group N.V.',
-    accountNumber: 'SRD: 300.xxx.xxx',
-    accountNumberUSD: 'USD: 400.xxx.xxx',
-    swiftCode: 'HAKRSR22',
-    currency: 'SRD / USD',
+    accountNumberSRD: '32.11.746',
+    accountNumberUSD: '32.11.789',
+    accountNumberEUR: '32.11.797',
     logo: '🏛️',
   },
   {
     id: 3,
     bankName: 'Finabank N.V.',
     accountName: 'Rosheuvel & Partners Business Group N.V.',
-    accountNumber: 'SRD: 500.xxx.xxx',
-    accountNumberUSD: 'EUR: 600.xxx.xxx',
-    swiftCode: 'FABORSR',
-    currency: 'SRD / EUR',
+    accountNumberSRD: '1.000.160.993',
+    accountNumberUSD: '1.000.161.973',
+    accountNumberEUR: '1.000.438.312',
     logo: '💳',
   },
 ];
@@ -96,7 +93,7 @@ const BankDetails = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-lg">{account.bankName}</h3>
-                    <p className="text-sm text-muted-foreground">{account.currency}</p>
+                    <p className="text-sm text-muted-foreground">SRD / USD / EUR</p>
                   </div>
                 </div>
 
@@ -107,17 +104,17 @@ const BankDetails = () => {
                   </div>
 
                   <div>
-                    <p className="text-sm text-muted-foreground mb-1">Account Number</p>
+                    <p className="text-sm text-muted-foreground mb-1">SRD Account</p>
                     <div className="flex items-center justify-between gap-2">
-                      <p className="font-mono font-medium">{account.accountNumber}</p>
+                      <p className="font-mono font-medium">{account.accountNumberSRD}</p>
                       <Button
                         variant="ghost"
                         size="icon"
                         className="h-8 w-8"
-                        onClick={() => copyToClipboard(account.accountNumber, `${account.id}-srd`)}
+                        onClick={() => copyToClipboard(account.accountNumberSRD, `${account.id}-srd`)}
                       >
                         {copiedId === `${account.id}-srd` ? (
-                          <Check className="h-4 w-4 text-green-500" />
+                          <Check className="h-4 w-4 text-primary" />
                         ) : (
                           <Copy className="h-4 w-4" />
                         )}
@@ -126,7 +123,7 @@ const BankDetails = () => {
                   </div>
 
                   <div>
-                    <p className="text-sm text-muted-foreground mb-1">Foreign Currency Account</p>
+                    <p className="text-sm text-muted-foreground mb-1">USD Account</p>
                     <div className="flex items-center justify-between gap-2">
                       <p className="font-mono font-medium">{account.accountNumberUSD}</p>
                       <Button
@@ -136,7 +133,7 @@ const BankDetails = () => {
                         onClick={() => copyToClipboard(account.accountNumberUSD, `${account.id}-usd`)}
                       >
                         {copiedId === `${account.id}-usd` ? (
-                          <Check className="h-4 w-4 text-green-500" />
+                          <Check className="h-4 w-4 text-primary" />
                         ) : (
                           <Copy className="h-4 w-4" />
                         )}
@@ -145,17 +142,17 @@ const BankDetails = () => {
                   </div>
 
                   <div>
-                    <p className="text-sm text-muted-foreground mb-1">SWIFT Code</p>
+                    <p className="text-sm text-muted-foreground mb-1">EUR Account</p>
                     <div className="flex items-center justify-between gap-2">
-                      <p className="font-mono font-medium">{account.swiftCode}</p>
+                      <p className="font-mono font-medium">{account.accountNumberEUR}</p>
                       <Button
                         variant="ghost"
                         size="icon"
                         className="h-8 w-8"
-                        onClick={() => copyToClipboard(account.swiftCode, `${account.id}-swift`)}
+                        onClick={() => copyToClipboard(account.accountNumberEUR, `${account.id}-eur`)}
                       >
-                        {copiedId === `${account.id}-swift` ? (
-                          <Check className="h-4 w-4 text-green-500" />
+                        {copiedId === `${account.id}-eur` ? (
+                          <Check className="h-4 w-4 text-primary" />
                         ) : (
                           <Copy className="h-4 w-4" />
                         )}
