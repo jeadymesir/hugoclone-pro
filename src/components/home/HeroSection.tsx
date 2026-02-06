@@ -33,9 +33,10 @@ export const HeroSection = () => {
         <div className="max-w-4xl">
           {/* Tagline - Hugo style */}
           <AnimatedSection animation="fade-up">
-            <div className="hugo-tag mb-8">
-              Strategic Technology Solutions
+            <div className="hugo-tag mb-4">
+              Rosheuvel & Partners Business Group N.V.
             </div>
+            <p className="text-sm text-muted-foreground mb-6 tracking-wide">Strategic Technology Solutions</p>
           </AnimatedSection>
           
           {/* Main headline - Hugo spaced style */}

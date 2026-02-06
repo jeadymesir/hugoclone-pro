@@ -18,8 +18,9 @@ export const SuccessSection = () => {
           </AnimatedSection>
           
           <AnimatedSection animation="scale" delay={100}>
-            {/* Large title - Hugo style */}
-            
+            <h2 className="hugo-title text-4xl md:text-5xl lg:text-6xl font-bold">
+              Your    success    is    our    mission
+            </h2>
           </AnimatedSection>
         </div>
       </div>
@@ -41,7 +42,18 @@ export const DeserveBetterSection = () => {
           
           {/* Right - Content */}
           <AnimatedSection animation="fade-left" delay={200}>
-            
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                After nearly three decades of helping businesses transform, we know what holds companies back—and how to move them forward.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Partner with a team that understands your challenges and delivers solutions that actually work.
+              </p>
+              <Link to="/contact" className="hugo-cta inline-flex">
+                Let's talk
+                <ArrowRight className="w-5 h-5 hugo-arrow" />
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </div>
