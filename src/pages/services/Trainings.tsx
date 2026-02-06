@@ -24,53 +24,76 @@ const trainingFormats = [
   },
 ];
 
-const trainingCategories = [
+interface TrainingItem {
+  name: string;
+  basic?: string;
+  intermediate?: string;
+  advance?: string;
+  single?: string;
+  contact?: boolean;
+}
+
+interface TrainingCategory {
+  title: string;
+  icon: string;
+  trainings: TrainingItem[];
+}
+
+const trainingCategories: TrainingCategory[] = [
   {
-    title: 'Microsoft Office Trainings',
-    courses: [
-      { name: 'MS Project', levels: 'Basic / Intermediate', price: '$75,- / $100,-' },
-      { name: 'MS Word / Excel / Powerpoint / Outlook', levels: 'Basic / Intermediate / Advance', price: '$35,- / $45,- / $50,-' },
-      { name: 'MS Power BI', levels: 'Basic / Intermediate / Advance', price: '$90,- / $120,- / $150,-' },
+    title: 'Microsoft Office',
+    icon: '💼',
+    trainings: [
+      { name: 'MS Project', basic: '$75,-', intermediate: '$100,-' },
+      { name: 'MS Word', basic: '$35,-', intermediate: '$45,-', advance: '$50,-' },
+      { name: 'MS Excel', basic: '$35,-', intermediate: '$45,-', advance: '$50,-' },
+      { name: 'MS PowerPoint', basic: '$35,-', intermediate: '$45,-', advance: '$50,-' },
+      { name: 'MS Outlook', basic: '$35,-', intermediate: '$45,-', advance: '$50,-' },
+      { name: 'MS Power BI', basic: '$90,-', intermediate: '$120,-', advance: '$150,-' },
     ],
   },
   {
-    title: 'Technical & ICT Trainings',
-    courses: [
-      { name: 'AutoCAD 2D', price: '$100,-' },
-      { name: 'AutoCAD 2D+', price: '$115,-' },
-      { name: 'AutoCAD 3D', price: '$125,-' },
-      { name: 'AutoCAD 3D Plant', price: '$125,-' },
-      { name: 'Network management & security', price: '$150,-' },
-      { name: 'A+ PC Technician', price: '$125,-' },
-      { name: 'A+ PC Technician for Youth', price: '$65,-' },
-      { name: 'Cybersecurity (level 1 / 2 / 3)', price: 'Contact our team' },
-      { name: 'ISO27001 (level 1 / 2 / 3)', price: 'Contact our team' },
+    title: 'Technical & ICT',
+    icon: '🖥️',
+    trainings: [
+      { name: 'AutoCAD 2D', single: '$100,-' },
+      { name: 'AutoCAD 2D+', single: '$115,-' },
+      { name: 'AutoCAD 3D', single: '$125,-' },
+      { name: 'AutoCAD 3D Plant', single: '$125,-' },
+      { name: 'Network Management & Security', single: '$150,-' },
+      { name: 'A+ PC Technician', single: '$125,-' },
+      { name: 'A+ PC Technician for Youth', single: '$65,-' },
+      { name: 'Cybersecurity (Level 1/2/3)', contact: true },
+      { name: 'ISO27001 (Level 1/2/3)', contact: true },
     ],
   },
   {
-    title: 'Operating System Training',
-    courses: [
-      { name: 'Computer Skills', price: '$35,-' },
+    title: 'Operating Systems',
+    icon: '⚙️',
+    trainings: [
+      { name: 'Computer Skills', single: '$35,-' },
     ],
   },
   {
-    title: 'Graphic Design Trainings',
-    courses: [
-      { name: 'Adobe Photoshop', levels: 'Basic / Intermediate / Advance', price: '$70,- / $100,- / $120,-' },
-      { name: 'Adobe Premiere Pro', levels: 'Basic / Intermediate', price: '$70,- / $100,-' },
-      { name: 'Adobe Illustrator', levels: 'Basic / Intermediate', price: '$70,- / $100,-' },
-      { name: 'Webdesign', levels: 'Basic / Intermediate', price: '$70,- / $100,-' },
-      { name: 'Basic Graphic Design', price: '$120,-' },
+    title: 'Graphic Design',
+    icon: '🎨',
+    trainings: [
+      { name: 'Adobe Photoshop', basic: '$70,-', intermediate: '$100,-', advance: '$120,-' },
+      { name: 'Adobe Premiere Pro', basic: '$70,-', intermediate: '$100,-' },
+      { name: 'Adobe Illustrator', basic: '$70,-', intermediate: '$100,-' },
+      { name: 'Webdesign', basic: '$70,-', intermediate: '$100,-' },
+      { name: 'Basic Graphic Design', single: '$120,-' },
     ],
   },
   {
-    title: 'Non-ICT Trainings',
-    courses: [
-      { name: 'Customer Service excellence', price: '$120,-' },
-      { name: 'Time management', price: '$120,-' },
-      { name: 'Project management', price: '$120,-' },
-      { name: 'Effective communication', price: '$120,-' },
-      { name: 'Leadership', price: '$120,-' },
+    title: 'Professional Skills',
+    icon: '📈',
+    trainings: [
+      { name: 'Customer Service Excellence', single: '$120,-' },
+      { name: 'Time Management', single: '$120,-' },
+      { name: 'Project Management', single: '$120,-' },
+      { name: 'Effective Communication', single: '$120,-' },
+      { name: 'Leadership', single: '$120,-' },
     ],
   },
 ];
@@ -164,35 +187,98 @@ const Trainings = () => {
         </div>
       </section>
 
-      {/* Training Categories */}
+      {/* Training Categories - Redesigned */}
       <section className="py-24 bg-background relative overflow-hidden">
         <SectionDecorations position="both" />
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <div className="relative inline-block">
+              <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                Training    Catalog    &    Pricing
+              </h2>
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-48">
+                <Scribble variant="underline" color="primary" />
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-12">
             {trainingCategories.map((category, index) => (
-              <div key={index} className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all group relative">
+              <div key={index} className="bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group relative">
                 {/* Hover scribble */}
-                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
                   <Scribble variant="star" color="primary" size="sm" />
                 </div>
                 
-                <h3 className="font-heading font-semibold text-xl text-foreground mb-6 pb-4 border-b border-border">
-                  {category.title}
-                </h3>
+                {/* Category Header */}
+                <div className="bg-primary/5 px-8 py-5 border-b border-border">
+                  <h3 className="font-heading font-bold text-xl text-foreground flex items-center gap-3">
+                    <span className="text-2xl">{category.icon}</span>
+                    {category.title}
+                  </h3>
+                </div>
                 
-                <div className="space-y-4">
-                  {category.courses.map((course, i) => (
-                    <div key={i} className="flex justify-between items-start gap-4">
-                      <div className="flex-1">
-                        <p className="text-foreground font-medium text-sm">{course.name}</p>
-                        {course.levels && (
-                          <p className="text-muted-foreground text-xs mt-1">{course.levels}</p>
-                        )}
-                      </div>
-                      <p className="text-primary font-semibold text-sm whitespace-nowrap">{course.price}</p>
-                    </div>
-                  ))}
+                {/* Pricing Table */}
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-border bg-muted/30">
+                        <th className="text-left py-4 px-8 font-semibold text-foreground">Training</th>
+                        <th className="text-center py-4 px-4 font-semibold text-foreground min-w-[100px]">Basic</th>
+                        <th className="text-center py-4 px-4 font-semibold text-foreground min-w-[100px]">Intermediate</th>
+                        <th className="text-center py-4 px-4 font-semibold text-foreground min-w-[100px]">Advanced</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {category.trainings.map((training, i) => (
+                        <tr key={i} className="border-b border-border/50 hover:bg-muted/20 transition-colors">
+                          <td className="py-4 px-8 font-medium text-foreground">{training.name}</td>
+                          {training.contact ? (
+                            <td colSpan={3} className="py-4 px-4 text-center">
+                              <span className="text-primary font-semibold">Contact our team</span>
+                            </td>
+                          ) : training.single ? (
+                            <td colSpan={3} className="py-4 px-4 text-center">
+                              <span className="bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full">
+                                {training.single}
+                              </span>
+                            </td>
+                          ) : (
+                            <>
+                              <td className="py-4 px-4 text-center">
+                                {training.basic ? (
+                                  <span className="bg-secondary text-secondary-foreground font-semibold px-3 py-1 rounded-full text-sm">
+                                    {training.basic}
+                                  </span>
+                                ) : (
+                                  <span className="text-muted-foreground">—</span>
+                                )}
+                              </td>
+                              <td className="py-4 px-4 text-center">
+                                {training.intermediate ? (
+                                  <span className="bg-accent text-accent-foreground font-semibold px-3 py-1 rounded-full text-sm">
+                                    {training.intermediate}
+                                  </span>
+                                ) : (
+                                  <span className="text-muted-foreground">—</span>
+                                )}
+                              </td>
+                              <td className="py-4 px-4 text-center">
+                                {training.advance ? (
+                                  <span className="bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full text-sm">
+                                    {training.advance}
+                                  </span>
+                                ) : (
+                                  <span className="text-muted-foreground">—</span>
+                                )}
+                              </td>
+                            </>
+                          )}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             ))}
