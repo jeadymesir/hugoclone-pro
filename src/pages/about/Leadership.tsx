@@ -58,8 +58,8 @@ const LeaderCard = ({ name, role, featured = false }: { name: string; role: stri
     </div>
     
     {/* Avatar */}
-    <div className={`${featured ? 'w-36 h-36' : 'w-28 h-28'} bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-primary transition-colors`}>
-      <User className={`${featured ? 'w-18 h-18' : 'w-14 h-14'} text-primary group-hover:text-primary-foreground transition-colors`} />
+    <div className={`${featured ? 'w-40 h-48' : 'w-32 h-40'} bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-primary transition-colors`}>
+      <User className={`${featured ? 'w-20 h-20' : 'w-16 h-16'} text-primary group-hover:text-primary-foreground transition-colors`} />
     </div>
     
     <h3 className={`font-heading font-semibold ${featured ? 'text-xl' : 'text-lg'} text-foreground mb-1`}>
