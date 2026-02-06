@@ -52,8 +52,10 @@ const Testimonials = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground mb-6">
-              Testimonials
+            <div className="flex justify-center mb-6">
+              <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
+                Testimonials
+              </div>
             </div>
             <div className="relative inline-block">
               <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
