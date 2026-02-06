@@ -4,13 +4,13 @@ import { FileText, Download } from 'lucide-react';
 
 const documents = [
   {
-    title: 'Algemene Leveringsvoorwaarden',
-    description: 'Onze algemene voorwaarden voor de levering van producten en diensten.',
+    title: 'General Terms & Conditions',
+    description: 'Our general terms and conditions for the delivery of products and services.',
     file: '/documents/algemene-leveringsvoorwaarden-rpbg.pdf',
   },
   {
-    title: 'Garantievoorwaarden',
-    description: 'Informatie over onze garantievoorwaarden voor producten.',
+    title: 'Warranty Terms',
+    description: 'Information about our warranty terms for products.',
     file: '/documents/garantievoorwaarden-rpbg.pdf',
   },
 ];
@@ -22,12 +22,12 @@ const TermsConditions = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection animation="fade-up">
             <div className="max-w-3xl">
-              <div className="hugo-tag mb-6">Juridisch</div>
+              <div className="hugo-tag mb-6">Legal</div>
               <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
-                Algemene Voorwaarden
+                Terms & Conditions
               </h1>
               <p className="text-xl text-muted-foreground">
-                Hieronder vindt u onze algemene leveringsvoorwaarden en garantievoorwaarden.
+                Below you will find our general terms and conditions and warranty terms.
               </p>
             </div>
           </AnimatedSection>
@@ -52,7 +52,7 @@ const TermsConditions = () => {
                       rel="noopener noreferrer"
                       className="hugo-cta text-sm"
                     >
-                      Bekijken
+                      View
                       <FileText className="w-4 h-4" />
                     </a>
                     <a
@@ -60,7 +60,7 @@ const TermsConditions = () => {
                       download
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary text-primary hover:bg-primary/5 transition-colors text-sm font-medium"
                     >
-                      Downloaden
+                      Download
                       <Download className="w-4 h-4" />
                     </a>
                   </div>
