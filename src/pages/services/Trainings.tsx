@@ -150,16 +150,16 @@ const Trainings = () => {
             
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className={`grid lg:grid-cols-2 gap-16 items-center`}>
-                <div className={`${!isEven ? 'lg:order-2' : ''}`}>
+                <AnimatedSection animation={isEven ? 'fade-right' : 'fade-left'} className={`${!isEven ? 'lg:order-2' : ''}`}>
                   <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float relative">
                     <Icon className="w-32 h-32 text-primary" />
                     <div className="absolute -top-4 -right-4">
                       <Scribble variant="star" color="primary" size="sm" className="opacity-40" />
                     </div>
                   </div>
-                </div>
+                </AnimatedSection>
 
-                <div className={`${!isEven ? 'lg:order-1' : ''}`}>
+                <AnimatedSection animation={isEven ? 'fade-left' : 'fade-right'} delay={100} className={`${!isEven ? 'lg:order-1' : ''}`}>
                   <div className="relative inline-block mb-6">
                     <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground">
                       {format.title}
@@ -176,7 +176,7 @@ const Trainings = () => {
                   <p className="text-foreground font-semibold">
                     {format.highlight}
                   </p>
-                </div>
+                </AnimatedSection>
               </div>
             </div>
           </section>
@@ -190,9 +190,11 @@ const Trainings = () => {
         </FloatingElement>
         
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-          <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground mb-4">
-            Invest in targeted knowledge today and build the skilled, confident workforce your future demands.
-          </h2>
+          <AnimatedSection animation="fade-up">
+            <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground mb-4">
+              Invest in targeted knowledge today and build the skilled, confident workforce your future demands.
+            </h2>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -201,19 +203,22 @@ const Trainings = () => {
         <SectionDecorations position="both" />
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="relative inline-block">
-              <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-                Training    Catalog    &    Pricing
-              </h2>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-48">
-                <Scribble variant="underline" color="primary" />
+          <AnimatedSection animation="fade-up">
+            <div className="text-center mb-16">
+              <div className="relative inline-block">
+                <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                  Training    Catalog    &    Pricing
+                </h2>
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-48">
+                  <Scribble variant="underline" color="primary" />
+                </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           <div className="space-y-12">
             {trainingCategories.map((category, index) => (
+              <AnimatedSection key={index} animation={index % 2 === 0 ? 'fade-right' : 'fade-left'} delay={index * 50}>
               <div key={index} className="bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group relative">
                 {/* Hover scribble */}
                 <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
@@ -290,6 +295,7 @@ const Trainings = () => {
                   </table>
                 </div>
               </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -300,21 +306,27 @@ const Trainings = () => {
         <PageDecorations variant="primary" />
         
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-          <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
-            Have    specific    training    needs?
-          </h2>
-          <p className="text-primary-foreground/80 mb-10 max-w-xl mx-auto">
-            Contact us to discuss a customized training program for your team.
-          </p>
-          <a 
-            href="https://docs.google.com/forms/d/e/1FAIpQLScdQXB7FhUSe2ZlvriM4iqRbEPgUA_tO2_VmsGWrnZDZ0Dwcw/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hugo-cta bg-background text-foreground hover:bg-background/90"
-          >
-            Request Training
-            <ArrowRight className="w-5 h-5 hugo-arrow" />
-          </a>
+          <AnimatedSection animation="fade-up">
+            <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
+              Have    specific    training    needs?
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <p className="text-primary-foreground/80 mb-10 max-w-xl mx-auto">
+              Contact us to discuss a customized training program for your team.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={200}>
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLScdQXB7FhUSe2ZlvriM4iqRbEPgUA_tO2_VmsGWrnZDZ0Dwcw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hugo-cta bg-background text-foreground hover:bg-background/90"
+            >
+              Request Training
+              <ArrowRight className="w-5 h-5 hugo-arrow" />
+            </a>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>

@@ -113,16 +113,16 @@ const SoftwareHardware = () => {
             
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className={`grid lg:grid-cols-2 gap-16 items-center`}>
-                <div className={`${!isEven ? 'lg:order-2' : ''}`}>
+                <AnimatedSection animation={isEven ? 'fade-right' : 'fade-left'} className={`${!isEven ? 'lg:order-2' : ''}`}>
                   <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float relative">
                     <Icon className="w-32 h-32 text-primary" />
                     <div className="absolute -top-4 -right-4">
                       <Scribble variant="star" color="primary" size="sm" className="opacity-40" />
                     </div>
                   </div>
-                </div>
+                </AnimatedSection>
 
-                <div className={`${!isEven ? 'lg:order-1' : ''}`}>
+                <AnimatedSection animation={isEven ? 'fade-left' : 'fade-right'} delay={100} className={`${!isEven ? 'lg:order-1' : ''}`}>
                   <div className="relative inline-block mb-6">
                     <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground">
                       {solution.title}
@@ -163,7 +163,7 @@ const SoftwareHardware = () => {
                       ))}
                     </ul>
                   )}
-                </div>
+                </AnimatedSection>
               </div>
             </div>
           </section>
@@ -175,16 +175,22 @@ const SoftwareHardware = () => {
         <PageDecorations variant="primary" />
         
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-          <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
-            Need    a    custom    solution?
-          </h2>
-          <p className="text-primary-foreground/80 mb-10 max-w-xl mx-auto">
-            Our team can help you find the perfect combination of software and hardware for your needs.
-          </p>
-          <Link to="/contact" className="hugo-cta bg-background text-foreground hover:bg-background/90">
-            Get in Touch
-            <ArrowRight className="w-5 h-5 hugo-arrow" />
-          </Link>
+          <AnimatedSection animation="fade-up">
+            <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
+              Need    a    custom    solution?
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <p className="text-primary-foreground/80 mb-10 max-w-xl mx-auto">
+              Our team can help you find the perfect combination of software and hardware for your needs.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={200}>
+            <Link to="/contact" className="hugo-cta bg-background text-foreground hover:bg-background/90">
+              Get in Touch
+              <ArrowRight className="w-5 h-5 hugo-arrow" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>

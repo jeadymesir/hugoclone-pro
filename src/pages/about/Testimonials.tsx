@@ -88,33 +88,35 @@ const Testimonials = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 relative group">
-                {/* Hover scribble */}
-                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Scribble variant="star" color="primary" size="sm" />
+              <AnimatedSection key={index} animation={index % 3 === 0 ? 'fade-right' : index % 3 === 2 ? 'fade-left' : 'fade-up'} delay={index * 50}>
+                <div className="bg-card rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 relative group h-full">
+                  {/* Hover scribble */}
+                  <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Scribble variant="star" color="primary" size="sm" />
+                  </div>
+                  
+                  {/* Quote Icon */}
+                  <Quote className="w-10 h-10 text-primary/20 mb-6" />
+                  
+                  {/* Quote Text */}
+                  <p className="text-foreground leading-relaxed mb-6 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  
+                  {/* Rating */}
+                  <div className="flex gap-1 mb-6">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  
+                  {/* Author */}
+                  <div className="border-t border-border pt-6">
+                    <p className="font-semibold text-foreground">{testimonial.author}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                  </div>
                 </div>
-                
-                {/* Quote Icon */}
-                <Quote className="w-10 h-10 text-primary/20 mb-6" />
-                
-                {/* Quote Text */}
-                <p className="text-foreground leading-relaxed mb-6 italic">
-                  "{testimonial.quote}"
-                </p>
-                
-                {/* Rating */}
-                <div className="flex gap-1 mb-6">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                
-                {/* Author */}
-                <div className="border-t border-border pt-6">
-                  <p className="font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -125,13 +127,17 @@ const Testimonials = () => {
         <PageDecorations variant="primary" />
         
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-          <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
-            Ready    to    be    our    next    success    story?
-          </h2>
-          <Link to="/contact" className="hugo-cta bg-background text-foreground hover:bg-background/90">
-            Get Started
-            <ArrowRight className="w-5 h-5 hugo-arrow" />
-          </Link>
+          <AnimatedSection animation="fade-up">
+            <h2 className="hugo-subtitle text-3xl md:text-4xl mb-6">
+              Ready    to    be    our    next    success    story?
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <Link to="/contact" className="hugo-cta bg-background text-foreground hover:bg-background/90">
+              Get Started
+              <ArrowRight className="w-5 h-5 hugo-arrow" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>
