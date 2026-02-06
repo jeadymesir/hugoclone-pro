@@ -51,21 +51,21 @@ const managers = [
 ];
 
 const LeaderCard = ({ name, role, featured = false }: { name: string; role: string; featured?: boolean }) => (
-  <div className={`bg-card rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative ${featured ? 'lg:col-span-1' : ''}`}>
+  <div className={`bg-card rounded-3xl p-10 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 group relative ${featured ? 'lg:col-span-1' : ''}`}>
     {/* Hover scribble */}
     <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
       <Scribble variant="star" color="primary" size="sm" />
     </div>
     
     {/* Avatar */}
-    <div className={`${featured ? 'w-40 h-48' : 'w-32 h-40'} bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-primary transition-colors`}>
-      <User className={`${featured ? 'w-20 h-20' : 'w-16 h-16'} text-primary group-hover:text-primary-foreground transition-colors`} />
+    <div className={`${featured ? 'w-48 h-56' : 'w-40 h-48'} bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors`}>
+      <User className={`${featured ? 'w-24 h-24' : 'w-20 h-20'} text-primary group-hover:text-primary-foreground transition-colors`} />
     </div>
     
-    <h3 className={`font-heading font-semibold ${featured ? 'text-xl' : 'text-lg'} text-foreground mb-1`}>
+    <h3 className={`font-heading font-semibold ${featured ? 'text-2xl' : 'text-xl'} text-foreground mb-2`}>
       {name}
     </h3>
-    <p className={`text-primary ${featured ? 'text-base' : 'text-sm'} font-medium`}>
+    <p className={`text-primary ${featured ? 'text-lg' : 'text-base'} font-medium`}>
       {role}
     </p>
   </div>
@@ -121,7 +121,7 @@ const Leadership = () => {
       {/* C-Suite - Second Level */}
       <section className="py-8 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
             {cSuite.map((leader, index) => (
               <LeaderCard key={index} {...leader} />
             ))}
@@ -137,7 +137,7 @@ const Leadership = () => {
       {/* Managers - Third Level */}
       <section className="py-8 pb-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
             {managers.map((leader, index) => (
               <LeaderCard key={index} {...leader} />
             ))}
