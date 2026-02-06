@@ -4,6 +4,7 @@ import { MapPin, Mail, Phone, MessageCircle, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -40,22 +41,28 @@ const Contact = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
-                Contact
+            <AnimatedSection animation="fade-up">
+              <div className="flex justify-center mb-6">
+                <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
+                  Contact
+                </div>
               </div>
-            </div>
-            <div className="relative inline-block">
-              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-                Get    in    Touch
-              </h1>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
-                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="relative inline-block">
+                <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                  Get    in    Touch
+                </h1>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
+                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
+                </div>
               </div>
-            </div>
-            <p className="text-xl text-primary-foreground/80 mt-4">
-              Ready to start your digital transformation? We'd love to hear from you.
-            </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={200}>
+              <p className="text-xl text-primary-foreground/80 mt-4">
+                Ready to start your digital transformation? We'd love to hear from you.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
         
@@ -69,7 +76,8 @@ const Contact = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form - Hugo clean style */}
-            <div className="bg-card rounded-3xl shadow-xl p-8 lg:p-12 relative">
+            <AnimatedSection animation="fade-right">
+              <div className="bg-card rounded-3xl shadow-xl p-8 lg:p-12 relative">
               {/* Scribble accent */}
               <div className="absolute -top-6 -left-6 hidden md:block">
                 <Scribble variant="circle" color="muted" size="md" className="opacity-40" />
@@ -142,12 +150,14 @@ const Contact = () => {
                 </button>
               </form>
             </div>
+            </AnimatedSection>
 
             {/* Contact Info - Hugo card style */}
-            <div className="space-y-6">
-              <FloatingElement className="top-0 right-0 hidden lg:block">
-                <Sparkle className="w-6 h-6" />
-              </FloatingElement>
+            <AnimatedSection animation="fade-left" delay={100}>
+              <div className="space-y-6">
+                <FloatingElement className="top-0 right-0 hidden lg:block">
+                  <Sparkle className="w-6 h-6" />
+                </FloatingElement>
               
               <a 
                 href="https://www.google.com/maps/search/?api=1&query=Verlengde+Gemenelandsweg+151+Paramaribo+Suriname" 
@@ -219,7 +229,8 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

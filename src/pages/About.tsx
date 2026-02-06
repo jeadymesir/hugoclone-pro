@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Eye, Target, Award, Briefcase, Users, Smile } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 const stats = [
   { label: 'Years of experience', value: '30+', icon: Award },
@@ -20,26 +21,32 @@ const About = () => {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
-                About Us
+            <AnimatedSection animation="fade-up">
+              <div className="flex justify-center mb-6">
+                <div className="hugo-tag bg-primary-foreground/20 text-primary-foreground">
+                  About Us
+                </div>
               </div>
-            </div>
-            <div className="relative inline-block">
-              <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
-                About    RPBG
-              </h1>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
-                <Scribble variant="underline" className="stroke-primary-foreground/50" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="relative inline-block">
+                <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
+                  About    RPBG
+                </h1>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
+                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
+                </div>
               </div>
-            </div>
-            <p className="text-xl text-primary-foreground/80 leading-relaxed mt-4">
-              <strong>Established in 1996,</strong> Rosheuvel & Partners Business Group N.V. 
-              has been a trusted technology partner for small to large businesses for almost 3 decades.
-            </p>
-            <p className="text-primary-foreground/90 font-heading font-semibold text-xl mt-8 italic">
-              "Breathing Life Into ICT"
-            </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-up" delay={200}>
+              <p className="text-xl text-primary-foreground/80 leading-relaxed mt-4">
+                <strong>Established in 1996,</strong> Rosheuvel & Partners Business Group N.V. 
+                has been a trusted technology partner for small to large businesses for almost 3 decades.
+              </p>
+              <p className="text-primary-foreground/90 font-heading font-semibold text-xl mt-8 italic">
+                "Breathing Life Into ICT"
+              </p>
+            </AnimatedSection>
           </div>
         </div>
         
@@ -53,52 +60,58 @@ const About = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Icon side */}
-            <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float relative">
-              <div className="text-center">
-                <Eye className="w-24 h-24 text-primary mx-auto mb-6" />
-                <Target className="w-20 h-20 text-primary/60 mx-auto" />
+            <AnimatedSection animation="fade-right">
+              <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center hugo-float relative">
+                <div className="text-center">
+                  <Eye className="w-24 h-24 text-primary mx-auto mb-6" />
+                  <Target className="w-20 h-20 text-primary/60 mx-auto" />
+                </div>
+                {/* Scribble accent */}
+                <div className="absolute -top-6 -right-6">
+                  <Scribble variant="star" color="primary" size="sm" className="opacity-40" />
+                </div>
               </div>
-              {/* Scribble accent */}
-              <div className="absolute -top-6 -right-6">
-                <Scribble variant="star" color="primary" size="sm" className="opacity-40" />
-              </div>
-            </div>
+            </AnimatedSection>
 
             {/* Content side */}
             <div className="space-y-12">
-              <div>
-                <div className="relative inline-block mb-6">
-                  <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-                    VISION
-                  </h2>
-                  <div className="absolute -bottom-2 left-0 w-24">
-                    <Scribble variant="underline" color="primary" className="opacity-60" />
+              <AnimatedSection animation="fade-left" delay={100}>
+                <div>
+                  <div className="relative inline-block mb-6">
+                    <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                      VISION
+                    </h2>
+                    <div className="absolute -bottom-2 left-0 w-24">
+                      <Scribble variant="underline" color="primary" className="opacity-60" />
+                    </div>
                   </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    RPBG, a Surinamese company that harnesses the creativity of the Surinamese people 
+                    to work in harmony with its environment to optimally utilize technological possibilities, 
+                    in order to provide a variety of products and services that ensure continuous growth 
+                    of the company and the creation of well-being for its employees.
+                  </p>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  RPBG, a Surinamese company that harnesses the creativity of the Surinamese people 
-                  to work in harmony with its environment to optimally utilize technological possibilities, 
-                  in order to provide a variety of products and services that ensure continuous growth 
-                  of the company and the creation of well-being for its employees.
-                </p>
-              </div>
+              </AnimatedSection>
 
-              <div>
-                <div className="relative inline-block mb-6">
-                  <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
-                    MISSION
-                  </h2>
-                  <div className="absolute -bottom-2 left-0 w-28">
-                    <Scribble variant="underline" color="primary" className="opacity-60" />
+              <AnimatedSection animation="fade-left" delay={200}>
+                <div>
+                  <div className="relative inline-block mb-6">
+                    <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
+                      MISSION
+                    </h2>
+                    <div className="absolute -bottom-2 left-0 w-28">
+                      <Scribble variant="underline" color="primary" className="opacity-60" />
+                    </div>
                   </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Rosheuvel & Partners Business Group is a dynamic Surinamese company that offers 
+                    products and services in Suriname and the surrounding region. From its original 
+                    discipline of Information Technology, the service offering has expanded to 
+                    encompass the entire field of ICT, while also diversifying into related industries.
+                  </p>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  Rosheuvel & Partners Business Group is a dynamic Surinamese company that offers 
-                  products and services in Suriname and the surrounding region. From its original 
-                  discipline of Information Technology, the service offering has expanded to 
-                  encompass the entire field of ICT, while also diversifying into related industries.
-                </p>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
         </div>
