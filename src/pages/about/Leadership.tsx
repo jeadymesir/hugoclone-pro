@@ -6,22 +6,22 @@ import { Scribble } from '@/components/decorative/Scribbles';
 
 // CEO - Top level
 const ceo = {
-  name: 'Leadership Member',
+  name: 'Jimmy Rosheuvel',
   role: 'Chief Executive Officer',
 };
 
 // C-Suite - Second level
 const cSuite = [
   {
-    name: 'Leadership Member',
+    name: 'Christian Morpurgo',
     role: 'Chief Operations Officer',
   },
   {
-    name: 'Leadership Member',
+    name: 'Gracia Beckles',
     role: 'Chief Financial Officer',
   },
   {
-    name: 'Leadership Member',
+    name: 'Aleksandrs Barkans',
     role: 'Vice President',
   },
 ];
@@ -29,23 +29,23 @@ const cSuite = [
 // Managers - Third level
 const managers = [
   {
-    name: 'Leadership Member',
+    name: 'Miriam Elmont',
     role: 'Project Manager',
   },
   {
-    name: 'Leadership Member',
+    name: 'Karin Kertotiko',
     role: 'Logistics Manager',
   },
   {
-    name: 'Leadership Member',
+    name: 'Clay Oesmanadi',
     role: 'Sales Manager',
   },
   {
-    name: 'Leadership Member',
+    name: 'Joan Heidanus',
     role: 'Development Manager',
   },
   {
-    name: 'Leadership Member',
+    name: 'Elisa Djosemito',
     role: 'HR Manager',
   },
 ];
