@@ -317,7 +317,7 @@ const Trainings = () => {
                                   <div className="flex items-center justify-between w-full pr-2">
                                     <span className="font-medium text-foreground">{training.name}</span>
                                     {training.levels && training.levels.length === 1 ? (
-                                      <span className="bg-primary/10 text-primary font-bold px-4 py-1 rounded-full text-sm mr-2">
+                                      <span className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 font-bold px-4 py-1 rounded-full text-sm mr-2">
                                         {training.levels[0].price}
                                       </span>
                                     ) : (
@@ -327,22 +327,33 @@ const Trainings = () => {
                                     )}
                                   </div>
                                 </AccordionTrigger>
-                                <AccordionContent className="px-8 pb-4">
-                                  <div className="grid gap-3 pt-1">
-                                    {training.levels?.map((level, lIdx) => (
-                                      <div key={lIdx} className="bg-muted/30 rounded-xl p-4 flex flex-col sm:flex-row sm:items-start gap-3">
-                                        <div className="flex items-center gap-3 sm:min-w-[140px] shrink-0">
-                                          <span className="bg-primary/10 text-primary font-bold px-3 py-1 rounded-full text-xs">
-                                            {level.name}
-                                          </span>
-                                          <span className="font-bold text-foreground text-sm">{level.price}</span>
-                                        </div>
-                                        <p className="text-muted-foreground text-sm leading-relaxed">
-                                          {level.description}
-                                        </p>
-                                      </div>
-                                    ))}
-                                  </div>
+                                <AccordionContent className="px-4 sm:px-8 pb-4">
+                                  <table className="w-full border-collapse">
+                                    <thead>
+                                      <tr className="border-b border-border">
+                                        <th className="text-left py-2 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider w-[100px]">Level</th>
+                                        <th className="text-left py-2 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider w-[90px]">Price</th>
+                                        <th className="text-left py-2 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">What you'll learn</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {training.levels?.map((level, lIdx) => (
+                                        <tr key={lIdx} className="border-b border-border/30 last:border-none">
+                                          <td className="py-3 px-3">
+                                            <span className="bg-primary/10 text-primary font-semibold px-3 py-0.5 rounded-full text-xs">
+                                              {level.name}
+                                            </span>
+                                          </td>
+                                          <td className="py-3 px-3">
+                                            <span className="text-green-600 dark:text-green-400 font-bold text-sm">{level.price}</span>
+                                          </td>
+                                          <td className="py-3 px-3 text-muted-foreground text-sm leading-relaxed">
+                                            {level.description}
+                                          </td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
                                 </AccordionContent>
                               </AccordionItem>
                             )
