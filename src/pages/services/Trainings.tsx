@@ -1,8 +1,9 @@
 import { Layout } from '@/components/layout/Layout';
-import { ArrowRight, Monitor, Users, Wrench } from 'lucide-react';
+import { ArrowRight, Monitor, Users, Wrench, ChevronDown } from 'lucide-react';
 import { PageDecorations, SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble, FloatingElement, Sparkle } from '@/components/decorative/Scribbles';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const trainingFormats = [
   {
@@ -216,88 +217,90 @@ const Trainings = () => {
             </div>
           </AnimatedSection>
 
-          <div className="space-y-12">
+          <Accordion type="multiple" className="space-y-4">
             {trainingCategories.map((category, index) => (
               <AnimatedSection key={index} animation={index % 2 === 0 ? 'fade-right' : 'fade-left'} delay={index * 50}>
-              <div key={index} className="bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group relative">
-                {/* Hover scribble */}
-                <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                  <Scribble variant="star" color="primary" size="sm" />
-                </div>
-                
-                {/* Category Header */}
-                <div className="bg-primary/5 px-8 py-5 border-b border-border">
-                  <h3 className="font-heading font-bold text-xl text-foreground flex items-center gap-3">
-                    <span className="text-2xl">{category.icon}</span>
-                    {category.title}
-                  </h3>
-                </div>
-                
-                {/* Pricing Table */}
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-border bg-muted/30">
-                        <th className="text-left py-4 px-8 font-semibold text-foreground">Training</th>
-                        <th className="text-center py-4 px-4 font-semibold text-foreground min-w-[100px]">Basic</th>
-                        <th className="text-center py-4 px-4 font-semibold text-foreground min-w-[100px]">Intermediate</th>
-                        <th className="text-center py-4 px-4 font-semibold text-foreground min-w-[100px]">Advanced</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {category.trainings.map((training, i) => (
-                        <tr key={i} className="border-b border-border/50 hover:bg-muted/20 transition-colors">
-                          <td className="py-4 px-8 font-medium text-foreground">{training.name}</td>
-                          {training.contact ? (
-                            <td colSpan={3} className="py-4 px-4 text-center">
-                              <span className="text-primary font-semibold">Contact our team</span>
-                            </td>
-                          ) : training.single ? (
-                            <td colSpan={3} className="py-4 px-4 text-center">
-                              <span className="bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full">
-                                {training.single}
-                              </span>
-                            </td>
-                          ) : (
-                            <>
-                              <td className="py-4 px-4 text-center">
-                                {training.basic ? (
-                                  <span className="bg-secondary text-secondary-foreground font-semibold px-3 py-1 rounded-full text-sm">
-                                    {training.basic}
-                                  </span>
-                                ) : (
-                                  <span className="text-muted-foreground">—</span>
-                                )}
-                              </td>
-                              <td className="py-4 px-4 text-center">
-                                {training.intermediate ? (
-                                  <span className="bg-accent text-accent-foreground font-semibold px-3 py-1 rounded-full text-sm">
-                                    {training.intermediate}
-                                  </span>
-                                ) : (
-                                  <span className="text-muted-foreground">—</span>
-                                )}
-                              </td>
-                              <td className="py-4 px-4 text-center">
-                                {training.advance ? (
-                                  <span className="bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full text-sm">
-                                    {training.advance}
-                                  </span>
-                                ) : (
-                                  <span className="text-muted-foreground">—</span>
-                                )}
-                              </td>
-                            </>
-                          )}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                <AccordionItem value={`category-${index}`} className="border-none">
+                  <div className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+                    <AccordionTrigger className="hover:no-underline px-8 py-6 [&[data-state=open]>div>.chevron]:rotate-180">
+                      <div className="flex items-center gap-4 w-full">
+                        <span className="text-3xl w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl">
+                          {category.icon}
+                        </span>
+                        <div className="text-left">
+                          <h3 className="font-heading font-bold text-lg text-foreground">
+                            {category.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground font-normal">
+                            {category.trainings.length} training{category.trainings.length !== 1 ? 's' : ''} beschikbaar
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    
+                    <AccordionContent className="px-0 pb-0">
+                      <div className="border-t border-border">
+                        <div className="overflow-x-auto">
+                          <table className="w-full">
+                            <thead>
+                              <tr className="bg-muted/40">
+                                <th className="text-left py-3 px-8 font-semibold text-foreground text-sm">Training</th>
+                                <th className="text-center py-3 px-4 font-semibold text-foreground text-sm min-w-[100px]">Basic</th>
+                                <th className="text-center py-3 px-4 font-semibold text-foreground text-sm min-w-[100px]">Intermediate</th>
+                                <th className="text-center py-3 px-4 font-semibold text-foreground text-sm min-w-[100px]">Advanced</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {category.trainings.map((training, i) => (
+                                <tr key={i} className="border-t border-border/30 hover:bg-muted/20 transition-colors">
+                                  <td className="py-3.5 px-8 font-medium text-foreground text-sm">{training.name}</td>
+                                  {training.contact ? (
+                                    <td colSpan={3} className="py-3.5 px-4 text-center">
+                                      <span className="text-primary font-semibold text-sm">Contact our team</span>
+                                    </td>
+                                  ) : training.single ? (
+                                    <td colSpan={3} className="py-3.5 px-4 text-center">
+                                      <span className="bg-primary/10 text-primary font-bold px-4 py-1 rounded-full text-sm">
+                                        {training.single}
+                                      </span>
+                                    </td>
+                                  ) : (
+                                    <>
+                                      <td className="py-3.5 px-4 text-center">
+                                        {training.basic ? (
+                                          <span className="bg-secondary text-secondary-foreground font-semibold px-3 py-1 rounded-full text-xs">
+                                            {training.basic}
+                                          </span>
+                                        ) : <span className="text-muted-foreground">—</span>}
+                                      </td>
+                                      <td className="py-3.5 px-4 text-center">
+                                        {training.intermediate ? (
+                                          <span className="bg-accent text-accent-foreground font-semibold px-3 py-1 rounded-full text-xs">
+                                            {training.intermediate}
+                                          </span>
+                                        ) : <span className="text-muted-foreground">—</span>}
+                                      </td>
+                                      <td className="py-3.5 px-4 text-center">
+                                        {training.advance ? (
+                                          <span className="bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full text-xs">
+                                            {training.advance}
+                                          </span>
+                                        ) : <span className="text-muted-foreground">—</span>}
+                                      </td>
+                                    </>
+                                  )}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </div>
+                </AccordionItem>
               </AnimatedSection>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
