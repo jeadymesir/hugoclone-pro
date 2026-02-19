@@ -1,6 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, MapPin, Clock, CheckCircle, Send } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, CheckCircle, Send, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -21,6 +21,8 @@ const CareerDetail = () => {
     phone: '',
     coverLetter: '',
   });
+  const [cvFile, setCvFile] = useState<File | null>(null);
+  const [motivationFile, setMotivationFile] = useState<File | null>(null);
 
   useEffect(() => {
     const jobs = getJobPostings();
@@ -47,14 +49,16 @@ const CareerDetail = () => {
       `Phone: ${formData.phone}\n\n` +
       `Cover Letter:\n${formData.coverLetter}\n\n` +
       `---\n` +
-      `Please attach your CV/Resume to this email.`
+      `IMPORTANT: Please attach the following files to this email:\n` +
+      `- CV/Resume: ${cvFile?.name || 'Not selected'}\n` +
+      `- Motivation Letter: ${motivationFile?.name || 'Not selected'}`
     );
 
     window.location.href = `mailto:careers@rpbg.net?subject=${subject}&body=${body}`;
     
     toast({
       title: 'Application Started',
-      description: 'Your email client will open. Please attach your CV before sending.',
+      description: 'Your email client will open. Please attach your CV and motivation letter before sending.',
     });
   };
 
@@ -216,7 +220,7 @@ const CareerDetail = () => {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="coverLetter">Cover Letter</Label>
+                    <Label htmlFor="coverLetter">Cover Letter *</Label>
                     <Textarea
                       id="coverLetter"
                       value={formData.coverLetter}
@@ -224,10 +228,55 @@ const CareerDetail = () => {
                       placeholder="Tell us why you're a great fit for this role..."
                       rows={5}
                       className="mt-1"
+                      required
                     />
                   </div>
+                  <div>
+                    <Label htmlFor="cv">CV / Resume (PDF) *</Label>
+                    <div className="mt-1 relative">
+                      <input
+                        id="cv"
+                        type="file"
+                        accept=".pdf"
+                        required
+                        onChange={(e) => setCvFile(e.target.files?.[0] || null)}
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="cv"
+                        className="flex items-center gap-2 w-full px-3 py-2 border border-input rounded-md bg-background text-sm cursor-pointer hover:bg-muted transition-colors"
+                      >
+                        <Upload className="w-4 h-4 text-muted-foreground" />
+                        <span className={cvFile ? 'text-foreground' : 'text-muted-foreground'}>
+                          {cvFile ? cvFile.name : 'Select PDF file...'}
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="motivation">Motivation Letter (PDF) *</Label>
+                    <div className="mt-1 relative">
+                      <input
+                        id="motivation"
+                        type="file"
+                        accept=".pdf"
+                        required
+                        onChange={(e) => setMotivationFile(e.target.files?.[0] || null)}
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="motivation"
+                        className="flex items-center gap-2 w-full px-3 py-2 border border-input rounded-md bg-background text-sm cursor-pointer hover:bg-muted transition-colors"
+                      >
+                        <Upload className="w-4 h-4 text-muted-foreground" />
+                        <span className={motivationFile ? 'text-foreground' : 'text-muted-foreground'}>
+                          {motivationFile ? motivationFile.name : 'Select PDF file...'}
+                        </span>
+                      </label>
+                    </div>
+                  </div>
                   <p className="text-xs text-muted-foreground">
-                    * Your email client will open. Please attach your CV/Resume before sending.
+                    * Your email client will open. Please attach your CV and motivation letter before sending.
                   </p>
                   <Button type="submit" className="w-full hugo-cta">
                     Submit Application
