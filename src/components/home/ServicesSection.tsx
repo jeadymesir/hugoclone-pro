@@ -65,10 +65,6 @@ export const ServicesSection = () => {
             <h2 className="hugo-subtitle text-4xl md:text-5xl text-foreground mb-6">
               +    More    Growth,    Less    Risk
             </h2>
-            {/* Underline scribble */}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56">
-              <Scribble variant="underline" color="primary" />
-            </div>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-8">
             Focus on growth, we'll take care of the many small tasks that make the difference between awesome and awful.

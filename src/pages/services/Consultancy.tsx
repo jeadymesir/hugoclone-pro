@@ -64,9 +64,6 @@ const Consultancy = () => {
                 <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
                   Strategic    Consultancy
                 </h1>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 opacity-40">
-                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
-                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-up" delay={200}>
@@ -108,9 +105,6 @@ const Consultancy = () => {
                     <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground">
                       {section.title}
                     </h2>
-                    <div className="absolute -bottom-2 left-0 w-32">
-                      <Scribble variant="underline" color="primary" className="opacity-50" />
-                    </div>
                   </div>
                   
                   <p className="text-muted-foreground leading-relaxed mb-8">

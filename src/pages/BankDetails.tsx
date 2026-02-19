@@ -62,9 +62,6 @@ const BankDetails = () => {
                 <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
                   Bank Details
                 </h1>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40">
-                  <Scribble variant="underline" color="primary" />
-                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-up" delay={200}>

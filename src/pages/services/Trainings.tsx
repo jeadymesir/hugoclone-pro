@@ -190,9 +190,6 @@ const Trainings = () => {
                 <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
                   Trainings    Designed    For    YOUR    Success
                 </h1>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 opacity-40">
-                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
-                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-up" delay={200}>
@@ -234,9 +231,6 @@ const Trainings = () => {
                     <h2 className="hugo-subtitle text-2xl md:text-3xl text-foreground">
                       {format.title}
                     </h2>
-                    <div className="absolute -bottom-2 left-0 w-32">
-                      <Scribble variant="underline" color="primary" className="opacity-50" />
-                    </div>
                   </div>
                   
                   <p className="text-muted-foreground leading-relaxed mb-6">
@@ -279,9 +273,6 @@ const Trainings = () => {
                 <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
                   Training    Catalog    &    Pricing
                 </h2>
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-48">
-                  <Scribble variant="underline" color="primary" />
-                </div>
               </div>
             </div>
           </AnimatedSection>

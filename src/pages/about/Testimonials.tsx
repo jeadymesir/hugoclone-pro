@@ -65,9 +65,6 @@ const Testimonials = () => {
                 <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
                   Client    Stories
                 </h1>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
-                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
-                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-up" delay={200}>

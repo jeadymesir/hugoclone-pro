@@ -115,9 +115,6 @@ export const ClientLogosSection = () => {
             <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-4">
               We    partner    with    technology    leaders
             </h2>
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-48">
-              <Scribble variant="underline" color="primary" className="opacity-60" />
-            </div>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
             Official partnerships with the world's leading technology vendors ensure you receive certified solutions and expert support.

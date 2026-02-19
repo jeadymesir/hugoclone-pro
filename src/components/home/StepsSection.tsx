@@ -54,9 +54,6 @@ export const StepsSection = () => {
               <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
                 Launch    in    5    easy    steps
               </h2>
-              <div className="absolute -bottom-3 left-0 w-40">
-                <Scribble variant="underline" color="primary" className="opacity-60" />
-              </div>
             </div>
           </div>
         </AnimatedSection>

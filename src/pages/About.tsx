@@ -33,9 +33,6 @@ const About = () => {
                 <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
                   About    RPBG
                 </h1>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
-                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
-                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-up" delay={200}>
@@ -81,9 +78,6 @@ const About = () => {
                     <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
                       VISION
                     </h2>
-                    <div className="absolute -bottom-2 left-0 w-24">
-                      <Scribble variant="underline" color="primary" className="opacity-60" />
-                    </div>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
                     RPBG, a Surinamese company that harnesses the creativity of the Surinamese people 
@@ -100,9 +94,6 @@ const About = () => {
                     <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
                       MISSION
                     </h2>
-                    <div className="absolute -bottom-2 left-0 w-28">
-                      <Scribble variant="underline" color="primary" className="opacity-60" />
-                    </div>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
                     Rosheuvel & Partners Business Group is a dynamic Surinamese company that offers 
@@ -133,9 +124,6 @@ const About = () => {
                 <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground mb-4">
                   Our    work    in    numbers
                 </h2>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48">
-                  <Scribble variant="underline" color="primary" />
-                </div>
               </div>
               <p className="text-muted-foreground max-w-2xl mx-auto mt-6">
                 These numbers reflect the results we deliver through long-term partnerships.
