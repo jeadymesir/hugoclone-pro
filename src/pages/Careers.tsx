@@ -101,9 +101,6 @@ const Careers = () => {
               <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
                 Careers at RPBG
               </h1>
-              <div className="absolute -bottom-2 left-0 w-48">
-                <Scribble variant="underline" color="primary" />
-              </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mt-4">
               Be part of a team that's shaping the future of IT in Suriname. 
@@ -160,9 +157,6 @@ const Careers = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="relative inline-block mb-12">
             <h2 className="font-heading text-3xl font-bold">Open Positions</h2>
-            <div className="absolute -bottom-2 left-0 w-40">
-              <Scribble variant="underline" color="primary" className="opacity-60" />
-            </div>
           </div>
           
           {jobs.length === 0 ? (

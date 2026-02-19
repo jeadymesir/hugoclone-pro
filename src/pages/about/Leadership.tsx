@@ -93,9 +93,6 @@ const Leadership = () => {
                 <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
                   Leadership    Team
                 </h1>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-40">
-                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
-                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-up" delay={200}>
@@ -170,9 +167,6 @@ const Leadership = () => {
               <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
                 Want    to    join    our    team?
               </h2>
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48">
-                <Scribble variant="underline" color="primary" />
-              </div>
             </div>
           </AnimatedSection>
           <AnimatedSection animation="fade-up" delay={100}>

@@ -45,10 +45,6 @@ export const HeroSection = () => {
               <h1 className="hugo-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground mb-8">
                 Built    to    make    you    better.
               </h1>
-              {/* Scribble underline accent */}
-              <div className="absolute -bottom-2 left-0 w-64 opacity-60">
-                <Scribble variant="underline" color="primary" />
-              </div>
             </div>
           </AnimatedSection>
           

@@ -101,9 +101,6 @@ const CareerDetail = () => {
             </div>
             <div className="relative inline-block mb-6">
               <h1 className="font-heading text-4xl lg:text-5xl font-bold">{job.title}</h1>
-              <div className="absolute -bottom-2 left-0 w-48">
-                <Scribble variant="underline" color="primary" />
-              </div>
             </div>
             <div className="flex flex-wrap items-center gap-6 text-muted-foreground mt-4">
               <span className="flex items-center gap-2">
@@ -138,9 +135,6 @@ const CareerDetail = () => {
               <div>
                 <div className="relative inline-block mb-4">
                   <h2 className="font-heading text-2xl font-bold">About the Role</h2>
-                  <div className="absolute -bottom-1 left-0 w-32">
-                    <Scribble variant="underline" color="primary" className="opacity-50" />
-                  </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">{job.description}</p>
               </div>
@@ -149,9 +143,6 @@ const CareerDetail = () => {
               <div>
                 <div className="relative inline-block mb-4">
                   <h2 className="font-heading text-2xl font-bold">Requirements</h2>
-                  <div className="absolute -bottom-1 left-0 w-28">
-                    <Scribble variant="underline" color="primary" className="opacity-50" />
-                  </div>
                 </div>
                 <ul className="space-y-3">
                   {job.requirements.map((req, index) => (
@@ -167,9 +158,6 @@ const CareerDetail = () => {
               <div>
                 <div className="relative inline-block mb-4">
                   <h2 className="font-heading text-2xl font-bold">What We Offer</h2>
-                  <div className="absolute -bottom-1 left-0 w-32">
-                    <Scribble variant="underline" color="primary" className="opacity-50" />
-                  </div>
                 </div>
                 <ul className="space-y-3">
                   {job.benefits.map((benefit, index) => (

@@ -61,9 +61,6 @@ const InternetServices = () => {
                 <h1 className="hugo-title text-4xl md:text-5xl lg:text-6xl mb-6">
                   Choose    your    perfect    internet    package
                 </h1>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 opacity-40">
-                  <Scribble variant="underline" className="stroke-primary-foreground/50" />
-                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -164,9 +161,6 @@ const InternetServices = () => {
               <h2 className="hugo-subtitle text-3xl md:text-4xl text-foreground">
                 Frequently    asked    questions:
               </h2>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-56">
-                <Scribble variant="underline" color="primary" />
-              </div>
             </div>
           </AnimatedSection>
           

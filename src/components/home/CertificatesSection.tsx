@@ -49,9 +49,6 @@ export const CertificatesSection = () => {
             <h2 className="hugo-title text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
               CERTIFIED    EXCELLENCE
             </h2>
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48">
-              <Scribble variant="underline" color="primary" />
-            </div>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-8">
             Our team holds industry-recognized certifications ensuring you receive expert solutions and support.
