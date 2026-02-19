@@ -39,10 +39,10 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-sm' 
-          : 'bg-transparent'
+          ? 'bg-background/95 backdrop-blur-md shadow-sm py-4' 
+          : 'bg-background/95 backdrop-blur-md py-4'
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
