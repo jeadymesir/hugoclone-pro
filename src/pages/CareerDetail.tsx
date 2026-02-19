@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Clock, CheckCircle, Send, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+
 import { Label } from '@/components/ui/label';
 import { useState, useEffect } from 'react';
 import { JobPosting, getJobPostings } from './Careers';
@@ -19,7 +19,6 @@ const CareerDetail = () => {
     name: '',
     email: '',
     phone: '',
-    coverLetter: '',
   });
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [motivationFile, setMotivationFile] = useState<File | null>(null);
@@ -47,7 +46,6 @@ const CareerDetail = () => {
       `Name: ${formData.name}\n` +
       `Email: ${formData.email}\n` +
       `Phone: ${formData.phone}\n\n` +
-      `Cover Letter:\n${formData.coverLetter}\n\n` +
       `---\n` +
       `IMPORTANT: Please attach the following files to this email:\n` +
       `- CV/Resume: ${cvFile?.name || 'Not selected'}\n` +
@@ -217,18 +215,6 @@ const CareerDetail = () => {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       required
                       className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="coverLetter">Cover Letter *</Label>
-                    <Textarea
-                      id="coverLetter"
-                      value={formData.coverLetter}
-                      onChange={(e) => setFormData({ ...formData, coverLetter: e.target.value })}
-                      placeholder="Tell us why you're a great fit for this role..."
-                      rows={5}
-                      className="mt-1"
-                      required
                     />
                   </div>
                   <div>
