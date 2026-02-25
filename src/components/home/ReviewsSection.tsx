@@ -21,7 +21,5 @@ const reviews = [{
   industry: 'Manufacturing'
 }];
 export const ReviewsSection = () => {
-  return <section className="py-32 bg-background">
-      
-    </section>;
+  return null;
 };

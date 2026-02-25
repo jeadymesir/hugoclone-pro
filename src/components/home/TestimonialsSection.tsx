@@ -25,7 +25,5 @@ export const TestimonialsSection = () => {
   const prevTestimonial = () => {
     setActiveIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
-  return <section className="py-24 bg-muted/30">
-      
-    </section>;
+  return null;
 };
