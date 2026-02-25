@@ -53,10 +53,10 @@ export const Footer = () => {
               Nearly three decades of expertise and global brand partnerships to support businesses in scaling, optimizing, and innovating.
             </p>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-background/70">
+              <a href="https://www.google.com/maps/search/?api=1&query=Verlengde+Gemenelandsweg+151+Paramaribo+Suriname" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-background/70 hover:text-background transition-colors">
                 <MapPin className="w-4 h-4" />
                 <span>Verlengde Gemenelandsweg 151</span>
-              </div>
+              </a>
               <div className="flex items-center gap-3 text-sm text-background/70">
                 <Mail className="w-4 h-4" />
                 <a href="mailto:info@rpbg.net" className="hover:text-background transition-colors">info@rpbg.net</a>
