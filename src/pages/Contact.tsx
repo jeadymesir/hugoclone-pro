@@ -25,7 +25,7 @@ const Contact = () => {
     );
     
     // Open email client
-    window.location.href = `mailto:info@rpbg.net?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:mesiranisaa@gmail.com?subject=${subject}&body=${body}`;
     
     toast({
       title: "Opening email client...",

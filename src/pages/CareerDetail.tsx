@@ -55,7 +55,7 @@ const CareerDetail = () => {
       `- Motivation Letter: ${motivationFile?.name || 'Not selected'}`
     );
 
-    window.location.href = `mailto:careers@rpbg.net?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:mesiranisaa@gmail.com?subject=${subject}&body=${body}`;
     
     toast({
       title: 'Application Started',
