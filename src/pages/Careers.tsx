@@ -32,6 +32,29 @@ export interface ActivityLogEntry {
   timestamp: string;
 }
 
+// Job analytics (lightweight localStorage counters)
+export interface JobAnalytics {
+  views: number;
+  applyClicks: number;
+}
+
+export const getJobAnalytics = (jobId: string): JobAnalytics => {
+  const stored = localStorage.getItem(`rpbg-analytics-${jobId}`);
+  return stored ? JSON.parse(stored) : { views: 0, applyClicks: 0 };
+};
+
+export const trackJobView = (jobId: string) => {
+  const analytics = getJobAnalytics(jobId);
+  analytics.views += 1;
+  localStorage.setItem(`rpbg-analytics-${jobId}`, JSON.stringify(analytics));
+};
+
+export const trackJobApplyClick = (jobId: string) => {
+  const analytics = getJobAnalytics(jobId);
+  analytics.applyClicks += 1;
+  localStorage.setItem(`rpbg-analytics-${jobId}`, JSON.stringify(analytics));
+};
+
 // Get activity log from localStorage
 export const getActivityLog = (): ActivityLogEntry[] => {
   const stored = localStorage.getItem('rpbg-activity-log');

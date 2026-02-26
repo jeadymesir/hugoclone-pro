@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 
 import { Label } from '@/components/ui/label';
 import { useState, useEffect } from 'react';
-import { JobPosting, getJobPostings } from './Careers';
+import { JobPosting, getJobPostings, trackJobView, trackJobApplyClick } from './Careers';
 import { useToast } from '@/hooks/use-toast';
 import { SectionDecorations } from '@/components/decorative/PageDecorations';
 import { Scribble } from '@/components/decorative/Scribbles';
@@ -28,6 +28,7 @@ const CareerDetail = () => {
     const found = jobs.find((j) => j.id === id);
     if (found) {
       setJob(found);
+      trackJobView(found.id);
     }
   }, [id]);
 
@@ -35,6 +36,8 @@ const CareerDetail = () => {
     e.preventDefault();
     
     if (!job) return;
+
+    trackJobApplyClick(job.id);
 
     // Create mailto link with application data
     const subject = encodeURIComponent(`Application for ${job.title}`);
