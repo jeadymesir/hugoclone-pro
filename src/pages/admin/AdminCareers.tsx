@@ -114,17 +114,28 @@ const AdminCareers = () => {
   };
 
   const handleSave = () => {
-    if (!formData.title || !formData.department || !formData.description) {
+    const filteredRequirements = formData.requirements.filter((r) => r.trim());
+    const filteredBenefits = formData.benefits.filter((b) => b.trim());
+
+    const missingFields: string[] = [];
+    if (!formData.title.trim()) missingFields.push('Job Title');
+    if (!formData.department.trim()) missingFields.push('Department');
+    if (!formData.location.trim()) missingFields.push('Location');
+    if (!formData.type.trim()) missingFields.push('Employment Type');
+    if (!formData.salaryRange?.trim()) missingFields.push('Salary Range');
+    if (!formData.deadline?.trim()) missingFields.push('Application Deadline');
+    if (!formData.description.trim()) missingFields.push('Job Description');
+    if (filteredRequirements.length === 0) missingFields.push('Requirements (min. 1)');
+    if (filteredBenefits.length === 0) missingFields.push('Benefits (min. 1)');
+
+    if (missingFields.length > 0) {
       toast({
-        title: 'Error',
-        description: 'Please fill in all required fields.',
+        title: 'Velden ontbreken',
+        description: `Vul de volgende velden in: ${missingFields.join(', ')}`,
         variant: 'destructive',
       });
       return;
     }
-
-    const filteredRequirements = formData.requirements.filter((r) => r.trim());
-    const filteredBenefits = formData.benefits.filter((b) => b.trim());
 
     if (editingJob) {
       const updated = jobs.map((j) =>
@@ -340,7 +351,7 @@ const AdminCareers = () => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="location">Location</Label>
+                      <Label htmlFor="location">Location *</Label>
                       <Input
                         id="location"
                         value={formData.location}
@@ -349,7 +360,7 @@ const AdminCareers = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="type">Employment Type</Label>
+                      <Label htmlFor="type">Employment Type *</Label>
                       <select
                         id="type"
                         value={formData.type}
@@ -366,7 +377,7 @@ const AdminCareers = () => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="salary">Salary Range</Label>
+                      <Label htmlFor="salary">Salary Range *</Label>
                       <Input
                         id="salary"
                         value={formData.salaryRange}
@@ -376,7 +387,7 @@ const AdminCareers = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="deadline">Application Deadline</Label>
+                      <Label htmlFor="deadline">Application Deadline *</Label>
                       <Input
                         id="deadline"
                         type="date"
@@ -418,7 +429,7 @@ const AdminCareers = () => {
                   </div>
 
                   <div>
-                    <Label>Requirements</Label>
+                    <Label>Requirements *</Label>
                     <div className="flex flex-wrap gap-2 mt-2 mb-3">
                       {[
                         "Bachelor's degree in IT or related field",
@@ -466,7 +477,7 @@ const AdminCareers = () => {
                   </div>
 
                   <div>
-                    <Label>Benefits</Label>
+                    <Label>Benefits *</Label>
                     <div className="flex flex-wrap gap-2 mt-2 mb-3">
                       {[
                         "Competitive salary",
