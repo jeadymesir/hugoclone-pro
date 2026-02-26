@@ -17,9 +17,10 @@ import {
   Eye,
   EyeOff,
   History,
+  BarChart3,
 } from 'lucide-react';
 import { isAdminAuthenticated, adminLogout } from './AdminLogin';
-import { JobPosting, getJobPostings, ActivityLogEntry, getActivityLog, addActivityLogEntry } from '../Careers';
+import { JobPosting, getJobPostings, ActivityLogEntry, getActivityLog, addActivityLogEntry, getJobAnalytics } from '../Careers';
 import { useToast } from '@/hooks/use-toast';
 import {
   Dialog,
@@ -566,7 +567,14 @@ const AdminCareers = () => {
                   <th className="text-left px-6 py-4 font-medium">Department</th>
                   <th className="text-left px-6 py-4 font-medium">Status</th>
                   <th className="text-left px-6 py-4 font-medium">Visible</th>
+                  <th className="text-left px-6 py-4 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <BarChart3 className="w-4 h-4" />
+                      Analytics
+                    </span>
+                  </th>
                   <th className="text-left px-6 py-4 font-medium">Deadline</th>
+                  <th className="text-right px-6 py-4 font-medium">Actions</th>
                   <th className="text-right px-6 py-4 font-medium">Actions</th>
                 </tr>
               </thead>
@@ -600,6 +608,21 @@ const AdminCareers = () => {
                         {job.visible !== false ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
                         {job.visible !== false ? 'Visible' : 'Hidden'}
                       </button>
+                    </td>
+                    <td className="px-6 py-4">
+                      {(() => {
+                        const analytics = getJobAnalytics(job.id);
+                        return (
+                          <div className="flex items-center gap-3 text-xs">
+                            <span className="flex items-center gap-1 text-muted-foreground" title="Page views">
+                              👁 {analytics.views}
+                            </span>
+                            <span className="flex items-center gap-1 text-primary font-medium" title="Apply clicks">
+                              📩 {analytics.applyClicks}
+                            </span>
+                          </div>
+                        );
+                      })()}
                     </td>
                     <td className="px-6 py-4 text-muted-foreground">
                       {job.deadline ? new Date(job.deadline).toLocaleDateString() : '—'}
