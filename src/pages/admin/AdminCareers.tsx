@@ -18,6 +18,7 @@ import {
   EyeOff,
   History,
   BarChart3,
+  TrendingUp,
 } from 'lucide-react';
 import { isAdminAuthenticated, adminLogout } from './AdminLogin';
 import { JobPosting, getJobPostings, ActivityLogEntry, getActivityLog, addActivityLogEntry, getJobAnalytics } from '../Careers';
@@ -29,6 +30,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import AnalyticsDashboard from '@/components/admin/AnalyticsDashboard';
 
 const emptyJob: Omit<JobPosting, 'id' | 'createdAt'> = {
   title: '',
@@ -278,6 +280,9 @@ const AdminCareers = () => {
             </p>
           </div>
           <div className="flex items-center gap-3">
+            {/* Analytics Dashboard */}
+            <AnalyticsDashboard jobs={jobs} />
+
             {/* Activity Log Button */}
             <Dialog open={isLogOpen} onOpenChange={setIsLogOpen}>
               <DialogTrigger asChild>
@@ -574,7 +579,6 @@ const AdminCareers = () => {
                     </span>
                   </th>
                   <th className="text-left px-6 py-4 font-medium">Deadline</th>
-                  <th className="text-right px-6 py-4 font-medium">Actions</th>
                   <th className="text-right px-6 py-4 font-medium">Actions</th>
                 </tr>
               </thead>
