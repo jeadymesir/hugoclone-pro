@@ -1,42 +1,42 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Lock, AlertCircle, X } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Lock, AlertCircle, X } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 // Simple password-based auth (NOT SECURE - for demo purposes only)
 // In production, this should use proper authentication
-const ADMIN_PASSWORD = 'rpbg2025';
+const ADMIN_PASSWORD = "rpbg2025";
 
 export const isAdminAuthenticated = (): boolean => {
-  return sessionStorage.getItem('rpbg-admin-auth') === 'true';
+  return sessionStorage.getItem("rpbg-admin-auth") === "true";
 };
 
 export const adminLogout = (): void => {
-  sessionStorage.removeItem('rpbg-admin-auth');
+  sessionStorage.removeItem("rpbg-admin-auth");
 };
 
 const AdminLogin = () => {
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     if (password === ADMIN_PASSWORD) {
-      sessionStorage.setItem('rpbg-admin-auth', 'true');
+      sessionStorage.setItem("rpbg-admin-auth", "true");
       toast({
-        title: 'Welcome!',
-        description: 'You are now logged into the admin panel.',
+        title: "Welcome!",
+        description: "You are now logged into the admin panel.",
       });
-      navigate('/admin/careers');
+      navigate("/admin/careers");
     } else {
-      setError('Incorrect password. Please try again.');
+      setError("Incorrect password. Please try again.");
     }
   };
 
@@ -49,9 +49,7 @@ const AdminLogin = () => {
               <Lock className="w-8 h-8 text-primary" />
             </div>
             <h1 className="font-heading text-2xl font-bold">Admin Login</h1>
-            <p className="text-muted-foreground text-sm mt-2">
-              Marketing team access only
-            </p>
+            <p className="text-muted-foreground text-sm mt-2">Administrator team access only</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -70,7 +68,10 @@ const AdminLogin = () => {
                 {password && (
                   <button
                     type="button"
-                    onClick={() => { setPassword(''); setError(''); }}
+                    onClick={() => {
+                      setPassword("");
+                      setError("");
+                    }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <X className="w-4 h-4" />
@@ -91,9 +92,7 @@ const AdminLogin = () => {
             </Button>
           </form>
 
-          <p className="text-xs text-muted-foreground text-center mt-6">
-            Contact IT if you need access credentials.
-          </p>
+          <p className="text-xs text-muted-foreground text-center mt-6">Contact IT if you need access credentials.</p>
         </div>
       </div>
     </div>
