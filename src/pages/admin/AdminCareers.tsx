@@ -367,7 +367,7 @@ const AdminCareers = () => {
                         key={suggestion}
                         type="button"
                         onClick={() => setFormData({ ...formData, benefits: [...formData.benefits.filter(b => b.trim()), suggestion] })}
-                        className="px-3 py-1 text-xs rounded-full border border-accent/30 bg-accent/5 text-accent-foreground hover:bg-accent/15 transition-colors"
+                        className="px-3 py-1 text-xs rounded-full border border-primary/30 bg-primary/5 text-primary hover:bg-primary/15 transition-colors"
                       >
                         + {suggestion}
                       </button>
