@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
+
 import {
   Plus,
   Pencil,
@@ -14,8 +14,6 @@ import {
   X,
   Save,
   ArrowLeft,
-  Eye,
-  EyeOff,
   History,
   BarChart3,
   TrendingUp,
@@ -43,7 +41,6 @@ const emptyJob: Omit<JobPosting, 'id' | 'createdAt'> = {
   salaryRange: '',
   deadline: '',
   status: 'draft',
-  visible: true,
 };
 
 const statusColors: Record<string, string> = {
@@ -112,7 +109,6 @@ const AdminCareers = () => {
       salaryRange: job.salaryRange || '',
       deadline: job.deadline || '',
       status: job.status || 'published',
-      visible: job.visible !== false,
     });
     setIsDialogOpen(true);
   };
@@ -172,21 +168,6 @@ const AdminCareers = () => {
     }
   };
 
-  const toggleVisibility = (job: JobPosting) => {
-    const newVisible = job.visible === false ? true : false;
-    const updated = jobs.map((j) =>
-      j.id === job.id ? { ...j, visible: newVisible, updatedAt: new Date().toISOString() } : j
-    );
-    saveJobs(updated);
-    addActivityLogEntry({
-      jobId: job.id,
-      jobTitle: job.title,
-      action: 'status_changed',
-      details: newVisible ? 'Made visible' : 'Hidden from public',
-    });
-    refreshLog();
-    toast({ description: newVisible ? 'Job is now visible' : 'Job is now hidden' });
-  };
 
   const changeStatus = (job: JobPosting, newStatus: 'draft' | 'published' | 'closed') => {
     const updated = jobs.map((j) =>
@@ -406,34 +387,22 @@ const AdminCareers = () => {
                     </div>
                   </div>
 
-                  {/* Status & Visibility */}
-                  <div className="grid grid-cols-2 gap-4 p-4 rounded-lg bg-muted/50 border border-border">
-                    <div>
-                      <Label htmlFor="status">Status</Label>
-                      <select
-                        id="status"
-                        value={formData.status || 'draft'}
-                        onChange={(e) => setFormData({ ...formData, status: e.target.value as 'draft' | 'published' | 'closed' })}
-                        className="mt-1 w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
-                      >
-                        <option value="draft">📝 Draft</option>
-                        <option value="published">✅ Published</option>
-                        <option value="closed">🔒 Closed</option>
-                      </select>
-                    </div>
-                    <div className="flex flex-col justify-center">
-                      <Label htmlFor="visible" className="mb-2">Visibility</Label>
-                      <div className="flex items-center gap-3">
-                        <Switch
-                          id="visible"
-                          checked={formData.visible !== false}
-                          onCheckedChange={(checked) => setFormData({ ...formData, visible: checked })}
-                        />
-                        <span className="text-sm text-muted-foreground">
-                          {formData.visible !== false ? 'Visible to public' : 'Hidden from public'}
-                        </span>
-                      </div>
-                    </div>
+                  {/* Status */}
+                  <div className="p-4 rounded-lg bg-muted/50 border border-border">
+                    <Label htmlFor="status">Status</Label>
+                    <select
+                      id="status"
+                      value={formData.status || 'draft'}
+                      onChange={(e) => setFormData({ ...formData, status: e.target.value as 'draft' | 'published' | 'closed' })}
+                      className="mt-1 w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                    >
+                      <option value="draft">📝 Draft — opgeslagen, niet zichtbaar</option>
+                      <option value="published">✅ Published — zichtbaar op de website</option>
+                      <option value="closed">🔒 Closed — niet meer zichtbaar</option>
+                    </select>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Alleen vacatures met status "Published" zijn zichtbaar op de website.
+                    </p>
                   </div>
 
                   <div>
@@ -576,7 +545,6 @@ const AdminCareers = () => {
                   <th className="text-left px-6 py-4 font-medium">Job Title</th>
                   <th className="text-left px-6 py-4 font-medium">Department</th>
                   <th className="text-left px-6 py-4 font-medium">Status</th>
-                  <th className="text-left px-6 py-4 font-medium">Visible</th>
                   <th className="text-left px-6 py-4 font-medium">
                     <span className="flex items-center gap-1.5">
                       <BarChart3 className="w-4 h-4" />
@@ -604,19 +572,6 @@ const AdminCareers = () => {
                         <option value="published">✅ Published</option>
                         <option value="closed">🔒 Closed</option>
                       </select>
-                    </td>
-                    <td className="px-6 py-4">
-                      <button
-                        onClick={() => toggleVisibility(job)}
-                        className={`flex items-center gap-1.5 text-xs font-medium px-2 py-1 rounded-full transition-colors ${
-                          job.visible !== false
-                            ? 'text-green-700 bg-green-100 dark:text-green-400 dark:bg-green-900/30'
-                            : 'text-muted-foreground bg-muted'
-                        }`}
-                      >
-                        {job.visible !== false ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
-                        {job.visible !== false ? 'Visible' : 'Hidden'}
-                      </button>
                     </td>
                     <td className="px-6 py-4">
                       {(() => {
