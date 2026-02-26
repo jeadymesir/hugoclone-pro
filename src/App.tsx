@@ -21,6 +21,7 @@ import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminCareers from "./pages/admin/AdminCareers";
+import AdminAnalytics from "./pages/admin/AdminAnalytics";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -62,6 +63,7 @@ const App = () => (
           {/* Admin */}
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/careers" element={<AdminCareers />} />
+          <Route path="/admin/analytics" element={<AdminAnalytics />} />
           
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
