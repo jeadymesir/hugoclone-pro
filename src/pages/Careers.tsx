@@ -11,14 +11,43 @@ export interface JobPosting {
   title: string;
   department: string;
   location: string;
-  type: string; // Full-time, Part-time, Contract
+  type: string;
   description: string;
   requirements: string[];
   benefits: string[];
   salaryRange?: string;
   deadline?: string;
+  status?: 'draft' | 'published' | 'closed';
+  visible?: boolean;
   createdAt: string;
+  updatedAt?: string;
 }
+
+export interface ActivityLogEntry {
+  id: string;
+  jobId: string;
+  jobTitle: string;
+  action: 'created' | 'updated' | 'deleted' | 'status_changed';
+  details?: string;
+  timestamp: string;
+}
+
+// Get activity log from localStorage
+export const getActivityLog = (): ActivityLogEntry[] => {
+  const stored = localStorage.getItem('rpbg-activity-log');
+  return stored ? JSON.parse(stored) : [];
+};
+
+export const addActivityLogEntry = (entry: Omit<ActivityLogEntry, 'id' | 'timestamp'>) => {
+  const log = getActivityLog();
+  log.unshift({
+    ...entry,
+    id: Date.now().toString(),
+    timestamp: new Date().toISOString(),
+  });
+  // Keep only last 50 entries
+  localStorage.setItem('rpbg-activity-log', JSON.stringify(log.slice(0, 50)));
+};
 
 // Get jobs from localStorage
 export const getJobPostings = (): JobPosting[] => {
@@ -49,6 +78,8 @@ export const getJobPostings = (): JobPosting[] => {
       ],
       salaryRange: 'SRD 8,000 - 12,000',
       deadline: '2025-03-31',
+      status: 'published',
+      visible: true,
       createdAt: new Date().toISOString(),
     },
     {
@@ -72,6 +103,8 @@ export const getJobPostings = (): JobPosting[] => {
       ],
       salaryRange: 'SRD 10,000 - 15,000',
       deadline: '2025-04-15',
+      status: 'published',
+      visible: true,
       createdAt: new Date().toISOString(),
     },
   ];
@@ -79,11 +112,18 @@ export const getJobPostings = (): JobPosting[] => {
   return defaultJobs;
 };
 
+// Get only publicly visible & published jobs
+export const getPublicJobPostings = (): JobPosting[] => {
+  return getJobPostings().filter(
+    (job) => job.visible !== false && (job.status === 'published' || !job.status)
+  );
+};
+
 const Careers = () => {
   const [jobs, setJobs] = useState<JobPosting[]>([]);
 
   useEffect(() => {
-    setJobs(getJobPostings());
+    setJobs(getPublicJobPostings());
   }, []);
 
   return (
@@ -178,7 +218,6 @@ const Careers = () => {
                   to={`/careers/${job.id}`}
                   className="block bg-card rounded-2xl p-6 lg:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all group relative"
                 >
-                  {/* Hover scribble */}
                   <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                     <Scribble variant="star" color="primary" size="sm" />
                   </div>
