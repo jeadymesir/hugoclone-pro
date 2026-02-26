@@ -138,7 +138,7 @@ export const getJobPostings = (): JobPosting[] => {
 // Get only publicly visible & published jobs
 export const getPublicJobPostings = (): JobPosting[] => {
   return getJobPostings().filter(
-    (job) => job.visible !== false && (job.status === 'published' || !job.status)
+    (job) => job.status === 'published' || !job.status
   );
 };
 
