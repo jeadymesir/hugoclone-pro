@@ -66,16 +66,20 @@ const AdminAnalytics = () => {
 
   const copyChartAsImage = useCallback(async (ref: React.RefObject<HTMLDivElement>, chartName: string) => {
     if (!ref.current) return;
+    const opts = {
+      backgroundColor: '#ffffff',
+      pixelRatio: 2,
+      filter: (node: HTMLElement) => !node?.dataset?.excludeFromExport,
+    };
     try {
-      const dataUrl = await toPng(ref.current, { backgroundColor: '#ffffff', pixelRatio: 2 });
+      const dataUrl = await toPng(ref.current, opts);
       const res = await fetch(dataUrl);
       const blob = await res.blob();
       await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
       setCopiedChart(chartName);
       setTimeout(() => setCopiedChart(null), 2000);
     } catch {
-      // Fallback: download
-      const dataUrl = await toPng(ref.current, { backgroundColor: '#ffffff', pixelRatio: 2 });
+      const dataUrl = await toPng(ref.current, opts);
       const a = document.createElement('a');
       a.href = dataUrl;
       a.download = `${chartName}.png`;
@@ -419,7 +423,7 @@ const AdminAnalytics = () => {
               <h3 className="font-medium">
                 Views & Clicks per vacature {displayMode === 'percent' && '(%)'}
               </h3>
-              <Button variant="ghost" size="sm" onClick={() => copyChartAsImage(barChartRef, 'views-clicks')}>
+              <Button data-exclude-from-export variant="ghost" size="sm" onClick={() => copyChartAsImage(barChartRef, 'views-clicks')}>
                 {copiedChart === 'views-clicks' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                 <span className="ml-1.5 text-xs">{copiedChart === 'views-clicks' ? 'Gekopieerd!' : 'Kopiëren'}</span>
               </Button>
@@ -444,7 +448,7 @@ const AdminAnalytics = () => {
           <div ref={pieChartRef} className="p-6 rounded-xl bg-card border border-border">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-medium">Views per afdeling</h3>
-              <Button variant="ghost" size="sm" onClick={() => copyChartAsImage(pieChartRef, 'dept-pie')}>
+              <Button data-exclude-from-export variant="ghost" size="sm" onClick={() => copyChartAsImage(pieChartRef, 'dept-pie')}>
                 {copiedChart === 'dept-pie' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                 <span className="ml-1.5 text-xs">{copiedChart === 'dept-pie' ? 'Gekopieerd!' : 'Kopiëren'}</span>
               </Button>
@@ -481,7 +485,7 @@ const AdminAnalytics = () => {
           <div ref={lineChartRef} className="p-6 rounded-xl bg-card border border-border">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-medium">Activiteit (laatste 14 dagen)</h3>
-              <Button variant="ghost" size="sm" onClick={() => copyChartAsImage(lineChartRef, 'activity')}>
+              <Button data-exclude-from-export variant="ghost" size="sm" onClick={() => copyChartAsImage(lineChartRef, 'activity')}>
                 {copiedChart === 'activity' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                 <span className="ml-1.5 text-xs">{copiedChart === 'activity' ? 'Gekopieerd!' : 'Kopiëren'}</span>
               </Button>
