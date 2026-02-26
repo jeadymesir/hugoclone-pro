@@ -30,7 +30,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import AnalyticsDashboard from '@/components/admin/AnalyticsDashboard';
+
 
 const emptyJob: Omit<JobPosting, 'id' | 'createdAt'> = {
   title: '',
@@ -281,7 +281,12 @@ const AdminCareers = () => {
           </div>
           <div className="flex items-center gap-3">
             {/* Analytics Dashboard */}
-            <AnalyticsDashboard jobs={jobs} />
+            <Button variant="outline" asChild>
+              <Link to="/admin/analytics">
+                <BarChart3 className="w-4 h-4 mr-2" />
+                Analytics Dashboard
+              </Link>
+            </Button>
 
             {/* Activity Log Button */}
             <Dialog open={isLogOpen} onOpenChange={setIsLogOpen}>
