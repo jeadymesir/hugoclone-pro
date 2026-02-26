@@ -304,7 +304,28 @@ const AdminCareers = () => {
 
                 <div>
                   <Label>Requirements</Label>
-                  <div className="space-y-2 mt-1">
+                  <div className="flex flex-wrap gap-2 mt-2 mb-3">
+                    {[
+                      "Bachelor's degree in IT or related field",
+                      "Strong communication skills",
+                      "Team player",
+                      "Problem-solving skills",
+                      "2+ years of experience",
+                      "Driver's license",
+                      "Fluent in Dutch and English",
+                      "Microsoft Office proficiency",
+                    ].filter(s => !formData.requirements.includes(s)).map((suggestion) => (
+                      <button
+                        key={suggestion}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, requirements: [...formData.requirements.filter(r => r.trim()), suggestion] })}
+                        className="px-3 py-1 text-xs rounded-full border border-primary/30 bg-primary/5 text-primary hover:bg-primary/15 transition-colors"
+                      >
+                        + {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="space-y-2">
                     {formData.requirements.map((req, index) => (
                       <div key={index} className="flex gap-2">
                         <Input
@@ -331,7 +352,28 @@ const AdminCareers = () => {
 
                 <div>
                   <Label>Benefits</Label>
-                  <div className="space-y-2 mt-1">
+                  <div className="flex flex-wrap gap-2 mt-2 mb-3">
+                    {[
+                      "Competitive salary",
+                      "Health insurance",
+                      "Professional development",
+                      "Flexible working hours",
+                      "Training and certifications",
+                      "Career growth opportunities",
+                      "Team activities",
+                      "Modern work environment",
+                    ].filter(s => !formData.benefits.includes(s)).map((suggestion) => (
+                      <button
+                        key={suggestion}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, benefits: [...formData.benefits.filter(b => b.trim()), suggestion] })}
+                        className="px-3 py-1 text-xs rounded-full border border-accent/30 bg-accent/5 text-accent-foreground hover:bg-accent/15 transition-colors"
+                      >
+                        + {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="space-y-2">
                     {formData.benefits.map((benefit, index) => (
                       <div key={index} className="flex gap-2">
                         <Input
