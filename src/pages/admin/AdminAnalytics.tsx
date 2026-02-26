@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +17,8 @@ import {
   Calendar,
   Building2,
   Activity,
+  Copy,
+  Check,
 } from 'lucide-react';
 import { isAdminAuthenticated, adminLogout } from './AdminLogin';
 import { JobPosting, getJobPostings, getJobAnalytics, getActivityLog } from '../Careers';
@@ -37,6 +39,7 @@ import {
 } from 'recharts';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { toPng } from 'html-to-image';
 
 type DisplayMode = 'count' | 'percent';
 type TimeFilter = 'all' | 'month' | 'year' | 'custom';
@@ -56,6 +59,32 @@ const AdminAnalytics = () => {
   const navigate = useNavigate();
   const [displayMode, setDisplayMode] = useState<DisplayMode>('count');
   const [timeFilter, setTimeFilter] = useState<TimeFilter>('all');
+  const [copiedChart, setCopiedChart] = useState<string | null>(null);
+  const barChartRef = useRef<HTMLDivElement>(null);
+  const pieChartRef = useRef<HTMLDivElement>(null);
+  const lineChartRef = useRef<HTMLDivElement>(null);
+
+  const copyChartAsImage = useCallback(async (ref: React.RefObject<HTMLDivElement>, chartName: string) => {
+    if (!ref.current) return;
+    try {
+      const dataUrl = await toPng(ref.current, { backgroundColor: '#ffffff', pixelRatio: 2 });
+      const res = await fetch(dataUrl);
+      const blob = await res.blob();
+      await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+      setCopiedChart(chartName);
+      setTimeout(() => setCopiedChart(null), 2000);
+    } catch {
+      // Fallback: download
+      const dataUrl = await toPng(ref.current, { backgroundColor: '#ffffff', pixelRatio: 2 });
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = `${chartName}.png`;
+      a.click();
+      setCopiedChart(chartName);
+      setTimeout(() => setCopiedChart(null), 2000);
+    }
+  }, []);
+
   const [selectedMonth, setSelectedMonth] = useState(() => {
     const now = new Date();
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
@@ -385,10 +414,16 @@ const AdminAnalytics = () => {
 
         {/* Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="p-6 rounded-xl bg-card border border-border">
-            <h3 className="font-medium mb-4">
-              Views & Clicks per vacature {displayMode === 'percent' && '(%)'}
-            </h3>
+          <div ref={barChartRef} className="p-6 rounded-xl bg-card border border-border">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-medium">
+                Views & Clicks per vacature {displayMode === 'percent' && '(%)'}
+              </h3>
+              <Button variant="ghost" size="sm" onClick={() => copyChartAsImage(barChartRef, 'views-clicks')}>
+                {copiedChart === 'views-clicks' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
+                <span className="ml-1.5 text-xs">{copiedChart === 'views-clicks' ? 'Gekopieerd!' : 'Kopiëren'}</span>
+              </Button>
+            </div>
             {barData.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={barData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
@@ -406,8 +441,14 @@ const AdminAnalytics = () => {
             )}
           </div>
 
-          <div className="p-6 rounded-xl bg-card border border-border">
-            <h3 className="font-medium mb-4">Views per afdeling</h3>
+          <div ref={pieChartRef} className="p-6 rounded-xl bg-card border border-border">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-medium">Views per afdeling</h3>
+              <Button variant="ghost" size="sm" onClick={() => copyChartAsImage(pieChartRef, 'dept-pie')}>
+                {copiedChart === 'dept-pie' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
+                <span className="ml-1.5 text-xs">{copiedChart === 'dept-pie' ? 'Gekopieerd!' : 'Kopiëren'}</span>
+              </Button>
+            </div>
             {deptPieData.length > 0 && deptPieData.some(d => d.value > 0) ? (
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -437,8 +478,14 @@ const AdminAnalytics = () => {
 
         {/* Activity timeline */}
         {activityTimeline.length > 0 && (
-          <div className="p-6 rounded-xl bg-card border border-border">
-            <h3 className="font-medium mb-4">Activiteit (laatste 14 dagen)</h3>
+          <div ref={lineChartRef} className="p-6 rounded-xl bg-card border border-border">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-medium">Activiteit (laatste 14 dagen)</h3>
+              <Button variant="ghost" size="sm" onClick={() => copyChartAsImage(lineChartRef, 'activity')}>
+                {copiedChart === 'activity' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
+                <span className="ml-1.5 text-xs">{copiedChart === 'activity' ? 'Gekopieerd!' : 'Kopiëren'}</span>
+              </Button>
+            </div>
             <ResponsiveContainer width="100%" height={220}>
               <LineChart data={activityTimeline}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
