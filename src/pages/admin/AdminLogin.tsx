@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Lock, AlertCircle } from 'lucide-react';
+import { Lock, AlertCircle, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 // Simple password-based auth (NOT SECURE - for demo purposes only)
@@ -57,15 +57,26 @@ const AdminLogin = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter admin password"
-                className="mt-1"
-                required
-              />
+              <div className="relative mt-1">
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter admin password"
+                  className="pr-10"
+                  required
+                />
+                {password && (
+                  <button
+                    type="button"
+                    onClick={() => { setPassword(''); setError(''); }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
             </div>
 
             {error && (
